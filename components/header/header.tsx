@@ -3,6 +3,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import "./header.scss";
+import Link from "next/link";
 
 function NavLink({
   href,
@@ -70,7 +71,7 @@ export default function Header(props: HeaderProps) {
             <NavLink href="/projetos">Projetos</NavLink>
             <NavLink href="/sobre">Sobre</NavLink>
           </nav>
-          <a href="/#contact">Contato</a>
+          <Link href="/#contact">Contato</Link>
         </div>
       </header>
       {children}
