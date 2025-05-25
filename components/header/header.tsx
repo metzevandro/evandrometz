@@ -14,7 +14,6 @@ function NavLink({
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const router = useRouter();
-  const pathname = usePathname();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
