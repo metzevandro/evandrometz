@@ -42,7 +42,12 @@ function NavLink({
   );
 }
 
-export default function Header() {
+interface HeaderProps {
+  children: React.ReactNode;
+}
+
+export default function Header(props: HeaderProps) {
+  const { children } = props;
   const router = useRouter();
 
   const onClickEVM = () => {
@@ -50,18 +55,18 @@ export default function Header() {
   };
 
   return (
-    <header className="main-header">
-      <div className="main-header-inner">
-        <canvas
-          onClick={onClickEVM}
-          className="site-title"
-        />
-        <nav>
-          <NavLink href="/projetos">Projetos</NavLink>
-          <NavLink href="/sobre">Sobre</NavLink>
-        </nav>
-        <a href="#contact">Contato</a>
-      </div>
-    </header>
+    <>
+      <header className="main-header">
+        <div className="main-header-inner">
+          <canvas onClick={onClickEVM} className="site-title" />
+          <nav>
+            <NavLink href="/projetos">Projetos</NavLink>
+            <NavLink href="/sobre">Sobre</NavLink>
+          </nav>
+          <a href="#contact">Contato</a>
+        </div>
+      </header>
+      {children}
+    </>
   );
 }

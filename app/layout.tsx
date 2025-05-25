@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.scss";
 import "design-system-zeroz/dist/index.esm.css";
 import "design-system-zeroz/src/scss/tokens/tokens.scss";
-import Header from "@/components/header/header";
+import { Layout } from "./_layout/layout";
 
 export const metadata: Metadata = {
   title: "Evandro Metz",
@@ -17,8 +17,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" data-company="whitelabel" data-theme="dark">
       <body>
-        <Header />
-        {children}
+        <Layout>{children}</Layout>
       </body>
     </html>
   );
