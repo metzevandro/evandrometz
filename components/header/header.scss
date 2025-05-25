@@ -4,10 +4,11 @@
   top: 0;
   z-index: 2;
   position: fixed;
-  padding: var(--s-spacing-medium) var(--s-spacing-large);
+  padding: var(--s-spacing-large) var(--s-spacing-xx-large);
 
   .site-title {
-    width: 10px;
+    width: 50px;
+    height: 25px;
   }
 
   .main-header-inner {
@@ -18,12 +19,13 @@
 
     nav {
       display: flex;
-      gap: 20px;
+      gap: var(--s-spacing-large);
     }
 
     a {
+      cursor: pointer;
       text-decoration: none;
-      font: var(--s-typography-label-large);
+      font: var(--s-typography-heading-small);
       color: var(--s-color-content-default);
     }
   }

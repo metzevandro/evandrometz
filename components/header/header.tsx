@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import "./header.scss";
@@ -12,14 +12,21 @@ function NavLink({
   children: React.ReactNode;
 }) {
   const [isHovered, setIsHovered] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    router.push(href);
+  };
 
   return (
     <a
-      href={href}
       className="nav-link"
       style={{ position: "relative", display: "inline-block" }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleClick}
     >
       {children}
       <motion.span
@@ -31,7 +38,7 @@ function NavLink({
           position: "absolute",
           left: 0,
           bottom: 0,
-          height: 2,
+          height: 1,
           width: "100%",
           background: "var(--s-color-content-default)",
           transformOrigin: "left",
@@ -63,7 +70,7 @@ export default function Header(props: HeaderProps) {
             <NavLink href="/projetos">Projetos</NavLink>
             <NavLink href="/sobre">Sobre</NavLink>
           </nav>
-          <a href="#contact">Contato</a>
+          <a href="/#contact">Contato</a>
         </div>
       </header>
       {children}
