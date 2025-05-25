@@ -1,0 +1,67 @@
+"use client";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import React, { useState } from "react";
+import "./header.scss";
+
+function NavLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <a
+      href={href}
+      className="nav-link"
+      style={{ position: "relative", display: "inline-block" }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {children}
+      <motion.span
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: isHovered ? 1 : 0 }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        style={{
+          display: "block",
+          position: "absolute",
+          left: 0,
+          bottom: 0,
+          height: 2,
+          width: "100%",
+          background: "var(--s-color-content-default)",
+          transformOrigin: "left",
+          pointerEvents: "none",
+        }}
+      />
+    </a>
+  );
+}
+
+export default function Header() {
+  const router = useRouter();
+
+  const onClickEVM = () => {
+    router.push("/");
+  };
+
+  return (
+    <header className="main-header">
+      <div className="main-header-inner">
+        <canvas
+          onClick={onClickEVM}
+          className="site-title"
+        />
+        <nav>
+          <NavLink href="/projetos">Projetos</NavLink>
+          <NavLink href="/sobre">Sobre</NavLink>
+        </nav>
+        <a href="#contact">Contato</a>
+      </div>
+    </header>
+  );
+}

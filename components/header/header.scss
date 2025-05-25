@@ -1,0 +1,30 @@
+.main-header {
+  width: 100vw;
+  background: transparent;
+  top: 0;
+  z-index: 2;
+  position: fixed;
+  padding: var(--s-spacing-medium) var(--s-spacing-large);
+  
+  .site-title {
+    width: 10px;
+  }
+
+  .main-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      font: var(--s-typography-label-large);
+      color: var(--s-color-content-default);
+    }
+  }
+}
