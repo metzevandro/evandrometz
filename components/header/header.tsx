@@ -1,5 +1,5 @@
 "use client";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import "./header.scss";
