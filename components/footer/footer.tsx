@@ -116,7 +116,7 @@ export default function Footer() {
       <nav className="footer-nav">
         <ul className="footer-list">
           <div className="footer-section-title">
-            <h1 >Redes</h1>
+            <h1>Redes</h1>
           </div>
           <li className="footer-item">
             <NavLinkExternal url="https://www.linkedin.com/in/metzevandro/">

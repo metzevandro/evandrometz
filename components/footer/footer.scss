@@ -51,9 +51,8 @@
     flex-direction: row;
     align-items: center;
     margin-bottom: var(--s-spacing-x-small);
-    font: var(--s-typography-heading-xx-large);
     color: var(--s-color-content-default);
-    
+
     &--right {
       justify-content: flex-end;
     }
@@ -62,4 +61,7 @@
       color: var(--s-color-content-default);
     }
   }
+}
+
+@media (max-width: 768px) {
 }

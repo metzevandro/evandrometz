@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 import "./header.scss";
 import Link from "next/link";
+import { Icon } from "design-system-zeroz";
 
 function NavLink({
   href,
@@ -65,7 +66,9 @@ export default function Header(props: HeaderProps) {
     <>
       <header className="main-header">
         <div className="main-header-inner">
-          <canvas onClick={onClickEVM} className="site-title" />
+          <div onClick={onClickEVM} className="site-title">
+            <Icon icon="home" size="lg" fill />
+          </div>
           <nav>
             <NavLink href="/projetos">Projetos</NavLink>
             <NavLink href="/sobre">Sobre</NavLink>

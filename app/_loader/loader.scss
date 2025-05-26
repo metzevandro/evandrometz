@@ -1,0 +1,36 @@
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--s-color-fill-highlight);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader-center-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-text {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  font: var(--s-typography-heading-x-large);
+  color: var(--s-color-content-highlight-light);
+}
+
+.split-h1 {
+  font: var(--s-typography-heading-x-large);
+}

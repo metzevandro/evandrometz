@@ -7,3 +7,27 @@ body {
   background-color: var(--s-color-background-default);
   scroll-behavior: smooth;
 }
+
+:root {
+  --b-color-darkness: #0c0c0d;
+  --b-color-dark: #1a1a1d;
+  --b-color-base: #ffffff;
+  --b-color-light: #d4d4d8;
+  --b-color-lightness: #f4f4f5;
+}
+
+.home-main {
+  padding: var(--s-spacing-large) var(--s-spacing-xx-large);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-spacing-medium);
+  color: var(--s-color-content-default);
+
+  h1 {
+    font-size: 56px
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+}

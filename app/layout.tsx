@@ -3,6 +3,7 @@ import "./globals.scss";
 import "design-system-zeroz/dist/index.esm.css";
 import "design-system-zeroz/src/scss/tokens/tokens.scss";
 import { Layout } from "./_layout/layout";
+import Loader from "./_loader/loader";
 
 export const metadata: Metadata = {
   title: "Evandro Metz",
@@ -15,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" data-company="whitelabel" data-theme="dark">
+    <html lang="pt-BR" data-company="zeroz" data-theme="dark">
       <head>
         <link
           rel="stylesheet"
@@ -23,6 +24,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <Loader />
         <Layout>{children}</Layout>
       </body>
     </html>

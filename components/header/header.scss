@@ -7,8 +7,11 @@
   padding: var(--s-spacing-large) var(--s-spacing-xx-large);
 
   .site-title {
-    width: 50px;
-    height: 25px;
+    color: var(--s-color-content-default);
+    cursor: pointer;
+    &:hover {
+      color: var(--s-color-content-light);
+    }
   }
 
   .main-header-inner {
