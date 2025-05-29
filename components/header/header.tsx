@@ -6,7 +6,7 @@ import "./header.scss";
 import Link from "next/link";
 import { Icon } from "design-system-zeroz";
 
-function NavLink({
+export function NavLink({
   href,
   children,
 }: {
@@ -24,7 +24,7 @@ function NavLink({
   return (
     <a
       className="nav-link"
-      style={{ position: "relative", display: "inline-block" }}
+      style={{ position: "relative" }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleClick}
