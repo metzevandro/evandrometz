@@ -67,13 +67,13 @@ export default function Header(props: HeaderProps) {
       <header className="main-header">
         <div className="main-header-inner">
           <div onClick={onClickEVM} className="site-title">
-            <Icon icon="home" size="lg" fill />
+            EVANDRO METZ
           </div>
           <nav>
             <NavLink href="/projetos">Projetos</NavLink>
-            <NavLink href="/sobre">Sobre</NavLink>
+            <NavLink href="/sobre">Sobre</NavLink>{" "}
+            <NavLink href="/#contact">Contato</NavLink>
           </nav>
-          <Link href="/#contact">Contato</Link>
         </div>
       </header>
       {children}
