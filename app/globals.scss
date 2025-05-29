@@ -126,6 +126,12 @@ body {
       h2 {
         font-size: 1.2rem;
       }
+
+      .containter-text-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--s-spacing-small);
+      }
     }
   }
 }
