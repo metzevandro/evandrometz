@@ -12,9 +12,7 @@ const AnimatedText = memo(function AnimatedText() {
     document.fonts.ready.then(() => {
       if (!containerRef.current) return;
       containerRef.current.style.visibility = "visible";
-      const { words } = splitText(
-        containerRef.current.querySelector("h1")!
-      );
+      const { words } = splitText(containerRef.current.querySelector("h1")!);
       animate(
         words,
         { opacity: [0, 1], y: [10, 0] },
@@ -23,16 +21,18 @@ const AnimatedText = memo(function AnimatedText() {
           duration: 2,
           bounce: 0,
           delay: stagger(0.05),
-        }
+        },
       );
     });
   }, []);
 
   return (
-    <div className="animated-text-container" ref={containerRef} style={{ visibility: "hidden" }}>
-      <h1 className="loader-title">
-        evandrometz.
-      </h1>
+    <div
+      className="animated-text-container"
+      ref={containerRef}
+      style={{ visibility: "hidden" }}
+    >
+      <h1 className="loader-title">evandrometz.</h1>
       <style>{`
         .animated-text-container {
           display: flex;
@@ -64,7 +64,7 @@ export default function Loader() {
   useEffect(() => {
     if (!showLoader) return;
     if (count < currentYear) {
-      const timer = setTimeout(() => setCount(count + 1), 500); 
+      const timer = setTimeout(() => setCount(count + 1), 500);
       return () => clearTimeout(timer);
     } else {
       const timeout = setTimeout(() => setShowLoader(false), 250);

@@ -91,6 +91,18 @@
       justify-content: flex-start !important;
       text-align: left;
       width: 100%;
+
+      h1 {
+        font: var(--s-typography-heading-medium);
+      }
+    }
+
+    &-nav-link {
+      font: var(--s-typography-label-large);
+    }
+
+    &-item {
+      font: var(--s-typography-label-large);
     }
   }
 }
