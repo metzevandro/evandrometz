@@ -17,9 +17,10 @@ body {
 }
 
 .home-main {
-  padding: var(--s-spacing-large) var(--s-spacing-xx-large);
+  padding: var(--s-spacing-large) var(--s-spacing-huge);
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--s-spacing-medium);
   color: var(--s-color-content-default);
 
@@ -30,4 +31,14 @@ body {
   h2 {
     font-size: 32px;
   }
+}
+
+.profile-image {
+  height: 500px;
+  border-radius: 1rem;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  pointer-events: auto;
+  transition: filter 0.3s;
 }
