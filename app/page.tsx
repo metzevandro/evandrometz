@@ -20,7 +20,7 @@ export default function Home() {
     <>
       <motion.main
         className="home-main"
-        style={{ marginTop: height }}
+        style={{ paddingTop: height }}
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
