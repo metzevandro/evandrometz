@@ -31,7 +31,7 @@ export function CardItem({
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const cardRef = useRef<HTMLDivElement>(null);
   const colorClass = color.replace("#", "");
-  const borderColor = colorMap[colorClass] || "rgba(255,120,17,0.4)";
+  const borderColor = colorMap[colorClass] || "#ff7811";
 
   useEffect(() => {
     if (cardRef.current) {
@@ -62,8 +62,8 @@ export function CardItem({
           position: "absolute",
           top: 0,
           left: 0,
-          width: dimensions.width,
-          height: dimensions.height,
+          width: "100%",
+          height: "100%",
           pointerEvents: "none",
           borderRadius: 10,
           zIndex: 2,
@@ -72,21 +72,21 @@ export function CardItem({
         <motion.rect
           x="1"
           y="1"
-          width={dimensions.width - 2}
-          height={dimensions.height - 2}
+          width={Math.max(dimensions.width - 2, 0)}
+          height={Math.max(dimensions.height - 2, 0)}
           rx="10"
           ry="10"
           fill="none"
           stroke={borderColor}
           strokeWidth="1"
-          strokeDasharray={2 * (dimensions.width + dimensions.height - 4)}
+          strokeDasharray={2 * (Math.max(dimensions.width - 2, 0) + Math.max(dimensions.height - 2, 0))}
           animate={{
             strokeDashoffset: isHovered
               ? 0
-              : 2 * (dimensions.width + dimensions.height - 4),
+              : 2 * (Math.max(dimensions.width - 2, 0) + Math.max(dimensions.height - 2, 0)),
           }}
           transition={{
-            duration: 1, 
+            duration: 1.5,
             ease: "easeInOut",
           }}
         />
