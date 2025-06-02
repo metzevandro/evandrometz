@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100dvh;
-  background: var(--s-color-fill-highlight);
+  background: var(--s-color-background-default);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,7 +28,7 @@
   right: 2rem;
   bottom: 2rem;
   font: var(--s-typography-heading-x-large);
-  color: var(--s-color-content-highlight-light);
+  color: var(--s-color-content-default);
 }
 
 .split-h1 {

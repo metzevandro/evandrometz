@@ -1,0 +1,50 @@
+.card-item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border-radius: 10px;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  background: transparent;
+
+  &:hover {
+    backdrop-filter: brightness(1.2) blur(1px);
+  }
+
+  & .card-item__period {
+    color: var(--s-color-content-light);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex: 1;
+
+    & .card-item__header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      & .card-item__company {
+        color: var(--s-color-content-default);
+      }
+    }
+
+    & .card-item__title {
+      color: var(--s-color-content-default);
+    }
+
+    & .card-item__description {
+      color: var(--s-color-content-light);
+    }
+
+    & .card-item__badges {
+      display: flex;
+      gap: 0.5rem;
+    }
+  }
+}

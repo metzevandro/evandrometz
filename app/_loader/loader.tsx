@@ -32,7 +32,7 @@ const AnimatedText = memo(function AnimatedText() {
       ref={containerRef}
       style={{ visibility: "hidden" }}
     >
-      <h1 className="loader-title">evandrometz.</h1>
+      <h1 className="loader-title">Evandro Metz</h1>
       <style>{`
         .animated-text-container {
           display: flex;
@@ -47,6 +47,7 @@ const AnimatedText = memo(function AnimatedText() {
           font-weight: bold;
           letter-spacing: 0.1em;
           margin: 0;
+          color: var(--s-color-content-default);
         }
         .split-word {
           will-change: transform, opacity;
