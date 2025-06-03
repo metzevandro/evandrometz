@@ -79,11 +79,17 @@ export function CardItem({
           fill="none"
           stroke={borderColor}
           strokeWidth="1"
-          strokeDasharray={2 * (Math.max(dimensions.width - 2, 0) + Math.max(dimensions.height - 2, 0))}
+          strokeDasharray={
+            2 *
+            (Math.max(dimensions.width - 2, 0) +
+              Math.max(dimensions.height - 2, 0))
+          }
           animate={{
             strokeDashoffset: isHovered
               ? 0
-              : 2 * (Math.max(dimensions.width - 2, 0) + Math.max(dimensions.height - 2, 0)),
+              : 2 *
+                (Math.max(dimensions.width - 2, 0) +
+                  Math.max(dimensions.height - 2, 0)),
           }}
           transition={{
             duration: 1.5,

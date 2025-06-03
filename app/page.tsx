@@ -16,12 +16,12 @@ const images = [
     src: "pc.jpg",
     alt: "PC",
     description:
-      "Esta é  meu setup de trabalho, onde passo a maior parte do meu tempo desenvolvendo.",
+      "Esta é  meu setup de trabalho, onde passo a maior parte do meu tempo.",
   },
   {
     src: "evandrometz.jpg",
     alt: "Evandro Metz",
-    description: "Este, sou eu :)",
+    description: "Este, sou eu 🤙",
   },
   {
     src: "intercambio.jpg",
@@ -55,7 +55,6 @@ export default function Home() {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      // Use os ids dos navItems para buscar as seções
       let found = navItems[0].label;
       for (let i = 0; i < navItems.length; i++) {
         const id = navItems[i].label.toLowerCase();
@@ -108,22 +107,23 @@ export default function Home() {
             na interseção entre design e desenvolvimento, criando experiências
             que não apenas são visualmente atraentes, mas também meticulosamente
             construídas com foco em desempenho e usabilidade.
-            <br />
-            <br />
+          </p>
+          <p>
+            {" "}
             Atualmente, sou Desenvolvedor de Software na{" "}
             <strong>
               <a href="">CIGAM</a>
             </strong>
             , onde contribuo para a criação e manutenção do software de gestão,
             sempre mantendo um alto padrão de qualidade e eficiência.
-            <br />
-            <br />
+          </p>
+          <p>
             Além disso, trabalho em projetos pessoais, sempre em busca de novos
             desafios e aprendizados. Os projetos que desenvolvo vão desde{" "}
             <strong>design systems</strong> até um{" "}
-            <strong>gerenciador de finanças pessoais</strong>.
-            <br />
-            <br />
+            <strong>gerenciador de finanças pessoais</strong>.{" "}
+          </p>
+          <p>
             No meu tempo livre, se eu não estiver procrastinando, estou
             assistindo jogos do Grêmio, praticando algum esporte, ou tentando
             tocar algum instrumento.
@@ -155,7 +155,13 @@ export default function Home() {
                   onClick={() => handleImgClick(image.src)}
                   style={{
                     borderRadius: "10px",
-                    objectFit: "cover",
+                    width: "100%",
+                    height: "100%",
+                    cursor: "pointer",
+                  }}
+                  whileHover={{
+                    width: "180%",
+                    transition: { duration: 0.5 },
                   }}
                 />
               ),
