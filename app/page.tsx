@@ -1,10 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import "./globals.scss";
-import { NavItem } from "@/components/NavItem/NavItem";
-import { motion, AnimatePresence } from "framer-motion";
 import { CardItem } from "@/components/CardItem/CardItem";
-import { FaGithub, FaLinkedin, FaInstagram, FaNpm } from "react-icons/fa";
 import { SidebarHeader } from "@/components/SidebarHeader/SidebarHeader";
 import { ImageGallery } from "@/components/ImageGallery/ImageGallery";
 
