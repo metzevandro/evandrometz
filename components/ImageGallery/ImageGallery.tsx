@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import "./ImageGallery.scss";
+import { ButtonIcon } from "design-system-zeroz";
 
 interface ImageData {
   src: string;
@@ -12,11 +14,11 @@ interface ImageGalleryProps {
 }
 
 export const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
-  const [popupImg, setPopupImg] = React.useState<string | null>(null);
-  const [imgSizes, setImgSizes] = React.useState<{
+  const [popupImg, setPopupImg] = useState<string | null>(null);
+  const [imgSizes, setImgSizes] = useState<{
     [key: string]: { width: number; height: number };
   }>({});
-  const imgRefs = React.useRef<{ [key: string]: HTMLImageElement | null }>({});
+  const imgRefs = useRef<{ [key: string]: HTMLImageElement | null }>({});
 
   const closePopup = () => setPopupImg(null);
 
@@ -33,7 +35,7 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
   };
 
   return (
-    <div className="images">
+    <div className="image-gallery">
       {images.map((image) =>
         popupImg === image.src ? (
           <div
@@ -65,10 +67,9 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
               cursor: "pointer",
             }}
             whileHover={{
-              scale: 1.15,
-              transition: { duration: 0.25, ease: "linear" },
+              width: "180%",
+              transition: { duration: 0.5 },
             }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }}
           />
         ),
       )}
@@ -92,8 +93,8 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
               alignItems: "center",
               justifyContent: "center",
               zIndex: 1000,
-              cursor: "zoom-out",
               flexDirection: "column",
+              cursor: "zoom-out",
             }}
           >
             <div
@@ -105,9 +106,27 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
                 height: "auto",
                 display: "flex",
                 alignItems: "flex-end",
+                cursor: "default",
               }}
               onClick={(e) => e.stopPropagation()}
             >
+              <ButtonIcon
+                aria-label="Fechar"
+                size="md"
+                variant="on-color"
+                buttonType="plain"
+                typeIcon="close"
+                style={{
+                  position: "absolute",
+                  top: 12,
+                  right: 12,
+                  zIndex: 1100,
+                }}
+                onClick={(e: React.MouseEvent) => {
+                  e.stopPropagation();
+                  closePopup();
+                }}
+              />
               <motion.img
                 src={popupImg}
                 alt="Popup"

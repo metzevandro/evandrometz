@@ -1,4 +1,4 @@
-.images {
+.image-gallery {
   display: flex;
   gap: 1rem;
   height: 40%;
@@ -12,8 +12,7 @@
 }
 
 @media screen and (max-width: 500px) {
-  .images {
-    display: flex;
+  .image-gallery {
     gap: 1rem;
     height: 15%;
 

@@ -5,8 +5,8 @@ import { NavItem } from "@/components/NavItem/NavItem";
 import { motion, AnimatePresence } from "framer-motion";
 import { CardItem } from "@/components/CardItem/CardItem";
 import { FaGithub, FaLinkedin, FaInstagram, FaNpm } from "react-icons/fa";
-import { ImageGallery } from "@/components/ImageGallery/ImageGallery";
 import { SidebarHeader } from "@/components/SidebarHeader/SidebarHeader";
+import { ImageGallery } from "@/components/ImageGallery/ImageGallery";
 
 const navItems = [
   { label: "SOBRE" },
@@ -35,26 +35,7 @@ const images = [
 ];
 
 export default function Home() {
-  const [popupImg, setPopupImg] = useState<string | null>(null);
-  const [imgSizes, setImgSizes] = useState<{
-    [key: string]: { width: number; height: number };
-  }>({});
-  const imgRefs = React.useRef<{ [key: string]: HTMLImageElement | null }>({});
   const [activeSection, setActiveSection] = useState<string>("SOBRE");
-
-  const closePopup = () => setPopupImg(null);
-
-  const handleImgClick = (img: string) => {
-    const ref = imgRefs.current[img];
-    if (ref) {
-      const rect = ref.getBoundingClientRect();
-      setImgSizes((prev) => ({
-        ...prev,
-        [img]: { width: rect.width, height: rect.height },
-      }));
-    }
-    setPopupImg(img);
-  };
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -79,7 +60,7 @@ export default function Home() {
   return (
     <section className="home-container">
       <header className="sidebar">
-        <SidebarHeader navItems={navItems} activeSection={activeSection} />
+        <SidebarHeader activeSection={activeSection} navItems={navItems}/>
       </header>
       <main className="scrollable-content">
         <section className="sobre" id="sobre">
@@ -112,84 +93,6 @@ export default function Home() {
             tocar algum instrumento.
           </p>
           <ImageGallery images={images} />
-          <AnimatePresence>
-            {popupImg && (
-              <motion.div
-                className="image-popup-overlay"
-                onClick={closePopup}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                style={{
-                  position: "fixed",
-                  top: 0,
-                  left: 0,
-                  width: "100vw",
-                  height: "100vh",
-                  background: "var(--s-color-background-overlay)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  zIndex: 1000,
-                  cursor: "zoom-out",
-                  flexDirection: "column",
-                }}
-              >
-                <div
-                  style={{
-                    position: "relative",
-                    maxWidth: "90vw",
-                    maxHeight: "80vh",
-                    width: "auto",
-                    height: "auto",
-                    display: "flex",
-                    alignItems: "flex-end",
-                  }}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <motion.img
-                    src={popupImg}
-                    alt="Popup"
-                    layoutId={`popup-img-${popupImg.replace(/\W/g, "")}`}
-                    style={{
-                      maxWidth: "90vw",
-                      maxHeight: "80vh",
-                      borderRadius: "10px",
-                      boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
-                      background: "#fff",
-                      display: "block",
-                    }}
-                  />
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "20%", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, delay: 0.1 }}
-                    style={{
-                      position: "absolute",
-                      left: 0,
-                      bottom: 0,
-                      width: "100%",
-                      background: "var(--s-color-background-overlay)",
-                      color: "#fff",
-                      borderBottomLeftRadius: "10px",
-                      borderBottomRightRadius: "10px",
-                      display: "flex",
-                      padding: "1rem",
-                      boxSizing: "border-box",
-                      pointerEvents: "none",
-                      overflow: "hidden",
-                    }}
-                  >
-                    <p style={{ width: "100%", textAlign: "left" }}>
-                      {images.find((img) => img.src === popupImg)?.description}
-                    </p>
-                  </motion.div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </section>
         <section className="experiencia" id="experiência">
           <CardItem
