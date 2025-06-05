@@ -5,6 +5,7 @@ import { NavItem } from "@/components/NavItem/NavItem";
 import { motion, AnimatePresence } from "framer-motion";
 import { CardItem } from "@/components/CardItem/CardItem";
 import { FaGithub, FaLinkedin, FaInstagram, FaNpm } from "react-icons/fa";
+import { ImageGallery } from "@/components/ImageGallery/ImageGallery";
 
 const navItems = [
   { label: "SOBRE" },
@@ -162,46 +163,7 @@ export default function Home() {
             assistindo jogos do Grêmio, praticando algum esporte, ou tentando
             tocar algum instrumento.
           </p>
-          <div className="images">
-            {images.map((image) =>
-              popupImg === image.src ? (
-                <div
-                  key={image.src}
-                  className="img"
-                  style={{
-                    borderRadius: "10px",
-                    background: "var(--s-color-background-default)",
-                    display: "inline-block",
-                    width: imgSizes[image.src]?.width,
-                    height: imgSizes[image.src]?.height,
-                  }}
-                />
-              ) : (
-                <motion.img
-                  key={image.src}
-                  ref={(el) => {
-                    imgRefs.current[image.src] = el;
-                  }}
-                  src={image.src}
-                  alt={image.alt}
-                  className="img"
-                  layoutId={`popup-img-${image.src.replace(/\W/g, "")}`}
-                  onClick={() => handleImgClick(image.src)}
-                  style={{
-                    borderRadius: "10px",
-                    width: "100%",
-                    height: "100%",
-                    cursor: "pointer",
-                  }}
-                  whileHover={{
-                    scale: 1.15,
-                    transition: { duration: 0.25, ease: "linear" },
-                  }}
-                  transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                />
-              ),
-            )}
-          </div>
+          <ImageGallery images={images} />
           <AnimatePresence>
             {popupImg && (
               <motion.div
