@@ -42,6 +42,7 @@
 
     & .card-item__badges {
       display: flex;
+      flex-wrap: wrap;
       gap: 0.5rem;
     }
   }
