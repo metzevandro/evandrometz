@@ -8,6 +8,11 @@ body {
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
 .home-container {
   display: flex;
 
@@ -106,6 +111,7 @@ body {
         display: flex;
         gap: 1rem;
         height: 40%;
+        overflow-x: auto;
 
         .img {
           border-radius: 10px;
@@ -131,19 +137,18 @@ body {
 
 @media screen and (max-width: 1025px) {
   .home-container {
-
     .sidebar {
       width: 50%;
       height: auto;
 
       .sidebar-fixed {
-        padding: 2rem ;
+        padding: 2rem;
 
         .profile {
           gap: 0.5rem;
           h1 {
-          font: var(--s-typography-heading-x-large);
-        }
+            font: var(--s-typography-heading-x-large);
+          }
         }
       }
     }
@@ -161,12 +166,11 @@ body {
         padding: 2rem;
 
         p {
-          font-size: 14px
+          font-size: 14px;
         }
 
         strong {
-                    font-size: 14px
-
+          font-size: 14px;
         }
       }
     }
@@ -182,7 +186,7 @@ body {
       height: auto;
 
       .sidebar-fixed {
-              position: inherit;
+        position: inherit;
         gap: 2rem;
         flex-direction: column;
         padding: 2rem;

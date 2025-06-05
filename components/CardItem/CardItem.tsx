@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./CardItem.scss";
-import { Badge } from "design-system-zeroz";
+import { Badge, Icon } from "design-system-zeroz";
 import { motion } from "framer-motion";
 
 export interface CardItemProps {
@@ -29,6 +29,7 @@ export function CardItem({
 }: CardItemProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [isMobilePeriod, setIsMobilePeriod] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const colorClass = color.replace("#", "");
   const borderColor = colorMap[colorClass] || "#ff7811";
@@ -39,6 +40,15 @@ export function CardItem({
       setDimensions({ width, height });
     }
   }, [isHovered]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobilePeriod(window.innerWidth <= 475);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleClick = () => {
     if (urlCompany) {
@@ -97,12 +107,26 @@ export function CardItem({
           }}
         />
       </motion.svg>
-      <small className="card-item__period">
-        {period.start} - {period.end}
-      </small>
+      {isMobilePeriod ? (
+        <div className="card-item__period--mobile">
+          <small>{period.end}</small>
+          <small>{period.start}</small>
+        </div>
+      ) : (
+        <small className="card-item__period">
+          {period.start} - {period.end}
+        </small>
+      )}
       <div className="card-item__content">
         <div className="card-item__header">
           <h4 className="card-item__company">{companyName}</h4>
+          <motion.div
+            animate={isHovered ? { x: 4, y: -4 } : { x: 0, y: 0 }}
+            transition={{ type: "tween", duration: 0.18, ease: "easeOut" }}
+            style={{ display: "inline-block" }}
+          >
+            <Icon icon="arrow_outward" size="md" />
+          </motion.div>
         </div>
         <h3 className="card-item__title">{title}</h3>
         <p className="card-item__description">{description}</p>
