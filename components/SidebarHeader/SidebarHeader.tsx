@@ -9,7 +9,7 @@ interface SidebarHeaderProps {
 
 export const SidebarHeader: React.FC<SidebarHeaderProps> = ({
   activeSection,
-  navItems
+  navItems,
 }) => (
   <div className="sidebar-fixed">
     <div className="profile">

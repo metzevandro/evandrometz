@@ -1,0 +1,26 @@
+.images {
+  display: flex;
+  gap: 1rem;
+  height: 40%;
+  overflow-x: auto;
+
+  .img {
+    border-radius: 10px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .images {
+    display: flex;
+    gap: 1rem;
+    height: 15%;
+
+    .img {
+      border-radius: 10px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+  }
+}
