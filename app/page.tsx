@@ -194,9 +194,10 @@ export default function Home() {
                     cursor: "pointer",
                   }}
                   whileHover={{
-                    width: "180%",
-                    transition: { duration: 0.5 },
+                    scale: 1.15,
+                    transition: { duration: 0.25, ease: "linear" },
                   }}
+                  transition={{ type: "spring", stiffness: 200, damping: 20 }}
                 />
               ),
             )}
