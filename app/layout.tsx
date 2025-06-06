@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Evandro Metz",
     images: [
       {
-        url: "https://evandrometz.com/og-image.png",
+        url: "https://evandrometz.vercel.app/evandrometz.jpg",
         width: 1200,
         height: 630,
         alt: "Evandro Metz - Desenvolvedor Frontend"
