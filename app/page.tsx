@@ -4,6 +4,9 @@ import "./globals.scss";
 import { JobCard } from "@/components/JobCard/JobCard";
 import { SidebarHeader } from "@/components/SidebarHeader/SidebarHeader";
 import { ImageGallery } from "@/components/ImageGallery/ImageGallery";
+import { ProjectCard } from "@/components/ProjectCard/ProjectCard";
+import {} from "react-icons";
+import { FaGithub } from "react-icons/fa";
 
 const navItems = [
   { label: "SOBRE" },
@@ -125,8 +128,53 @@ export default function Home() {
             }))}
             description="Trabalhei no suporte técnico e manutenção de sistemas internos e lojas do Grupo, auxiliando na resolução de problemas e na implementação de melhorias. Aprendi a lidar com diferentes tecnologias e a importância do atendimento ao cliente. Atuei também como Pré Vendas, auxiliando na seleção de produtos e serviços para clientes e parceiros."
           />
+          <p>Ver mais -+</p>
         </section>
         <section className="projetos" id="projetos">
+          <ProjectCard
+            logo="/Zeroz.svg"
+            title="Design System Zeroz"
+            description={
+              <p>
+                Design System Zeroz é uma biblioteca de componentes desenvolvida
+                com o objetivo de acelerar o desenvolvimento de interfaces web
+                com consistência e escalabilidade. Os componentes está
+                disponíveis publicamente e podem ser utilizados por qualquer
+                pessoa interessada em criar aplicações com uma base de UI
+                sólida.
+              </p>
+            }
+            links={
+              <>
+                {" "}
+                <FaGithub size={24} />
+                <img src="/storybook.svg" alt="" />
+              </>
+            }
+            badges={["React", "Storybook", "TypeScript", "Sass"]}
+          />
+          <ProjectCard
+            logo="/MeuDim.svg"
+            title="MeuDim"
+            description={
+              <p>
+                O <strong>MeuDim</strong> é um projeto desenvolvido para quem
+                deseja controlar melhor seus gastos e entender para onde seu
+                dinheiro está indo. Com ele, é possível registrar despesas,
+                categorizá-las em categorias e subcategorias, além de associar
+                diferentes formas de pagamento. Também permite registrar ganhos,
+                identificando suas respectivas fontes de renda. O aplicativo
+                conta com um dashboard interativo, com gráficos financeiros e
+                filtros por data, oferecendo uma visão clara das suas finanças.
+              </p>
+            }
+            links={
+              <>
+                <FaGithub size={24} />
+              </>
+            }
+            badges={["React", "Next.js", "TypeScript", "Sass"]}
+          />
         </section>
       </main>
     </section>

@@ -1,35 +1,46 @@
-import './ProjectCard.scss';
-
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import Image from "next/image";
+import "./ProjectCard.scss";
+import { Badge } from "design-system-zeroz";
 
 export function ProjectCard({
-  imageSrc,
-  imageAlt,
   title,
   description,
-  link,
+  links,
+  logo,
+  badges = [],
 }: {
-  imageSrc: string;
-  imageAlt: string;
   title: string;
-  description: string;
-  link: string;
+  description: React.ReactNode;
+  links: React.ReactNode;
+  logo: string;
+  badges: string[];
 }) {
   return (
-    <motion.div className="project-card">
-      <Image
-        src={imageSrc}
-        alt={imageAlt}
-        className="project-image"
-        width={400}
-        height={250}
-      />
-      <h3 className="project-title">{title}</h3>
-      <p className="project-description">{description}</p>
-      <a href={link} target="_blank" rel="noopener noreferrer" className="project-link">
-        Ver Projeto
-      </a>
-    </motion.div>
+    <div className="project-card">
+      <div className="project-header">
+        <Image width={32} height={32} src={logo} alt="Logotipo do Projeto" />
+        <h2 className="project-title">{title}</h2>
+      </div>
+      <div className="project-description">{description}</div>
+      <div className="project-badges">
+        {badges.map((label, index) => (
+          <Badge key={index} label={label} variant="default" type="light" />
+        ))}
+      </div>
+      <div className="project-links">{links}</div>
+      <div className="project-contributors">
+        <p>Colaboradores:</p>
+        <div className="contributors-images">
+          <a href="https://augustometz.com.br/" target="_blank">
+            <img
+              width={32}
+              height={32}
+              src="https://framerusercontent.com/images/XJHvwvHwYv14YpH6nwrBWquDKk.png?scale-down-to=1024"
+              alt="Augusto Metz"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
   );
 }
