@@ -4,6 +4,7 @@ import "./globals.scss";
 import { JobCard } from "@/components/JobCard/JobCard";
 import { SidebarHeader } from "@/components/SidebarHeader/SidebarHeader";
 import { ImageGallery } from "@/components/ImageGallery/ImageGallery";
+import { ProjectCard } from "@/components/ProjectCard/ProjectCard";
 
 const navItems = [
   { label: "SOBRE" },
@@ -126,7 +127,9 @@ export default function Home() {
             description="Trabalhei no suporte técnico e manutenção de sistemas internos e lojas do Grupo, auxiliando na resolução de problemas e na implementação de melhorias. Aprendi a lidar com diferentes tecnologias e a importância do atendimento ao cliente. Atuei também como Pré Vendas, auxiliando na seleção de produtos e serviços para clientes e parceiros."
           />
         </section>
-        <section className="projetos" id="projetos"></section>
+        <section className="projetos" id="projetos">
+          <ProjectCard  />
+        </section>
       </main>
     </section>
   );

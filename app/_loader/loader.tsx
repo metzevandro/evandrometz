@@ -27,57 +27,33 @@ const AnimatedText = memo(function AnimatedText() {
   }, []);
 
   return (
-    <>
-      <div
-        className="animated-text-container"
-        ref={containerRef}
-        style={{ visibility: "hidden" }}
-      >
-        <h1 className="loader-title">Evandro Metz</h1>
-        <style>{`
-          .animated-text-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100vh;
-            text-align: left;
-            position: relative;
-            background: transparent;
-          }
-          .loader-title {
-            font-size: 2rem;
-            font-weight: bold;
-            letter-spacing: 0.1em;
-            margin: 0;
-            color: var(--s-color-content-default);
-          }
-          .split-word {
-            will-change: transform, opacity;
-          }
-          .loader-white-line {
-            width: 100vw;
-            height: 5vh;
-            background: var(--s-color-content-default);
-            position: absolute;
-            left: 0;
-            bottom: -15vh;
-            z-index: 2;
-          }
-          .loader-gray-line {
-            width: 100vw;
-            height: 10vh;
-            background: gray;
-            position: absolute;
-            left: 0;
-            bottom: -10vh;
-            z-index: 1;
-          }
-        `}</style>
-        <div className="loader-gray-line" />
-        <div className="loader-white-line" />
-      </div>
-    </>
+    <div
+      className="animated-text-container"
+      ref={containerRef}
+      style={{ visibility: "hidden" }}
+    >
+      <h1 className="loader-title">Evandro Metz</h1>
+      <style>{`
+        .animated-text-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          text-align: left;
+        }
+        .loader-title {
+          font-size: 2rem;
+          font-weight: bold;
+          letter-spacing: 0.1em;
+          margin: 0;
+          color: var(--s-color-content-default);
+        }
+        .split-word {
+          will-change: transform, opacity;
+        }
+      `}</style>
+    </div>
   );
 });
 
@@ -104,7 +80,7 @@ export default function Loader() {
           key="loader"
           initial={{ y: 0 }}
           animate={{ y: 0 }}
-          exit={{ y: "-115%" }}
+          exit={{ y: "-100%" }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className="loader-overlay"
         >
