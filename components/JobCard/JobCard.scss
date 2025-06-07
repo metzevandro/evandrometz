@@ -57,3 +57,10 @@
     color: var(--s-color-content-light);
   }
 }
+
+@media screen and (max-width: 768px) {
+  .card-item {
+   padding: 0;
+  }
+  
+}

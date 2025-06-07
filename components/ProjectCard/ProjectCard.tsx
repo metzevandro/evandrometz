@@ -29,7 +29,7 @@ export function ProjectCard({
           alt="Logotipo do Projeto"
           style={{ fill: "red" }}
         />
-        <h2 className="project-title">{title}</h2>
+        <h3 className="project-title">{title}</h3>
       </div>
       <div className="project-description">{description}</div>
       <div className="project-badges">

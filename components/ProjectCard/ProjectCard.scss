@@ -92,6 +92,8 @@
 
 @media (max-width: 768px) {
   .project-card {
+      padding: 0;
+
     .project-video {
       flex-direction: column;
       video {
