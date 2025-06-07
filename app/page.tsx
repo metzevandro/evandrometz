@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import "./globals.scss";
-import { CardItem } from "@/components/CardItem/CardItem";
+import { JobCard } from "@/components/JobCard/JobCard";
 import { SidebarHeader } from "@/components/SidebarHeader/SidebarHeader";
 import { ImageGallery } from "@/components/ImageGallery/ImageGallery";
 
@@ -57,7 +57,7 @@ export default function Home() {
   return (
     <section className="home-container">
       <header className="sidebar">
-        <SidebarHeader activeSection={activeSection} navItems={navItems}/>
+        <SidebarHeader activeSection={activeSection} navItems={navItems} />
       </header>
       <main className="scrollable-content">
         <section className="sobre" id="sobre">
@@ -92,7 +92,7 @@ export default function Home() {
           <ImageGallery images={images} />
         </section>
         <section className="experiencia" id="experiência">
-          <CardItem
+          <JobCard
             color="ff7811"
             urlCompany="https://www.cigam.com.br/"
             companyName="CIGAM Software"
@@ -103,7 +103,7 @@ export default function Home() {
             }))}
             description="Trabalho no desenvolvimento de soluções no módulo de Faturamento e CRM do sistema ERP, contribuindo com melhorias contínuas, correções e entrega de novas funcionalidades em projetos de pequeno porte."
           />
-          <CardItem
+          <JobCard
             color="ff7811"
             urlCompany="https://www.cigam.com.br/"
             companyName="CIGAM Software"
@@ -114,7 +114,7 @@ export default function Home() {
             }))}
             description="Participei do programa de formação de desenvolvedores da CIGAM, onde aprofundei meus conhecimentos sobre o sistema ERP da empresa, suas diversas regras de negócio, a linguagem MAGIC e metodologias de desenvolvimento ágil."
           />
-          <CardItem
+          <JobCard
             color="E10000"
             urlCompany="https://herval.com.br/"
             companyName="Grupo Herval"

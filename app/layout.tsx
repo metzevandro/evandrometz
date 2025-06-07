@@ -18,13 +18,14 @@ export const metadata: Metadata = {
     "TypeScript",
     "UI",
     "Web Developer",
-    "Portfólio"
+    "Portfólio",
   ],
   authors: [{ name: "Evandro Metz", url: "https://evandrometz.com" }],
   creator: "Evandro Metz",
   openGraph: {
     title: "Evandro Metz - Desenvolvedor Frontend",
-    description: "Portfólio de Evandro Metz, especialista em desenvolvimento frontend com React e Next.js.",
+    description:
+      "Portfólio de Evandro Metz, especialista em desenvolvimento frontend com React e Next.js.",
     url: "https://evandrometz.com",
     siteName: "Evandro Metz",
     images: [
@@ -32,13 +33,13 @@ export const metadata: Metadata = {
         url: "https://evandrometz.vercel.app/evandrometz.jpg",
         width: 1200,
         height: 630,
-        alt: "Evandro Metz - Desenvolvedor Frontend"
-      }
+        alt: "Evandro Metz - Desenvolvedor Frontend",
+      },
     ],
     locale: "pt_BR",
     type: "website",
-    emails: ["evandro.metz@outlook.com"]
-  }
+    emails: ["evandro.metz@outlook.com"],
+  },
 };
 
 export default function RootLayout({

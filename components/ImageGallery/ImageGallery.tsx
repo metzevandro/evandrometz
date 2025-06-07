@@ -82,7 +82,6 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{
-              type: "spring",
               stiffness: 60,
               damping: 20,
               mass: 0.6,
@@ -145,7 +144,6 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
                   display: "block",
                 }}
                 transition={{
-                  type: "spring",
                   stiffness: 80,
                   damping: 18,
                   mass: 0.7,

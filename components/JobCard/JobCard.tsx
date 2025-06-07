@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./CardItem.scss";
+import "./JobCard.scss";
 import { Badge, Icon } from "design-system-zeroz";
 import { motion } from "framer-motion";
 
@@ -18,7 +18,7 @@ const colorMap: Record<string, string> = {
   E10000: "rgba(225,0,0,0.4)",
 };
 
-export function CardItem({
+export function JobCard({
   color,
   urlCompany,
   companyName,
