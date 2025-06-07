@@ -4,7 +4,6 @@ import "./globals.scss";
 import { JobCard } from "@/components/JobCard/JobCard";
 import { SidebarHeader } from "@/components/SidebarHeader/SidebarHeader";
 import { ImageGallery } from "@/components/ImageGallery/ImageGallery";
-import { ProjectCard } from "@/components/ProjectCard/ProjectCard";
 
 const navItems = [
   { label: "SOBRE" },
