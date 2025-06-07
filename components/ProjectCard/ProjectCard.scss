@@ -92,7 +92,7 @@
 
 @media (max-width: 768px) {
   .project-card {
-      padding: 0;
+    backdrop-filter: brightness(1.2) blur(1px);
 
     .project-video {
       flex-direction: column;

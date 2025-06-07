@@ -60,7 +60,8 @@
 
 @media screen and (max-width: 768px) {
   .card-item {
-   padding: 0;
+       backdrop-filter: brightness(1.2) blur(1px);
+
   }
   
 }
