@@ -17,6 +17,10 @@ export function ProjectCard({
 }) {
   return (
     <div className="project-card">
+      <div className="project-video">
+        <video src="/Zeroz.mp4" autoPlay loop muted />
+        <video src="/Zeroz.mp4" autoPlay loop muted />
+      </div>
       <div className="project-header">
         <Image
           width={32}

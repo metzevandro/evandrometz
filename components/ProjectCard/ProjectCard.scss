@@ -11,6 +11,16 @@
     backdrop-filter: brightness(1.2) blur(1px);
   }
 
+  .project-video {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    video {
+      border-radius: 10px;
+      width: 50%;
+    }
+  }
+
   .project-header {
     display: flex;
     gap: 0.8rem;
@@ -74,6 +84,21 @@
         &:hover {
           transform: scale(1.1);
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    .project-video {
+      flex-direction: column;
+      video {
+        width: 100%;
+      }
+
+      :first-child {
+        display: none;
       }
     }
   }
