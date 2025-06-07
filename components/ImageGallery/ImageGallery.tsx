@@ -81,7 +81,12 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{
+              type: "spring",
+              stiffness: 60,
+              damping: 20,
+              mass: 0.6,
+            }}
             style={{
               position: "fixed",
               top: 0,
@@ -138,6 +143,12 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
                   boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
                   background: "#fff",
                   display: "block",
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 80,
+                  damping: 18,
+                  mass: 0.7,
                 }}
               />
               <motion.div
