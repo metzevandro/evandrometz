@@ -8,6 +8,11 @@ body {
   scroll-behavior: smooth;
 }
 
+::selection {
+  background: var(--s-color-content-default);
+  color: var(--s-color-fill-default-hover);
+}
+
 ::-webkit-scrollbar {
   width: 0px;
   height: 0px;
@@ -96,6 +101,7 @@ body {
 
       p {
         color: var(--s-color-content-light);
+        text-align: justify;
 
         a {
           color: orange;
