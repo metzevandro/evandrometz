@@ -128,7 +128,6 @@ export default function Home() {
           />
         </section>
         <section className="projetos" id="projetos">
-          <ProjectCard  />
         </section>
       </main>
     </section>
