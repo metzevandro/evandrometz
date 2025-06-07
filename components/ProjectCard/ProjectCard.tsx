@@ -18,7 +18,13 @@ export function ProjectCard({
   return (
     <div className="project-card">
       <div className="project-header">
-        <Image width={32} height={32} src={logo} alt="Logotipo do Projeto" />
+        <Image
+          width={32}
+          height={32}
+          src={logo}
+          alt="Logotipo do Projeto"
+          style={{ fill: "red" }}
+        />
         <h2 className="project-title">{title}</h2>
       </div>
       <div className="project-description">{description}</div>

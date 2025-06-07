@@ -6,7 +6,7 @@ import { SidebarHeader } from "@/components/SidebarHeader/SidebarHeader";
 import { ImageGallery } from "@/components/ImageGallery/ImageGallery";
 import { ProjectCard } from "@/components/ProjectCard/ProjectCard";
 import {} from "react-icons";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaNpm } from "react-icons/fa";
 
 const navItems = [
   { label: "SOBRE" },
@@ -146,12 +146,21 @@ export default function Home() {
             }
             links={
               <>
-                {" "}
-                <FaGithub size={24} />
-                <img src="/storybook.svg" alt="" />
+                <a href="https://github.com/metzevandro/Zeroz" target="_blank">
+                  <FaGithub size={24} />
+                </a>
+                <a href="https://zeroz.vercel.app/" target="_blank">
+                  <img src="/storybook.svg" alt="" />
+                </a>
+                <a
+                  href="https://www.npmjs.com/package/design-system-zeroz"
+                  target="_blank"
+                >
+                  <FaNpm size={24} />
+                </a>
               </>
             }
-            badges={["React", "Storybook", "TypeScript", "Sass"]}
+            badges={["React", "Storybook", "npm", "Sass"]}
           />
           <ProjectCard
             logo="/MeuDim.svg"
@@ -170,7 +179,12 @@ export default function Home() {
             }
             links={
               <>
-                <FaGithub size={24} />
+                <a href="https://github.com/metzevandro/MeuDim" target="_blank">
+                  <FaGithub size={24} />
+                </a>
+                <a href="https://financas-azure.vercel.app/" target="_blank">
+                  <img src="/MeuDim.svg" height={24} alt="" />
+                </a>
               </>
             }
             badges={["React", "Next.js", "TypeScript", "Sass"]}

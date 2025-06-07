@@ -12,20 +12,6 @@
 
   &:hover {
     backdrop-filter: brightness(1.2) blur(1px);
-
-    &.E10000 {
-      .material-symbols-outlined {
-        color: #e10000;
-        opacity: 0.8;
-      }
-    }
-
-    &.ff7811 {
-      .material-symbols-outlined {
-        color: #ff7811;
-        opacity: 0.8;
-      }
-    }
   }
 
   & .card-item__period {
