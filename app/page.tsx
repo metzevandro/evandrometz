@@ -200,10 +200,13 @@ export default function Home() {
         </section>
         <section id="voluntariado" className="voluntariado">
           <VoluntariadoCard
-          video={
-            <><img src="/JEAP.jpg" alt="" />
-            <video autoPlay loop muted src="/JEAP.mp4" />
-            <img src="/CONGRENAJE.jpg" alt="" /></>}
+            video={
+              <>
+                <img src="/JEAP.jpg" alt="" />
+                <video autoPlay loop muted src="/JEAP.mp4" />
+                <img src="/CONGRENAJE.jpg" alt="" />
+              </>
+            }
             org="IECLB"
             role="Coordenador de Jovens"
             period={{ start: "Fev/2020", end: "Presente" }}
@@ -214,7 +217,6 @@ export default function Home() {
               <>
                 <img src="/Igreja Chile - Fora.jpg" alt="" />
                 <video autoPlay loop muted src="/Vídeo Chile.mp4" />
-
                 <img src="/Igreja Chile - Dentro.jpg" alt="" />
               </>
             }
