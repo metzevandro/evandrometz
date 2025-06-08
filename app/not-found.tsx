@@ -19,7 +19,6 @@ export default function NotFound() {
         typeIcon="arrow_back"
         label="Voltar para a página inicial"
         onClick={navigateTo("/")}
-        className="back-home"
       />
     </div>
   );
