@@ -8,6 +8,8 @@ import { ProjectCard } from "@/components/ProjectCard/ProjectCard";
 import { VoluntariadoCard } from "@/components/VoluntariadoCard/VoluntariadoCard";
 import {} from "react-icons";
 import { FaGithub, FaNpm } from "react-icons/fa";
+import { SectionNav } from "@/components/SectionNav/SectionNav";
+import "@/components/SectionNav/SectionNav.scss";
 
 const navItems = [
   { label: "SOBRE" },
@@ -66,6 +68,7 @@ export default function Home() {
       </header>
       <main className="scrollable-content">
         <section className="sobre" id="sobre">
+          <SectionNav label="SOBRE" active={activeSection === "SOBRE"} />
           <p>
             Sou desenvolvedor e tenho paixão por transformar interfaces
             abstratas em projetos concretos e sólidos para o usuário, unindo
@@ -97,6 +100,7 @@ export default function Home() {
           <ImageGallery images={images} />
         </section>
         <section className="experiencia" id="experiência">
+          <SectionNav label="EXPERIÊNCIA" active={activeSection === "EXPERIÊNCIA"} />
           <JobCard
             color="ff7811"
             urlCompany="https://www.cigam.com.br/"
@@ -133,6 +137,7 @@ export default function Home() {
           <p>Ver mais -+</p>
         </section>
         <section className="projetos" id="projetos">
+                    <SectionNav label="PROJETOS" active={activeSection === "PROJETOS"} />
           <ProjectCard
             logo="/Zeroz.svg"
             title="Design System Zeroz"
@@ -200,6 +205,8 @@ export default function Home() {
           />
         </section>
         <section id="voluntariado" className="voluntariado">
+                              <SectionNav label="VOLUNTARIADO" active={activeSection === "VOLUNTARIADO"} />
+
           <VoluntariadoCard
             video={
               <>
