@@ -8,10 +8,8 @@
     border-radius: 10px;
     object-fit: cover;
     cursor: pointer;
-
   }
 }
-
 
 @media screen and (max-width: 768px) {
   .image-gallery {
@@ -21,13 +19,12 @@
       border-radius: 10px;
       object-fit: cover;
       cursor: pointer;
-          max-height: 250px;
-    max-width: 250px;
-    aspect-ratio: 1 / 1;
+      max-height: 250px;
+      max-width: 250px;
+      aspect-ratio: 1 / 1;
     }
   }
 }
-
 
 @media screen and (max-width: 425px) {
   .image-gallery {
@@ -37,9 +34,9 @@
       border-radius: 10px;
       object-fit: cover;
       cursor: pointer;
-          max-height: 100px;
-    max-width: 100px;
-    aspect-ratio: 1 / 1;
+      max-height: 100px;
+      max-width: 100px;
+      aspect-ratio: 1 / 1;
     }
   }
 }

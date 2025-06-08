@@ -53,12 +53,7 @@ export function ProjectCard({
         {video}
       </div>
       <div className="project-header">
-        <Image
-          width={32}
-          height={32}
-          src={logo}
-          alt="Logotipo do Projeto"
-        />
+        <Image width={32} height={32} src={logo} alt="Logotipo do Projeto" />
         <h3 className="project-title">{title}</h3>
       </div>
       <div className="project-description">{description}</div>

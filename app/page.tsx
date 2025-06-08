@@ -100,7 +100,10 @@ export default function Home() {
           <ImageGallery images={images} />
         </section>
         <section className="experiencia" id="experiência">
-          <SectionNav label="EXPERIÊNCIA" active={activeSection === "EXPERIÊNCIA"} />
+          <SectionNav
+            label="EXPERIÊNCIA"
+            active={activeSection === "EXPERIÊNCIA"}
+          />
           <JobCard
             color="ff7811"
             urlCompany="https://www.cigam.com.br/"
@@ -137,7 +140,7 @@ export default function Home() {
           <p>Ver mais -+</p>
         </section>
         <section className="projetos" id="projetos">
-                    <SectionNav label="PROJETOS" active={activeSection === "PROJETOS"} />
+          <SectionNav label="PROJETOS" active={activeSection === "PROJETOS"} />
           <ProjectCard
             logo="/Zeroz.svg"
             title="Design System Zeroz"
@@ -205,7 +208,10 @@ export default function Home() {
           />
         </section>
         <section id="voluntariado" className="voluntariado">
-                              <SectionNav label="VOLUNTARIADO" active={activeSection === "VOLUNTARIADO"} />
+          <SectionNav
+            label="VOLUNTARIADO"
+            active={activeSection === "VOLUNTARIADO"}
+          />
 
           <VoluntariadoCard
             video={

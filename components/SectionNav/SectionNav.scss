@@ -4,15 +4,15 @@
 }
 
 a {
-          text-decoration: none;
-          font: var(--s-typography-label-medium);
-          color: var(--s-color-content-light);
-          cursor: pointer;
+  text-decoration: none;
+  font: var(--s-typography-label-medium);
+  color: var(--s-color-content-light);
+  cursor: pointer;
 
-          &:hover {
-            color: var(--s-color-content-default);
-          }
-        }
+  &:hover {
+    color: var(--s-color-content-default);
+  }
+}
 
 @media (max-width: 767px) {
   .section-nav-mobile {

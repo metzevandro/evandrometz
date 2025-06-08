@@ -15,7 +15,9 @@ export const SidebarHeader: React.FC<SidebarHeaderProps> = ({
     <div className="profile">
       <h4>Desenvolvedor Front End</h4>
       <h1>Evandro Metz</h1>
-      <strong>Construindo minha história com <code>if</code> and <code>elses</code></strong>
+      <strong>
+        Construindo minha história com <code>if</code> and <code>elses</code>
+      </strong>
     </div>
     <nav>
       {navItems.map((item, idx) => (
