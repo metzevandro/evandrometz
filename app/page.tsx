@@ -138,6 +138,7 @@ export default function Home() {
             title="Design System Zeroz"
             video={
               <>
+                <div></div>
                 <video src="/Zeroz.mp4" autoPlay loop muted />
               </>
             }
@@ -215,9 +216,9 @@ export default function Home() {
           <VoluntariadoCard
             video={
               <>
-                <img src="/Igreja Chile - Fora.jpg" alt="" />
+                <img src="/Igreja Chile Fora.jpg" alt="" />
                 <video autoPlay loop muted src="/Vídeo Chile.mp4" />
-                <img src="/Igreja Chile - Dentro.jpg" alt="" />
+                <img src="/Igreja Chile Dentro.jpg" alt="" />
               </>
             }
             org="IECLB"
