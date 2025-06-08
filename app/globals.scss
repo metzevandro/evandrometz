@@ -127,6 +127,13 @@ body {
       gap: 1rem;
       padding: 1rem 8rem;
     }
+
+    .voluntariado {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem 8rem;
+    }
   }
 }
 
@@ -165,7 +172,8 @@ body {
 
       .sobre,
       .experiencia,
-      .projetos {
+      .projetos,
+      .voluntariado {
         padding: 2rem;
 
         p {
@@ -201,7 +209,8 @@ body {
 
       .sobre,
       .experiencia,
-      .projetos {
+      .projetos,
+      .voluntariado {
         padding: 2rem;
       }
     }

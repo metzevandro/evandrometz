@@ -1,6 +1,7 @@
 import Image from "next/image";
 import "./ProjectCard.scss";
 import { Badge } from "design-system-zeroz";
+import React, { useRef, useEffect, useState } from "react";
 
 export function ProjectCard({
   title,
@@ -8,18 +9,48 @@ export function ProjectCard({
   links,
   logo,
   badges = [],
+  video,
 }: {
   title: string;
   description: React.ReactNode;
   links: React.ReactNode;
+  video: React.ReactNode;
   logo: string;
   badges: string[];
 }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const videoContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (videoContainerRef.current) {
+      const videos = videoContainerRef.current.querySelectorAll("video");
+      videos.forEach((vid) => {
+        if (window.innerWidth < 768) {
+          vid.autoplay = true;
+          vid.loop = true;
+          vid.muted = true;
+          vid.play?.();
+        } else {
+          vid.autoplay = false;
+          vid.loop = false;
+          if (isHovered) {
+            vid.play?.();
+          } else {
+            vid.pause?.();
+          }
+        }
+      });
+    }
+  }, [isHovered]);
+
   return (
-    <div className="project-card">
-      <div className="project-video">
-        <video src="/Zeroz.mp4" autoPlay loop muted />
-        <video src="/Zeroz.mp4" autoPlay loop muted />
+    <div
+      className="project-card"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="project-video" ref={videoContainerRef}>
+        {video}
       </div>
       <div className="project-header">
         <Image

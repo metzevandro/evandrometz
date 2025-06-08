@@ -1,0 +1,80 @@
+.voluntariado-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 1.5rem;
+  gap: 1rem;
+  transition: all 0.5s ease-in-out;
+  background: transparent;
+
+  &:hover {
+    backdrop-filter: brightness(1.2) blur(1px);
+  }
+
+  &__video {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+
+    * {
+      border-radius: 10px;
+      width: 31.5%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex: 1;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    color: var(--s-color-content-light);
+    align-items: center;
+
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  &__period {
+    display: flex;
+    justify-content: flex-start;
+    color: var(--s-color-content-light);
+  }
+
+  &__period--mobile {
+    display: flex;
+    flex-direction: column;
+    color: var(--s-color-content-light);
+  }
+
+  &__role {
+    color: var(--s-color-content-default);
+  }
+
+  &__desc {
+    color: var(--s-color-content-light);
+    text-align: justify;
+  }
+}
+
+@media (max-width: 768px) {
+  .voluntariado-card {
+    backdrop-filter: brightness(1.2) blur(1px);
+
+    &__video {
+      video {
+        width: 100%;
+      }
+
+      img {
+        display: none;
+      }
+    }
+  }
+}
