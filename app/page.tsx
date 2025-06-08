@@ -202,6 +202,7 @@ export default function Home() {
           <VoluntariadoCard
           video={
             <><img src="/JEAP.jpg" alt="" />
+            <video autoPlay loop muted src="/JEAP.mp4" />
             <img src="/CONGRENAJE.jpg" alt="" /></>}
             org="IECLB"
             role="Coordenador de Jovens"
@@ -212,7 +213,7 @@ export default function Home() {
             video={
               <>
                 <img src="/Igreja Chile - Fora.jpg" alt="" />
-                <video autoPlay loop muted src="/Vídeo Chile.mp4"></video>
+                <video autoPlay loop muted src="/Vídeo Chile.mp4" />
 
                 <img src="/Igreja Chile - Dentro.jpg" alt="" />
               </>

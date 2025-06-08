@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import "./VoluntariadoCard.scss";
 
 interface VoluntariadoCardProps {
@@ -16,16 +17,8 @@ export const VoluntariadoCard: React.FC<VoluntariadoCardProps> = ({
   description,
   video,
 }) => {
-  const [isMobilePeriod, setIsMobilePeriod] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const videoContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobilePeriod(window.innerWidth < 500);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   useEffect(() => {
     if (videoContainerRef.current) {
@@ -63,7 +56,13 @@ export const VoluntariadoCard: React.FC<VoluntariadoCardProps> = ({
       <div className="voluntariado-card__content">
         <div className="voluntariado-card__header">
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <img src="/JEAP.PNG" height={32} alt="" />
+            <Image
+              src="/JEAP.PNG"
+              height={32}
+              width={32}
+              alt=""
+              style={{ borderRadius: "50%" }}
+            />
             <h5>{org}</h5>
           </div>
           <div className="voluntariado-card__period--mobile">

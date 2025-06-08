@@ -73,6 +73,7 @@ export function ProjectCard({
         <p>Colaboradores:</p>
         <div className="contributors-images">
           <a href="https://augustometz.com.br/" target="_blank">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               width={32}
               height={32}
