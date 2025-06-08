@@ -56,8 +56,8 @@ export const VoluntariadoCard: React.FC<VoluntariadoCardProps> = ({
       <div className="voluntariado-card__content">
         <div className="voluntariado-card__header">
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <img
-              src="/JEAP.PNG"
+            <Image
+              src="/JEAP.png"
               height={32}
               width={32}
               alt=""
