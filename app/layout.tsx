@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Evandro Metz - Desenvolvedor Frontend",
     description:
-      "Portfólio de Evandro Metz, especialista em desenvolvimento frontend com React e Next.js.",
+      "Portfólio de Evandro Metz, especialista em desenvolvimento frontend.",
     url: "https://evandrometz.com",
     siteName: "Evandro Metz",
     images: [

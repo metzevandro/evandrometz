@@ -5,8 +5,6 @@ import { JobCard } from "@/components/JobCard/JobCard";
 import { SidebarHeader } from "@/components/SidebarHeader/SidebarHeader";
 import { ImageGallery } from "@/components/ImageGallery/ImageGallery";
 import { ProjectCard } from "@/components/ProjectCard/ProjectCard";
-import { VoluntariadoCard } from "@/components/VoluntariadoCard/VoluntariadoCard";
-import {} from "react-icons";
 import { FaGithub, FaNpm } from "react-icons/fa";
 import { SectionNav } from "@/components/SectionNav/SectionNav";
 import "@/components/SectionNav/SectionNav.scss";
@@ -15,7 +13,7 @@ const navItems = [
   { label: "SOBRE" },
   { label: "EXPERIÊNCIA" },
   { label: "PROJETOS" },
-  { label: "VOLUNTARIADO" },
+  { label: "CURSOS" },
 ];
 
 const images = [
@@ -146,7 +144,7 @@ export default function Home() {
             title="Design System Zeroz"
             video={
               <>
-                <div></div>
+                <img src="/Zeroz cover.jpeg" />
                 <video src="/Zeroz.mp4" autoPlay loop muted />
               </>
             }
@@ -207,38 +205,9 @@ export default function Home() {
             badges={["React", "Next.js", "TypeScript", "Sass"]}
           />
         </section>
-        <section id="voluntariado" className="voluntariado">
-          <SectionNav
-            label="VOLUNTARIADO"
-            active={activeSection === "VOLUNTARIADO"}
-          />
+        <section id="cursos">
+          <SectionNav label="CURSOS" active={activeSection === "CURSOS"} />
 
-          <VoluntariadoCard
-            video={
-              <>
-                <img src="/JEAP.jpg" alt="" />
-                <video autoPlay loop muted src="/JEAP.mp4" />
-                <img src="/CONGRENAJE.jpg" alt="" />
-              </>
-            }
-            org="IECLB"
-            role="Coordenador de Jovens"
-            period={{ start: "Fev/2020", end: "Presente" }}
-            description="Participo de projetos sociais voltados ao desenvolvimento de jovens líderes e à promoção de ações comunitárias, atuando em campanhas de arrecadação, eventos beneficentes e iniciativas de impacto local."
-          />
-          <VoluntariadoCard
-            video={
-              <>
-                <img src="/Igreja Chile Fora.jpg" alt="" />
-                <video autoPlay loop muted src="/Vídeo Chile.mp4" />
-                <img src="/Igreja Chile Dentro.jpg" alt="" />
-              </>
-            }
-            org="IECLB"
-            role="Intercâmbio Voluntário"
-            period={{ start: "Jan/2024", end: "Jan/2024" }}
-            description="Fui selecionado para representar o Brasil e a IECLB (Igreja Evangélica de Confissão Luterana no Brasil), junto a outros quatro brasileiros, em um acampamento de verão promovido pela ILCH (Igreja Luterana no Chile). A experiência aconteceu no Chile e proporcionou momentos de profundo crescimento pessoal, espiritual e intercultural."
-          />
         </section>
       </main>
     </section>
