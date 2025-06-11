@@ -8,12 +8,13 @@ import { ProjectCard } from "@/components/ProjectCard/ProjectCard";
 import { FaGithub, FaNpm } from "react-icons/fa";
 import { SectionNav } from "@/components/SectionNav/SectionNav";
 import "@/components/SectionNav/SectionNav.scss";
+import { FormationCard } from "@/components/FormationCard/FormationCard";
 
 const navItems = [
   { label: "SOBRE" },
   { label: "EXPERIÊNCIA" },
   { label: "PROJETOS" },
-  { label: "CURSOS" },
+  { label: "FORMAÇÃO" },
 ];
 
 const images = [
@@ -205,9 +206,15 @@ export default function Home() {
             badges={["React", "Next.js", "TypeScript", "Sass"]}
           />
         </section>
-        <section id="cursos">
-          <SectionNav label="CURSOS" active={activeSection === "CURSOS"} />
-
+        <section id="formação" className="formacao">
+          <SectionNav label="FORMAÇÃO" active={activeSection === "FORMAÇÃO"} />
+          <FormationCard
+            institution="Feevale"
+            course="Análise e Desenvolvimento de Sistemas"
+            location="Novo Hamburgo, RS"
+            mode="Híbrido"
+            period={{ start: "Fev/2024", end: "Fev/2026" }}
+          />
         </section>
       </main>
     </section>
