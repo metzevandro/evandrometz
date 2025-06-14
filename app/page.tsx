@@ -119,7 +119,7 @@ export default function Home() {
             urlCompany="https://www.cigam.com.br/"
             companyName="CIGAM Software"
             period={{ start: "Jan/2025", end: "Mai/2025" }}
-            title="Formação de Dev's"
+            title="Estágio em Desenvolvimento de Software"
             badges={["MAGIC", "SCRUM", "Kanban", "ERP"].map((label) => ({
               label,
             }))}
@@ -175,7 +175,7 @@ export default function Home() {
                 </a>
               </>
             }
-            badges={["React", "Storybook", "npm", "Sass"]}
+            badges={["React", "Storybook", "npm", "SaaS"]}
           />
           <ProjectCard
             logo="/MeuDim.svg"
