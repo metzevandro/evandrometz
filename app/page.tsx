@@ -138,7 +138,7 @@ export default function Home() {
             description="Trabalhei no suporte técnico e manutenção de sistemas internos e lojas do Grupo, auxiliando na resolução de problemas e na implementação de melhorias. Aprendi a lidar com diferentes tecnologias e a importância do atendimento ao cliente. Atuei também como Pré Vendas, auxiliando na seleção de produtos e serviços para clientes e parceiros."
           />
           <UnderlineLink
-            href="https://www.linkedin.com/in/metzevandro/"
+            href="https://www.linkedin.com/in/metzevandro/#experience"
             target="_blank"
           >
             Ver mais
@@ -242,7 +242,7 @@ export default function Home() {
             period={{ start: "Jun/2024", end: "Jun/2024" }}
           />
           <UnderlineLink
-            href="https://www.linkedin.com/in/metzevandro/"
+            href="https://www.linkedin.com/in/metzevandro/#education"
             target="_blank"
           >
             Ver mais
