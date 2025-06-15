@@ -9,6 +9,7 @@ import { FaGithub, FaNpm } from "react-icons/fa";
 import { SectionNav } from "@/components/SectionNav/SectionNav";
 import "@/components/SectionNav/SectionNav.scss";
 import { FormationCard } from "@/components/FormationCard/FormationCard";
+import { UnderlineLink } from "@/components/UnderlineLink/UnderlineLink";
 
 const navItems = [
   { label: "SOBRE" },
@@ -136,7 +137,12 @@ export default function Home() {
             }))}
             description="Trabalhei no suporte técnico e manutenção de sistemas internos e lojas do Grupo, auxiliando na resolução de problemas e na implementação de melhorias. Aprendi a lidar com diferentes tecnologias e a importância do atendimento ao cliente. Atuei também como Pré Vendas, auxiliando na seleção de produtos e serviços para clientes e parceiros."
           />
-          <p>Ver mais -+</p>
+          <UnderlineLink
+            href="https://www.linkedin.com/in/metzevandro/"
+            target="_blank"
+          >
+            Ver mais
+          </UnderlineLink>
         </section>
         <section className="projetos" id="projetos">
           <SectionNav label="PROJETOS" active={activeSection === "PROJETOS"} />
@@ -205,6 +211,9 @@ export default function Home() {
             }
             badges={["React", "Next.js", "TypeScript", "SaaS"]}
           />
+          <UnderlineLink href="https://github.com/metzevandro" target="_blank">
+            Ver mais
+          </UnderlineLink>
         </section>
         <section id="formação" className="formacao">
           <SectionNav label="FORMAÇÃO" active={activeSection === "FORMAÇÃO"} />
@@ -219,7 +228,7 @@ export default function Home() {
           <FormationCard
             icone="/CIGAM.jpg"
             institution="CIGAM Software de Gestão"
-            course="Programa de Formação de Desenvolvedores"
+            course="Formação de Desenvolvedores"
             location="Novo Hamburgo, RS"
             mode="Híbrido"
             period={{ start: "Jan/2025", end: "Mai/2025" }}
@@ -232,6 +241,12 @@ export default function Home() {
             mode="Remoto"
             period={{ start: "Jun/2024", end: "Jun/2024" }}
           />
+          <UnderlineLink
+            href="https://www.linkedin.com/in/metzevandro/"
+            target="_blank"
+          >
+            Ver mais
+          </UnderlineLink>
         </section>
       </main>
     </section>

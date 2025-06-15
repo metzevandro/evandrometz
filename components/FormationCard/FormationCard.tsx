@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./FormationCard.scss";
 
 interface FormationCardProps {
@@ -20,7 +20,7 @@ export const FormationCard: React.FC<FormationCardProps> = ({
 }) => {
   const [isMobile, setIsMobile] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener("resize", checkMobile);
@@ -31,8 +31,8 @@ export const FormationCard: React.FC<FormationCardProps> = ({
     <div className="formation-card">
       <div className="formation-card__header">
         <div className="formation-card__title">
-          <img src={icone} height="24" alt="" />
-          {isMobile ? <h5>{course}</h5> : <h3>{course}</h3>}
+          <img src={icone} alt="" />
+          {isMobile ? <p>{course}</p> : <h3>{course}</h3>}
         </div>
         <small className="formation-card__period">
           {isMobile ? (

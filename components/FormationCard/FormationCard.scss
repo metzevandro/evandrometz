@@ -47,5 +47,9 @@
   .formation-card {
     backdrop-filter: brightness(1.2) blur(1px);
     gap: 0.5rem;
+
+    small {
+      font-size: 0.6rem;
+    }
   }
 }
