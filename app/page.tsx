@@ -209,20 +209,28 @@ export default function Home() {
         <section id="formação" className="formacao">
           <SectionNav label="FORMAÇÃO" active={activeSection === "FORMAÇÃO"} />
           <FormationCard
-          icone="https://www.cigam.com.br/favicon.ico"
-            institution="CIGAM Software"
+            icone="/Feevale.png"
+            institution="Universidade Feevale"
+            course="Análise e Desenvolvimento de Sistemas"
+            location="Novo Hamburgo, RS"
+            mode="Híbrido"
+            period={{ start: "Fev/2024", end: "Fev/2026" }}
+          />
+          <FormationCard
+            icone="/CIGAM.jpg"
+            institution="CIGAM Software de Gestão"
             course="Programa de Formação de Desenvolvedores"
             location="Novo Hamburgo, RS"
             mode="Híbrido"
             period={{ start: "Jan/2025", end: "Mai/2025" }}
           />
           <FormationCard
-          icone="/Feevale.png"
-            institution="Feevale"
-            course="Análise e Desenvolvimento de Sistemas"
-            location="Novo Hamburgo, RS"
-            mode="Híbrido"
-            period={{ start: "Fev/2024", end: "Fev/2026" }}
+            icone="/Ada Tech.png"
+            institution="ADA Tech"
+            course="Trilha Digital | Coders 24 | Front End"
+            location="São Paulo, SP"
+            mode="Remoto"
+            period={{ start: "Jun/2024", end: "Jun/2024" }}
           />
         </section>
       </main>

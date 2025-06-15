@@ -16,28 +16,30 @@
     justify-content: space-between;
     align-items: center;
 
-    
-
     .formation-card__period {
       color: var(--s-color-content-light);
     }
   }
 
   &__title {
-      display: flex;
-      align-items: center;
-      color: var(--s-color-content-default);
-      gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    color: var(--s-color-content-default);
+    gap: 0.5rem;
+
+    img {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      object-fit: cover;
     }
+  }
 
   &__body {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-          color: var(--s-color-content-light);
-
-   
-
+    color: var(--s-color-content-light);
   }
 }
 
