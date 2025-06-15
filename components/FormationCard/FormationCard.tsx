@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./FormationCard.scss";
-import { ImageGallery } from "../ImageGallery/ImageGallery";
 
 interface FormationCardProps {
   institution: string;
