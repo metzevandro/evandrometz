@@ -175,7 +175,7 @@ export default function Home() {
                 </a>
               </>
             }
-            badges={["React", "Storybook", "npm", "SaaS"]}
+            badges={["React", "Storybook", "npm", "sass"]}
           />
           <ProjectCard
             logo="/MeuDim.svg"
@@ -203,12 +203,21 @@ export default function Home() {
                 </a>
               </>
             }
-            badges={["React", "Next.js", "TypeScript", "Sass"]}
+            badges={["React", "Next.js", "TypeScript", "SaaS"]}
           />
         </section>
         <section id="formação" className="formacao">
           <SectionNav label="FORMAÇÃO" active={activeSection === "FORMAÇÃO"} />
           <FormationCard
+          icone="https://www.cigam.com.br/favicon.ico"
+            institution="CIGAM Software"
+            course="Programa de Formação de Desenvolvedores"
+            location="Novo Hamburgo, RS"
+            mode="Híbrido"
+            period={{ start: "Jan/2025", end: "Mai/2025" }}
+          />
+          <FormationCard
+          icone="/Feevale.png"
             institution="Feevale"
             course="Análise e Desenvolvimento de Sistemas"
             location="Novo Hamburgo, RS"
