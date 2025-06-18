@@ -8,6 +8,10 @@
   color: var(--s-color-content-light);
   transition: all 0.3s ease-in-out;
 
+  &:hover {
+    color: var(--s-color-content-default);
+  }
+
   .underline-link-inner {
     display: flex;
     align-items: center;
@@ -17,17 +21,14 @@
   .underline-link-content {
     position: relative;
     z-index: 2;
-    color: var(--s-color-content-light);
-
-    &:hover {
-      color: var(--s-color-content-default);
-    }
   }
+  
   .underline-link-underline-wrapper {
     display: block;
     height: 4px;
     position: relative;
   }
+
   .underline-link-underline {
     display: block;
     position: absolute;

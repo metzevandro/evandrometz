@@ -32,7 +32,7 @@ export const UnderlineLink: React.FC<UnderlineLinkProps> = ({
               className="underline-link-underline"
               initial={{ scaleX: 0, originX: 0 }}
               animate={{ scaleX: 1, originX: 0 }}
-              exit={{ scaleX: 0, originX: 1 }}
+              exit={{ scaleX: 0, originX: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             />
           )}

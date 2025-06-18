@@ -186,7 +186,11 @@ export default function Home() {
           <ProjectCard
             logo="/MeuDim.svg"
             title="MeuDim"
-            video={<></>}
+            video={
+              <>
+                <img src="/MeuDim.png" alt="" />
+              </>
+            }
             description={
               <p>
                 O <strong>MeuDim</strong> é um projeto desenvolvido para quem
