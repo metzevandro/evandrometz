@@ -188,6 +188,7 @@ export default function Home() {
             title="MeuDim"
             video={
               <>
+                <img src="/MeuDim2.png" alt="" />
                 <img src="/MeuDim.png" alt="" />
               </>
             }

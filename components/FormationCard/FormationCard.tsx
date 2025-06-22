@@ -34,39 +34,22 @@ export const FormationCard: React.FC<FormationCardProps> = ({
           <img src={icone} alt="" />
           {isMobile ? <p>{course}</p> : <h3>{course}</h3>}
         </div>
-        <small className="formation-card__period">
-          {isMobile ? (
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-end",
-              }}
-            >
-              {period.start === period.end ? (
-                <span>{period.start}</span>
-              ) : (
-                <>
-                  <span>{period.end}</span>
-                  <span>{period.start}</span>
-                </>
-              )}
-            </div>
-          ) : (
-            <>
-              {period.start === period.end
-                ? period.start
-                : `${period.start} - ${period.end}`}
-            </>
-          )}
-        </small>
       </div>
       <div className="formation-card__body">
-        <small>{institution}</small>
-        <small>-</small>
-        <small>{location}</small>
-        <small>-</small>
-        <small>{mode}</small>
+        <div className="__information">
+          <small>{institution}</small>
+          <small>-</small>
+          <small>{location}</small>
+          <small>-</small>
+          <small>{mode}</small>
+        </div>
+        <div className="__period">
+          <small>
+            {period.start === period.end
+              ? period.start
+              : `${period.start} - ${period.end}`}
+          </small>
+        </div>
       </div>
     </div>
   );
