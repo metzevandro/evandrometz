@@ -103,7 +103,7 @@
 
     .project-video {
       flex-direction: column;
-      video {
+      :last-child {
         width: 100%;
       }
 
