@@ -1,259 +1,159 @@
 "use client";
-import React, { useState } from "react";
+
+import { motion, useMotionValue } from "framer-motion";
+import { useState } from "react";
 import "./globals.scss";
-import { JobCard } from "@/components/JobCard/JobCard";
-import { SidebarHeader } from "@/components/SidebarHeader/SidebarHeader";
-import { ImageGallery } from "@/components/ImageGallery/ImageGallery";
-import { ProjectCard } from "@/components/ProjectCard/ProjectCard";
-import { FaGithub, FaNpm } from "react-icons/fa";
-import { SectionNav } from "@/components/SectionNav/SectionNav";
-import "@/components/SectionNav/SectionNav.scss";
-import { FormationCard } from "@/components/FormationCard/FormationCard";
-import { UnderlineLink } from "@/components/UnderlineLink/UnderlineLink";
-
-const navItems = [
-  { label: "SOBRE" },
-  { label: "EXPERIÊNCIA" },
-  { label: "PROJETOS" },
-  { label: "FORMAÇÃO" },
-];
-
-const images = [
-  {
-    src: "Área de Trabalho.jpg",
-    alt: "Área de Trabalho",
-    description:
-      "Esta é  meu setup de trabalho, onde passo a maior parte do meu tempo.",
-  },
-  {
-    src: "Evandro Metz.jpg",
-    alt: "Evandro Metz",
-    description: "Este, sou eu 🤙",
-  },
-  {
-    src: "Aeroporto Intercâmbio.jpg",
-    alt: "Intercâmbio",
-    description:
-      "Uma foto que representa saudade e aprendizado, onde representei o Brasil e minha Juventude - Estância Velha, no Chile.",
-  },
-];
+import { Icon } from "design-system-zeroz";
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState<string>("SOBRE");
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const [hovering, setHovering] = useState(false);
+  const [hoveringButton, setHoveringButton] = useState(false);
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      let found = navItems[0].label;
-      for (let i = 0; i < navItems.length; i++) {
-        const id = navItems[i].label.toLowerCase();
-        const el = document.getElementById(id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 120) {
-            found = navItems[i].label;
-          }
-        }
-      }
-      setActiveSection(found);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const scrollToProjetos = () => {
+    const element = document.getElementById("projetos");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
-    <section className="home-container">
-      <header className="sidebar">
-        <SidebarHeader activeSection={activeSection} navItems={navItems} />
-      </header>
-      <main className="scrollable-content">
-        <section className="sobre" id="sobre">
-          <SectionNav label="SOBRE" active={activeSection === "SOBRE"} />
-          <p>
-            Sou desenvolvedor e tenho paixão por transformar interfaces
-            abstratas em projetos concretos e sólidos para o usuário, unindo
-            design cuidadoso com engenharia robusta. Meu trabalho favorito está
-            na interseção entre design e desenvolvimento, criando experiências
-            que não apenas são visualmente atraentes, mas também meticulosamente
-            construídas com foco em desempenho e usabilidade.
-          </p>
-          <p>
-            {" "}
-            Atualmente, sou Desenvolvedor de Software na{" "}
-            <strong>
-              <a href="">CIGAM</a>
-            </strong>
-            , onde contribuo para a criação e manutenção do software de gestão,
-            sempre mantendo um alto padrão de qualidade e eficiência.
-          </p>
-          <p>
-            Além disso, trabalho em projetos pessoais, sempre em busca de novos
-            desafios e aprendizados. Os projetos que desenvolvo vão desde{" "}
-            <strong>design systems</strong> até um{" "}
-            <strong>gerenciador de finanças pessoais</strong>.{" "}
-          </p>
-          <p>
-            No meu tempo livre, se eu não estiver procrastinando, estou
-            assistindo jogos do Grêmio, praticando algum esporte, ou tentando
-            tocar algum instrumento.
-          </p>
-          <ImageGallery images={images} />
-        </section>
-        <section className="experiencia" id="experiência">
-          <SectionNav
-            label="EXPERIÊNCIA"
-            active={activeSection === "EXPERIÊNCIA"}
-          />
-          <JobCard
-            color="ff7811"
-            urlCompany="https://www.cigam.com.br/"
-            companyName="CIGAM Software"
-            period={{ start: "Mai/2025", end: "Presente" }}
-            title="Desenvolvedor de Software Júnior"
-            badges={["MAGIC", "C#", ".NET", "CRM"].map((label) => ({
-              label,
-            }))}
-            description="Trabalho no desenvolvimento de soluções no módulo de Faturamento e CRM do sistema ERP, contribuindo com melhorias contínuas, correções e entrega de novas funcionalidades em projetos de pequeno porte."
-          />
-          <JobCard
-            color="ff7811"
-            urlCompany="https://www.cigam.com.br/"
-            companyName="CIGAM Software"
-            period={{ start: "Jan/2025", end: "Mai/2025" }}
-            title="Estágio em Desenvolvimento de Software"
-            badges={["MAGIC", "SCRUM", "Kanban", "ERP"].map((label) => ({
-              label,
-            }))}
-            description="Participei do programa de formação de desenvolvedores da CIGAM, onde aprofundei meus conhecimentos sobre o sistema ERP da empresa, suas diversas regras de negócio, a linguagem MAGIC e metodologias de desenvolvimento ágil."
-          />
-          <JobCard
-            color="E10000"
-            urlCompany="https://herval.com.br/"
-            companyName="Grupo Herval"
-            period={{ start: "Jun/2024", end: "Dez/2024" }}
-            title="Estágio em HelpDesk/TI"
-            badges={["HelpDesk", "TI", "Suporte"].map((label) => ({
-              label,
-            }))}
-            description="Trabalhei no suporte técnico e manutenção de sistemas internos e lojas do Grupo, auxiliando na resolução de problemas e na implementação de melhorias. Aprendi a lidar com diferentes tecnologias e a importância do atendimento ao cliente. Atuei também como Pré Vendas, auxiliando na seleção de produtos e serviços para clientes e parceiros."
-          />
-          <UnderlineLink
-            href="https://www.linkedin.com/in/metzevandro/#experience"
-            target="_blank"
+    <motion.main
+      className="home"
+      onMouseMove={(e) => {
+        const offset = hoveringButton ? 12 : 6;
+        x.set(e.clientX - offset);
+        y.set(e.clientY - offset);
+      }}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+    >
+      {hovering && (
+        <motion.div
+          className="cursor-light"
+          style={{
+            position: "fixed",
+            top: y,
+            left: x,
+            translateX: 0,
+            translateY: 0,
+          }}
+          animate={{ scale: hoveringButton ? 2 : 1 }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        />
+      )}
+
+      <section className="information-section">
+        <div className="left">
+          <div className="texts">
+            <div>
+              Desenvolvedor de Software na{" "}
+              <motion.a
+                onMouseEnter={() => setHoveringButton(true)}
+                onMouseLeave={() => setHoveringButton(false)}
+                href="https://www.cigam.com.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cigam-link"
+                whileHover="hover"
+                initial="initial"
+                variants={{
+                  initial: { opacity: 1 },
+                  hover: {},
+                }}
+              >
+                <span>CIGAM</span>
+
+                <motion.div
+                  className="underline"
+                  variants={{
+                    initial: { width: 0 },
+                    hover: { width: "100%" },
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.a>
+            </div>
+
+            <h2>
+              Olá, eu sou{" "}
+              <motion.small
+                className="wave"
+                animate={{ rotate: [0, 10, -10, 20, 0] }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 1,
+                  ease: "easeInOut",
+                }}
+                style={{ display: "inline-block" }}
+              >
+                👋
+              </motion.small>
+              <br />
+              <span className="highlight-name">Evandro Metz</span>
+            </h2>
+
+            <p>
+              Comprometido em transformar interfaces abstratas em projetos
+              concretos e sólidos para o usuário, unindo design cuidadoso com
+              engenharia robusta.
+            </p>
+          </div>
+
+          <motion.button
+            className="projects-btn"
+            initial="initial"
+            whileHover="hover"
+            onMouseEnter={() => setHoveringButton(true)}
+            onMouseLeave={() => setHoveringButton(false)}
+            onClick={scrollToProjetos}
           >
-            Ver mais
-          </UnderlineLink>
-        </section>
-        <section className="projetos" id="projetos">
-          <SectionNav label="PROJETOS" active={activeSection === "PROJETOS"} />
-          <ProjectCard
-            logo="/Zeroz.svg"
-            title="Design System Zeroz"
-            video={
-              <>
-                <img src="/Zeroz cover.jpeg" />
-                <video src="/Zeroz.mp4" autoPlay loop muted />
-              </>
-            }
-            description={
-              <p>
-                Design System Zeroz é uma biblioteca de componentes desenvolvida
-                com o objetivo de acelerar o desenvolvimento de interfaces web
-                com consistência e escalabilidade. Os componentes está
-                disponíveis publicamente e podem ser utilizados por qualquer
-                pessoa interessada em criar aplicações com uma base de UI
-                sólida.
-              </p>
-            }
-            links={
-              <>
-                <a href="https://github.com/metzevandro/Zeroz" target="_blank">
-                  <FaGithub size={24} />
-                </a>
-                <a href="https://zeroz.vercel.app/" target="_blank">
-                  <img src="/storybook.svg" alt="" />
-                </a>
-                <a
-                  href="https://www.npmjs.com/package/design-system-zeroz"
-                  target="_blank"
-                >
-                  <FaNpm size={24} />
-                </a>
-              </>
-            }
-            badges={["React", "Storybook", "npm", "sass"]}
-          />
-          <ProjectCard
-            logo="/MeuDim.svg"
-            title="MeuDim"
-            video={
-              <>
-                <img src="/MeuDim2.png" alt="" />
-                <img src="/MeuDim.png" alt="" />
-              </>
-            }
-            description={
-              <p>
-                O <strong>MeuDim</strong> é um projeto desenvolvido para quem
-                deseja controlar melhor seus gastos e entender para onde seu
-                dinheiro está indo. Com ele, é possível registrar despesas,
-                categorizá-las em categorias e subcategorias, além de associar
-                diferentes formas de pagamento. Também permite registrar ganhos,
-                identificando suas respectivas fontes de renda. O aplicativo
-                conta com um dashboard interativo, com gráficos financeiros e
-                filtros por data, oferecendo uma visão clara das suas finanças.
-              </p>
-            }
-            links={
-              <>
-                <a href="https://github.com/metzevandro/MeuDim" target="_blank">
-                  <FaGithub size={24} />
-                </a>
-                <a href="https://financas-azure.vercel.app/" target="_blank">
-                  <img src="/MeuDim.svg" height={24} alt="" />
-                </a>
-              </>
-            }
-            badges={["React", "Next.js", "TypeScript", "SaaS"]}
-          />
-          <UnderlineLink href="https://github.com/metzevandro" target="_blank">
-            Ver mais
-          </UnderlineLink>
-        </section>
-        <section id="formação" className="formacao">
-          <SectionNav label="FORMAÇÃO" active={activeSection === "FORMAÇÃO"} />
-          <FormationCard
-            icone="/Feevale.png"
-            institution="Universidade Feevale"
-            course="Análise e Desenvolvimento de Sistemas"
-            location="Novo Hamburgo, RS"
-            mode="Híbrido"
-            period={{ start: "Fev/2024", end: "Fev/2026" }}
-          />
-          <FormationCard
-            icone="/CIGAM.jpg"
-            institution="CIGAM Software de Gestão"
-            course="Formação de Desenvolvedores"
-            location="Novo Hamburgo, RS"
-            mode="Híbrido"
-            period={{ start: "Jan/2025", end: "Mai/2025" }}
-          />
-          <FormationCard
-            icone="/Ada Tech.png"
-            institution="ADA Tech"
-            course="Trilha Digital | Coders 24 | Front End"
-            location="São Paulo, SP"
-            mode="Remoto"
-            period={{ start: "Jun/2024", end: "Jun/2024" }}
-          />
-          <UnderlineLink
-            href="https://www.linkedin.com/in/metzevandro/#education"
-            target="_blank"
+            <Icon icon="arrow_downward" size="md" />
+
+            <motion.span
+              className="btn-text"
+              style={{ display: "inline-block", overflow: "hidden", width: 0 }}
+              variants={{
+                initial: { width: 0 },
+                hover: { width: "auto" },
+              }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              Explorar trabalhos
+            </motion.span>
+          </motion.button>
+        </div>
+
+        <div className="right">
+          <div
+            style={{
+              overflow: "hidden",
+              borderRadius: "var(--s-border-radius-medium)",
+            }}
           >
-            Ver mais
-          </UnderlineLink>
-        </section>
-      </main>
-    </section>
+            <motion.img
+              onMouseEnter={() => setHoveringButton(true)}
+              onMouseLeave={() => setHoveringButton(false)}
+              src="Evandro Metz.jpg"
+              alt="Foto de Evandro"
+              style={{
+                display: "block",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+              initial={{ scale: 1 }}
+              whileHover={{ scale: 1.3 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="projetos" id="projetos">
+        Projetos
+      </section>
+    </motion.main>
   );
 }
