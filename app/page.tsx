@@ -113,10 +113,10 @@ export default function Home() {
 
             <motion.span
               className="btn-text"
-              style={{ display: "inline-block", overflow: "hidden", width: 0 }}
+              style={{ overflow: "hidden", }}
               variants={{
                 initial: { width: 0 },
-                hover: { width: "auto" },
+                hover: { width: 'auto' },
               }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
@@ -145,7 +145,7 @@ export default function Home() {
               }}
               initial={{ scale: 1 }}
               whileHover={{ scale: 1.3 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 50 }}
             />
           </div>
         </div>
