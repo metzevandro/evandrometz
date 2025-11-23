@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./globals.scss";
 import { Icon } from "design-system-zeroz";
 import Card from "@/components/card/card";
@@ -22,6 +22,12 @@ export default function Home() {
     }
   };
 
+   const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    setIsDesktop(window.innerWidth > 768);
+  }, []);
+
   return (
     <motion.main
       className="home"
@@ -33,7 +39,7 @@ export default function Home() {
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
-      {hovering && (
+      {(hovering && isDesktop) && (
         <motion.div
           className={`cursor-light ${hoveringProject ? "cursor-big" : ""}`}
           style={{

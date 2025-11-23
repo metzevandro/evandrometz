@@ -48,6 +48,7 @@ export default function Card({
       }}
       style={{
         height: "100%",
+        width: "100%",
       }}
     >
       <div className="project-image-wrapper">
