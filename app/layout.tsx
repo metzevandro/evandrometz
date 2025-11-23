@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.scss";
 import "design-system-zeroz/dist/index.esm.css";
 import "design-system-zeroz/src/scss/tokens/tokens.scss";
-import Loader from "@/components/loader";
+import Loader from "@/components/loader/loader";
 
 export const metadata: Metadata = {
   title: "Evandro Metz",

@@ -23,12 +23,37 @@ body,
   position: fixed;
   width: 12px;
   height: 12px;
+  background: white;
   border-radius: 50%;
-  background-color: white;
   pointer-events: none;
   transform-origin: 0 0;
-  mix-blend-mode: difference;
   z-index: 999;
+  transform: translate(-50%, -50%);
+  transition: 0.2s ease;
+}
+
+.cursor-big {
+  width: 100px !important;
+  height: 100px !important;
+}
+
+.cursor-circle-text {
+  border: 2px solid white;
+  background-color: var(--s-color-fill-default);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.cursor-center-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--s-color-content-light);
 }
 
 .cigam-link {
@@ -62,12 +87,10 @@ body,
   background-color: var(--s-color-background-default);
 
   .information-section {
-    padding: 4rem 2rem;
-
+    padding: 2rem 10rem;
+    justify-content: space-between;
     width: 100%;
-    max-width: 1300px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     height: 100vh;
     gap: 4rem;
     align-items: center;
@@ -77,6 +100,7 @@ body,
       display: flex;
       flex-direction: column;
       gap: var(--s-spacing-small);
+      max-width: 600px;
 
       .texts {
         display: flex;
@@ -108,6 +132,7 @@ body,
     .right {
       display: flex;
       justify-content: center;
+
       img {
         width: 100%;
         max-width: 420px;
@@ -139,43 +164,96 @@ body,
 
 .projetos {
   display: flex;
+  flex-direction: column;
+  scroll-margin-top: 0.5rem;
+  height: 100vh;
+  width: 100%;
+  padding: 2rem 10rem;
+  gap: 2rem;
+
+  .titles {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    small {
+      color: var(--s-color-content-light);
+      font-size: 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--s-color-content-default);
+    }
+  }
+
+  .projects-card {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.projetos {
+  display: flex;
   height: 100vh;
 }
 
-@media (max-width: 500px) {
-  .home .information-section {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    gap: 0px;
-    justify-content: space-between;
-    padding: 2rem 1rem;
-    gap: 1.5rem;
-
-    .left {
-      .texts {
-        display: flex;
-        align-items: center;
-        p {
-          max-width: 400px;
-        }
-        h2 {
-          font-size: 24px;
-          line-height: 2rem;
-          span {
-            font-size: 40px;
-          }
-        }
-      }
-
-      .projects-btn {
-        display: none;
-      }
+@media (max-width: 768px) {
+  .home {
+    .information-section {
+      padding: 1rem 2rem;
     }
 
-    .right {
-      max-height: 400px;
+    .projetos {
+      padding: 1rem 2rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .home {
+    .information-section {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 1rem;
+      gap: 1.5rem;
+
+      .left {
+        .texts {
+          display: flex;
+          align-items: center;
+          p {
+            max-width: 400px;
+          }
+          h2 {
+            font-size: 24px;
+            line-height: 2rem;
+            span {
+              font-size: 40px;
+            }
+          }
+        }
+
+        .projects-btn {
+          display: none;
+        }
+      }
+
+      .right {
+        max-height: 400px;
+      }
+    }
+    .projetos {
+      padding: 2rem 1rem;
+
+      .projects-card {
+        gap: 1.5rem;
+        flex-direction: column;
+      }
     }
   }
 }
