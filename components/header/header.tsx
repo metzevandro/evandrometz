@@ -10,9 +10,9 @@ export default function Header({ visible }: HeaderProps) {
     <header className={visible ? "header show" : "header hide"}>
       <div></div>
       <div className="links">
-        <Link href="/#projetos" >Projetos</Link>
-        <Link href="/#about" >Sobre Mim</Link>
-        <Link href="/#curriculo" >Currículo</Link>
+        <Link href="/#projetos">Projetos</Link>
+        <Link href="/#about">Sobre Mim</Link>
+        <Link href="/#curriculo">Currículo</Link>
       </div>
       <div></div>
     </header>

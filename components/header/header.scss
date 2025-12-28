@@ -8,7 +8,9 @@
   display: flex;
   justify-content: center;
 
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .header.hide {
@@ -20,7 +22,6 @@
   transform: translateY(0);
   opacity: 1;
 }
-
 
 .links {
   position: relative;
@@ -37,11 +38,10 @@
     0 20px 40px rgba(0, 0, 0, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 
-    backdrop-filter: blur(200px);
+  backdrop-filter: blur(200px);
   -webkit-backdrop-filter: blur(200px);
 
-  transition:
-    backdrop-filter 0.2s ease;
+  transition: backdrop-filter 0.2s ease;
 }
 
 .links::before {
@@ -56,8 +56,7 @@
   opacity: 0.6;
   pointer-events: none;
   z-index: 1;
-    border-radius: var(--s-border-radius-large);
-
+  border-radius: var(--s-border-radius-large);
 }
 
 .links a {

@@ -61,10 +61,7 @@ export default function Card({
         />
       </div>
 
-      <motion.div
-        className="project-content"
-        transition={{ duration: 0.2 }}
-      >
+      <motion.div className="project-content" transition={{ duration: 0.2 }}>
         <h2>{title}</h2>
         <p>
           {nome} - {tempo}
