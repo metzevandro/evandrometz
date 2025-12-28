@@ -63,7 +63,6 @@ export default function Card({
 
       <motion.div
         className="project-content"
-        animate={{ opacity: hovered === index ? 1 : 0.6 }}
         transition={{ duration: 0.2 }}
       >
         <h2>{title}</h2>
