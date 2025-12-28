@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import "./globals.scss";
 import { Icon } from "design-system-zeroz";
 import Card from "@/components/card/card";
+import Header from "@/components/header/header";
 
 export default function Home() {
   const x = useMotionValue(0);
@@ -22,11 +23,31 @@ export default function Home() {
     }
   };
 
-   const [isDesktop, setIsDesktop] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     setIsDesktop(window.innerWidth > 768);
   }, []);
+
+  const [showHeader, setShowHeader] = useState(true);
+const [lastScrollY, setLastScrollY] = useState(0);
+
+useEffect(() => {
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      setShowHeader(false);
+    } else {
+      setShowHeader(true);
+    }
+
+    setLastScrollY(currentScrollY);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [lastScrollY]);
 
   return (
     <motion.main
@@ -39,7 +60,8 @@ export default function Home() {
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
-      {(hovering && isDesktop) && (
+      <Header visible={showHeader} />
+      {hovering && isDesktop && (
         <motion.div
           className={`cursor-light ${hoveringProject ? "cursor-big" : ""}`}
           style={{
@@ -178,13 +200,13 @@ export default function Home() {
           <div
             style={{
               overflow: "hidden",
-              borderRadius: "var(--s-border-radius-medium)",
+              borderRadius: "var(--s-border-radius-large)",
             }}
           >
             <motion.img
               onMouseEnter={() => setHoveringButton(true)}
               onMouseLeave={() => setHoveringButton(false)}
-              src="Evandro.jpg"
+              src="evandro.jpg"
               alt="Foto de Evandro"
               style={{
                 display: "block",
@@ -193,7 +215,7 @@ export default function Home() {
                 objectFit: "cover",
               }}
               initial={{ scale: 1 }}
-              whileHover={{ scale: 1.3 }}
+              whileHover={{ scale: 1.2 }}
               transition={{ type: "spring", stiffness: 300, damping: 50 }}
             />
           </div>
@@ -203,7 +225,7 @@ export default function Home() {
       <section className="projetos" id="projetos">
         <div className="titles">
           <small>PORTFÓLIO</small>
-          <h1>Projetos Desenvolvidos</h1>
+          <h1>Projetos desenvolvidos</h1>
         </div>
         <motion.div layout className="projects-card">
           <Card
@@ -237,6 +259,12 @@ export default function Home() {
             tempo="2024"
           />
         </motion.div>
+      </section>
+      <section className="about" id="about">
+        <div className="titles">
+          <small>UM POUCO</small>
+          <h1>Sobre mim</h1>
+        </div>
       </section>
     </motion.main>
   );

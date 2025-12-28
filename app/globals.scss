@@ -6,6 +6,10 @@ body,
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
+}
+
+html,
+body {
   background-color: var(--s-color-background-default);
 }
 
@@ -135,7 +139,7 @@ body,
 
       img {
         width: 100%;
-        max-width: 420px;
+        max-height: 420px;
         border-radius: var(--s-border-radius-medium);
         object-fit: cover;
         box-shadow: 0 25px 40px rgba(0, 0, 0, 0.45);
@@ -162,6 +166,21 @@ body,
   }
 }
 
+.titles {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  small {
+    color: var(--s-color-content-light);
+    font-size: 1rem;
+  }
+
+  h1 {
+    text-align: center;
+    color: var(--s-color-content-default);
+  }
+}
+
 .projetos {
   display: flex;
   flex-direction: column;
@@ -170,21 +189,6 @@ body,
   width: 100%;
   padding: 2rem 10rem;
   gap: 2rem;
-
-  .titles {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    small {
-      color: var(--s-color-content-light);
-      font-size: 1rem;
-    }
-
-    h1 {
-      text-align: center;
-      color: var(--s-color-content-default);
-    }
-  }
 
   .projects-card {
     display: flex;
@@ -196,6 +200,10 @@ body,
 
 .projetos {
   display: flex;
+  height: 100vh;
+}
+
+.about {
   height: 100vh;
 }
 
@@ -265,10 +273,10 @@ body,
   .home {
     .information-section {
       gap: 1rem;
-      padding: 1rem
+      padding: 1rem;
     }
     .projetos {
-      padding: 1rem 
+      padding: 1rem;
     }
   }
 }
