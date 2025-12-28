@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./header.scss";
 
 interface HeaderProps {
@@ -9,9 +10,9 @@ export default function Header({ visible }: HeaderProps) {
     <header className={visible ? "header show" : "header hide"}>
       <div></div>
       <div className="links">
-        <a href="/#projetos" >Projetos</a>
-        <a href="/#about" >Sobre Mim</a>
-        <a href="/#curriculo" >Currículo</a>
+        <Link href="/#projetos" >Projetos</Link>
+        <Link href="/#about" >Sobre Mim</Link>
+        <Link href="/#curriculo" >Currículo</Link>
       </div>
       <div></div>
     </header>
