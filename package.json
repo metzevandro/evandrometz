@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "design-system-zeroz": "^0.3.67",
+    "design-system-zeroz": "^0.3.79",
     "flubber": "^0.4.2",
     "framer-motion": "^12.12.2",
     "motion-plus": "^0.1.9",
