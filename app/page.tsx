@@ -206,7 +206,7 @@ export default function Home() {
             <motion.img
               onMouseEnter={() => setHoveringButton(true)}
               onMouseLeave={() => setHoveringButton(false)}
-              src="evandro.jpg"
+              src="/evandro.jpg"
               alt="Foto de Evandro"
               style={{
                 display: "block",
