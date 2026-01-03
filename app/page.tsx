@@ -6,15 +6,33 @@ import "./globals.scss";
 import { Icon } from "design-system-zeroz";
 import Card from "@/components/card/card";
 import Header from "@/components/header/header";
+import { Emoji, EmojiProvider } from "react-apple-emojis";
+import emojiData from "react-apple-emojis/src/data.json";
+
+const DESKTOP_WIDTH = 768;
+const SCROLL_THRESHOLD = 80;
+const CURSOR_OFFSET_DEFAULT = 6;
+const CURSOR_OFFSET_BUTTON = 12;
+const CIRCLE_PATH = `
+  M 50, 50
+  m -35, 0
+  a 35,35 0 1,1 70,0
+  a 35,35 0 1,1 -70,0
+`;
 
 export default function Home() {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+
   const [hovering, setHovering] = useState(false);
   const [hoveringButton, setHoveringButton] = useState(false);
   const [hoveringProject, setHoveringProject] = useState(false);
-
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const scrollToProjetos = () => {
     const element = document.getElementById("projetos");
@@ -23,20 +41,15 @@ export default function Home() {
     }
   };
 
-  const [isDesktop, setIsDesktop] = useState(false);
-
   useEffect(() => {
-    setIsDesktop(window.innerWidth > 768);
+    setIsDesktop(window.innerWidth > DESKTOP_WIDTH);
   }, []);
-
-  const [showHeader, setShowHeader] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      if (currentScrollY > lastScrollY && currentScrollY > SCROLL_THRESHOLD) {
         setShowHeader(false);
       } else {
         setShowHeader(true);
@@ -53,7 +66,7 @@ export default function Home() {
     <motion.main
       className="home"
       onMouseMove={(e) => {
-        const offset = hoveringButton ? 12 : 6;
+        const offset = hoveringButton ? CURSOR_OFFSET_BUTTON : CURSOR_OFFSET_DEFAULT;
         x.set(e.clientX - offset);
         y.set(e.clientY - offset);
       }}
@@ -61,6 +74,7 @@ export default function Home() {
       onMouseLeave={() => setHovering(false)}
     >
       <Header visible={showHeader} />
+
       {hovering && isDesktop && (
         <motion.div
           className={`cursor-light ${hoveringProject ? "cursor-big" : ""}`}
@@ -85,17 +99,8 @@ export default function Home() {
                 transition={{ repeat: Infinity, duration: 6, ease: "linear" }}
               >
                 <defs>
-                  <path
-                    id="circlePath"
-                    d="
-        M 50, 50
-        m -35, 0
-        a 35,35 0 1,1 70,0
-        a 35,35 0 1,1 -70,0
-      "
-                  />
+                  <path id="circlePath" d={CIRCLE_PATH} />
                 </defs>
-
                 <text
                   fill="white"
                   fontSize="8"
@@ -108,7 +113,6 @@ export default function Home() {
                   </textPath>
                 </text>
               </motion.svg>
-
               <div className="cursor-center-icon">
                 <Icon icon="arrow_outward" size="lg" fill />
               </div>
@@ -117,7 +121,7 @@ export default function Home() {
         </motion.div>
       )}
 
-      <section className="information-section">
+      <section className="information-section" id="inicio">
         <div className="left">
           <div className="texts">
             <h2>
@@ -127,12 +131,14 @@ export default function Home() {
                 animate={{ rotate: [0, 10, -10, 20, 0] }}
                 transition={{
                   repeat: Infinity,
-                  duration: 1,
+                  duration: 2,
                   ease: "easeInOut",
                 }}
                 style={{ display: "inline-block" }}
               >
-                👋
+                <EmojiProvider data={emojiData}>
+                  <Emoji name="call me hand" width={32} />
+                </EmojiProvider>
               </motion.small>
               <br />
               <span className="highlight-name">Evandro Metz</span>
@@ -154,7 +160,6 @@ export default function Home() {
                 }}
               >
                 <span>CIGAM</span>
-
                 <motion.div
                   className="underline"
                   variants={{
@@ -181,7 +186,6 @@ export default function Home() {
             onClick={scrollToProjetos}
           >
             <Icon icon="arrow_downward" size="md" />
-
             <motion.span
               className="btn-text"
               style={{ overflow: "hidden" }}
@@ -260,6 +264,7 @@ export default function Home() {
           />
         </motion.div>
       </section>
+
       <section className="about" id="about">
         <div className="titles">
           <small>UM POUCO</small>
