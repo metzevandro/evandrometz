@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.scss";
-import "design-system-zeroz/dist/index.esm.css";
-import "design-system-zeroz/src/scss/tokens/tokens.scss";
 
 export const metadata: Metadata = {
   title: "Evandro Metz",
@@ -53,10 +51,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
       </head>
-
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

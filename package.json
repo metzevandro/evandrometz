@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "design-system-zeroz": "^0.3.79",
     "flubber": "^0.4.2",
     "framer-motion": "^12.12.2",
     "motion-plus": "^0.1.9",
@@ -17,7 +16,7 @@
     "react": "^19.0.0",
     "react-apple-emojis": "^3.0.0",
     "react-dom": "^19.0.0",
-    "react-icons": "^5.5.0",
+    "react-icons": "^5.6.0",
     "sass": "^1.89.0"
   },
   "devDependencies": {
