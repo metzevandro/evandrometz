@@ -87,6 +87,7 @@ export default function AnimatedLiquidBackground({
         overflow: "hidden",
         position: "relative",
         width: "100%",
+        height: "100dvh",
         ...style,
       }}
     >
@@ -105,7 +106,7 @@ export default function AnimatedLiquidBackground({
         shape={PatternShapes[values.shape]}
         shapeScale={values.shapeSize / 100}
         softness={values.softness / 100}
-        style={{ width: "100%", height: "120%" }}
+        style={{ width: "100%", height: "100dvh" }}
       />
     </div>
   );
