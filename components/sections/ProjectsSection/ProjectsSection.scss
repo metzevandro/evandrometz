@@ -3,6 +3,11 @@
   color: white;
   padding: 40px 80px 80px 80px;
 
+  &__container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+  }
   .header {
     width: 50%;
 

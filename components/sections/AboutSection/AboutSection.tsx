@@ -1,10 +1,14 @@
-import { FaNode, FaReact } from "react-icons/fa";
+import { FaReact } from "react-icons/fa";
 import { BiLogoJavascript, BiLogoTypescript } from "react-icons/bi";
-import { DiMsqlServer, DiSass } from "react-icons/di";
-import { DiNetmagazine } from "react-icons/di";
+import { DiMsqlServer, DiSass, DiNetmagazine } from "react-icons/di";
 import { GrOracle } from "react-icons/gr";
 
+import { motion } from "framer-motion";
+import { useState } from "react";
+
 import "./AboutSection.scss";
+
+const photos = ["/evandro.png", "/logo.png"];
 
 type Experience = {
   periodo: string;
@@ -43,6 +47,28 @@ export function AboutSection() {
     },
   ];
 
+  const skills = [
+    { Icon: FaReact, color: "#61DAFB" },
+    { Icon: BiLogoJavascript, color: "#F7DF1E" },
+    { Icon: BiLogoTypescript, color: "#3178C6" },
+    { Icon: DiSass, color: "#CC6699" },
+    { Icon: DiNetmagazine, color: "#512BD4" },
+    { Icon: DiMsqlServer, color: "#CC2927" },
+    { Icon: GrOracle, color: "#F80000" },
+  ];
+
+
+  const next = () => {
+  setIndex((prev) => (prev + 1) % photos.length);
+};
+
+const prev = () => {
+  setIndex((prev) => (prev - 1 + photos.length) % photos.length);
+};
+
+const [index, setIndex] = useState(0);
+const slideWidth = 100;
+
   return (
     <section id="about" className="about-section">
       <div className="about-section__container">
@@ -70,15 +96,33 @@ export function AboutSection() {
         <div className="about-section__skills">
           <h4>Especialidades</h4>
           <div className="about-section__list-skills">
-            <FaReact size={40} color="#61DAFB" />
-            <BiLogoJavascript size={40} color="#F7DF1E" />
-            <BiLogoTypescript size={40} color="#3178C6" />
-            <DiSass size={40} color="#CC6699" />
-            <DiNetmagazine size={40} color="#512BD4" />
-            <DiMsqlServer size={40} color="#CC2927" />
-            <GrOracle size={40} color="#F80000" />
+            {skills.map(({ Icon, color }, index) => (
+              <div key={index}>
+                <Icon size={40} color={color} />
+              </div>
+            ))}
           </div>
         </div>
+      </div>
+
+      <div className="about-section__carousel">
+        <button onClick={prev}>‹</button>
+
+        <div className="about-section__carousel-window">
+          <motion.div
+  className="about-section__carousel-track"
+  animate={{ x: `-${index * slideWidth}%` }}
+  transition={{ type: "spring", stiffness: 260, damping: 30 }}
+>
+            {photos.map((photo, i) => (
+              <div key={i} className="about-section__carousel-slide">
+                <img src={photo} alt={`slide-${i}`} />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        <button onClick={next}>›</button>
       </div>
     </section>
   );

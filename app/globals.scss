@@ -39,12 +39,23 @@ body {
 }
 
 .animated-background {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
 
   > * {
     width: 100% !important;
     height: 100dvh !important;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  section {
+    max-width: 1440px;
   }
 }
