@@ -2,12 +2,6 @@ import dynamic from "next/dynamic";
 import "./IntroSection.scss";
 import { Icon } from "@/components/ui/icon/Icon";
 
-const AnimatedLiquidBackground = dynamic(
-  () =>
-    import("@/components/ui/animatedLiquidBackground/AnimatedLiquidBackground"),
-  { ssr: false },
-);
-
 export function IntroSection() {
   return (
     <section id="intro" className="intro-section">

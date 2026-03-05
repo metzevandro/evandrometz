@@ -8,13 +8,13 @@ import AnimatedLiquidBackground from "@/components/ui/animatedLiquidBackground/A
 
 export default function Home() {
   return (
-    <>
+    <main>
       <div className="animated-background">
         <AnimatedLiquidBackground preset="Mist" speed={20} />
       </div>
       <IntroSection />
       <ProjectsSection />
       <AboutSection />
-    </>
+    </main>
   );
 }
