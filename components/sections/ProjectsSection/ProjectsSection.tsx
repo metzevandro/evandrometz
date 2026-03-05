@@ -15,9 +15,7 @@ export function ProjectsSection() {
             </p>
           </div>
         </div>
-        <div className="projects">
-
-        </div>
+        <div className="projects"></div>
       </div>
     </section>
   );

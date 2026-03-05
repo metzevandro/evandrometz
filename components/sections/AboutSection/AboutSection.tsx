@@ -4,11 +4,11 @@ import { DiMsqlServer, DiSass, DiNetmagazine } from "react-icons/di";
 import { GrOracle } from "react-icons/gr";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import "./AboutSection.scss";
 
-const photos = ["/evandro.png", "/logo.png"];
+const photos = ["/image-1.jpg", "/image-2.jpeg", "/image-3.jpeg", "/image-4.jpeg"];
 
 type Experience = {
   periodo: string;
@@ -57,21 +57,28 @@ export function AboutSection() {
     { Icon: GrOracle, color: "#F80000" },
   ];
 
+  const [index, setIndex] = useState(0);
+  const [height, setHeight] = useState(0);
 
-  const next = () => {
-  setIndex((prev) => (prev + 1) % photos.length);
-};
+  const containerRef = useRef<HTMLDivElement>(null);
 
-const prev = () => {
-  setIndex((prev) => (prev - 1 + photos.length) % photos.length);
-};
+  useEffect(() => {
+    if (containerRef.current) {
+      setHeight(containerRef.current.clientHeight);
+    }
+  }, []);
 
-const [index, setIndex] = useState(0);
-const slideWidth = 100;
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % photos.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section id="about" className="about-section">
-      <div className="about-section__container">
+      <div className="about-section__container" ref={containerRef}>
         <div className="about-section__title">
           <h1>Falando sobre mim</h1>
           <p>
@@ -98,32 +105,41 @@ const slideWidth = 100;
           <div className="about-section__list-skills">
             {skills.map(({ Icon, color }, index) => (
               <div key={index}>
-                <Icon size={40} color={color} />
+                <Icon size={32} color={color} />
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="about-section__carousel">
-        <button onClick={prev}>‹</button>
-
-        <div className="about-section__carousel-window">
-          <motion.div
-  className="about-section__carousel-track"
-  animate={{ x: `-${index * slideWidth}%` }}
-  transition={{ type: "spring", stiffness: 260, damping: 30 }}
+      <div
+  className="about-section__carousel"
+  style={{ height: `${height}px` }}
 >
-            {photos.map((photo, i) => (
-              <div key={i} className="about-section__carousel-slide">
-                <img src={photo} alt={`slide-${i}`} />
-              </div>
-            ))}
-          </motion.div>
+  <div className="about-section__carousel-window">
+    <motion.div
+      className="about-section__carousel-track"
+      animate={{ x: `-${index * 100}%` }}
+      transition={{ type: "spring", stiffness: 80, damping: 30 }}
+    >
+      {photos.map((photo, i) => (
+        <div key={i} className="about-section__carousel-slide">
+          <img src={photo} alt={`slide-${i}`} />
         </div>
+      ))}
+    </motion.div>
+  </div>
 
-        <button onClick={next}>›</button>
-      </div>
+  <div className="about-section__carousel-dots">
+    {photos.map((_, i) => (
+      <button
+        key={i}
+        className={`dot ${i === index ? "active" : ""}`}
+        onClick={() => setIndex(i)}
+      />
+    ))}
+  </div>
+</div>
     </section>
   );
 }
