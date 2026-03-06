@@ -8,7 +8,12 @@ import { useEffect, useRef, useState } from "react";
 
 import "./AboutSection.scss";
 
-const photos = ["/image-1.jpg", "/image-2.jpeg", "/image-3.jpeg", "/image-4.jpeg"];
+const photos = [
+  "/image-1.jpg",
+  "/image-2.jpeg",
+  "/image-3.jpeg",
+  "/image-4.jpeg",
+];
 
 type Experience = {
   periodo: string;
@@ -113,33 +118,33 @@ export function AboutSection() {
       </div>
 
       <div
-  className="about-section__carousel"
-  style={{ height: `${height}px` }}
->
-  <div className="about-section__carousel-window">
-    <motion.div
-      className="about-section__carousel-track"
-      animate={{ x: `-${index * 100}%` }}
-      transition={{ type: "spring", stiffness: 80, damping: 30 }}
-    >
-      {photos.map((photo, i) => (
-        <div key={i} className="about-section__carousel-slide">
-          <img src={photo} alt={`slide-${i}`} />
+        className="about-section__carousel"
+        style={{ height: `${height}px` }}
+      >
+        <div className="about-section__carousel-window">
+          <motion.div
+            className="about-section__carousel-track"
+            animate={{ x: `-${index * 100}%` }}
+            transition={{ type: "spring", stiffness: 80, damping: 30 }}
+          >
+            {photos.map((photo, i) => (
+              <div key={i} className="about-section__carousel-slide">
+                <img src={photo} alt={`slide-${i}`} />
+              </div>
+            ))}
+          </motion.div>
         </div>
-      ))}
-    </motion.div>
-  </div>
 
-  <div className="about-section__carousel-dots">
-    {photos.map((_, i) => (
-      <button
-        key={i}
-        className={`dot ${i === index ? "active" : ""}`}
-        onClick={() => setIndex(i)}
-      />
-    ))}
-  </div>
-</div>
+        <div className="about-section__carousel-dots">
+          {photos.map((_, i) => (
+            <button
+              key={i}
+              className={`dot ${i === index ? "active" : ""}`}
+              onClick={() => setIndex(i)}
+            />
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

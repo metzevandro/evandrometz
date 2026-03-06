@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import "./IntroSection.scss";
 import { Icon } from "@/components/ui/icon/Icon";
+import { AnimatedLink } from "@/components/ui/animatedLink/animatedLink";
 
 export function IntroSection() {
   return (
@@ -17,7 +18,9 @@ export function IntroSection() {
 
           <div className="intro-section__info">
             <h4>
-              Desenvolvedor de Software na <strong>CIGAM</strong>
+              Desenvolvedor de Software na <AnimatedLink href="https://www.cigam.com.br/" target="_blank" rel="noopener noreferrer">
+                CIGAM
+              </AnimatedLink>
             </h4>
 
             <h1>Evandro Metz</h1>
