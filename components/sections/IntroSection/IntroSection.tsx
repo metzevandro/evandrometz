@@ -18,7 +18,12 @@ export function IntroSection() {
 
           <div className="intro-section__info">
             <h4>
-              Desenvolvedor de Software na <AnimatedLink href="https://www.cigam.com.br/" target="_blank" rel="noopener noreferrer">
+              Desenvolvedor de Software na{" "}
+              <AnimatedLink
+                href="https://www.cigam.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 CIGAM
               </AnimatedLink>
             </h4>
