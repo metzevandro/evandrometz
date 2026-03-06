@@ -47,13 +47,21 @@
   .projects-section {
     padding: 20px;
 
+    &__container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
     .header {
+      width: 100%;
       .sticky {
         padding-top: 0px;
       }
     }
 
-    .projects {
+    .projects {      width: 100%;
+
       padding-top: 0px;
     }
   }
