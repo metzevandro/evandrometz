@@ -1,3 +1,4 @@
+import { CardProject } from "@/components/ui/cardProject/cardProject";
 import "./ProjectsSection.scss";
 
 export function ProjectsSection() {
@@ -15,7 +16,30 @@ export function ProjectsSection() {
             </p>
           </div>
         </div>
-        <div className="projects"></div>
+        <div className="projects">
+          <CardProject
+            data="2025"
+            title="Portal do Cidadão - Estância Velha"
+            description="Facilitando o acesso aos serviços da Prefeitura"
+            imageSrc="/portal-cidadao.png"
+            imageAlt="Portal do Cidadão Image"
+          />
+          <CardProject
+            data="2025"
+            title="MeuDim"
+            description="Organizando as finanças de forma eficiente"
+            imageSrc="/meuDim.png"
+            imageAlt="MeuDim Image"
+          />
+          <CardProject
+            data="2024"
+            title="Design System Zeroz"
+            description="Construindo um 
+Design System escalável"
+            imageSrc="/Zeroz.png"
+            imageAlt="Zeroz Image"
+          />
+        </div>
       </div>
     </section>
   );
