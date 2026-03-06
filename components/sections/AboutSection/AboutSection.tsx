@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 import "./AboutSection.scss";
+import Image from "next/image";
 
 const photos = [
   "/image-1.jpg",
@@ -129,7 +130,12 @@ export function AboutSection() {
           >
             {photos.map((photo, i) => (
               <div key={i} className="about-section__carousel-slide">
-                <img src={photo} alt={`slide-${i}`} />
+                <Image
+                  width={500}
+                  height={500}
+                  src={photo}
+                  alt={`slide-${i}`}
+                />
               </div>
             ))}
           </motion.div>
