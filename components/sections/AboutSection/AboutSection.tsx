@@ -126,7 +126,7 @@ export function AboutSection() {
           <motion.div
             className="about-section__carousel-track"
             animate={{ x: `-${index * 100}%` }}
-            transition={{ type: "spring", stiffness: 80, damping: 30 }}
+            transition={{ duration: 0.45, ease: "easeInOut" }}
           >
             {photos.map((photo, i) => (
               <div key={i} className="about-section__carousel-slide">
