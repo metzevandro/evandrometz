@@ -60,3 +60,38 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px;
+
+    &__left {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+  }
+}
+
+@media (max-width: 425px) {
+  .footer {
+    flex-direction: column;
+    gap: 24px;
+    &__left {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    &__right {
+      text-align: left;
+      gap: 24px;
+    } 
+
+    &__back-to-top {
+      justify-content: flex-start;
+    }
+
+  }
+}
