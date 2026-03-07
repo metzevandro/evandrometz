@@ -12,7 +12,7 @@ export function Footer() {
           <AnimatedLink href="/#">Início</AnimatedLink>
           <AnimatedLink href="/#projects">Projetos</AnimatedLink>
           <AnimatedLink href="/#about">Sobre mim</AnimatedLink>
-          <AnimatedLink href="/#curriculo">Currículo</AnimatedLink>
+          <AnimatedLink href="/#curriculum">Currículo</AnimatedLink>
         </div>
 
         <div className="footer__social">

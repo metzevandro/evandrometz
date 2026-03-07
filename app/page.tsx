@@ -6,6 +6,7 @@ import { ProjectsSection } from "@/components/sections/ProjectsSection/ProjectsS
 import { AboutSection } from "@/components/sections/AboutSection/AboutSection";
 import AnimatedLiquidBackground from "@/components/ui/animatedLiquidBackground/AnimatedLiquidBackground";
 import { Footer } from "@/components/layout/footer/footer";
+import { CurriculumSection } from "@/components/sections/CurriculumSection/CurriculumSection";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <IntroSection />
       <ProjectsSection />
       <AboutSection />
+      <CurriculumSection />
       <Footer />
     </main>
   );
