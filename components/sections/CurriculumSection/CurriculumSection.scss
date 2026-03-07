@@ -7,17 +7,41 @@
   width: 100%;
 
   .sticky {
-      position: sticky;
-      top: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding-top: 40px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 40px;
+  }
+
+  a {
+    padding: 8px;
+    text-transform: uppercase;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    background-color: transparent;
+    border: 0px;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 150%;
+    width: fit-content;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      transition: all 0.3s;
+      background-color: white;
+      color: black;
+    }
   }
 
   &__left {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 50%;
 
     h1 {
@@ -39,8 +63,7 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-          padding-top: 40px;
-
+    padding-top: 40px;
   }
 
   &__course-card {
@@ -72,22 +95,24 @@
 }
 
 @media (max-width: 768px) {
-.curriculum-section {
+  .curriculum-section {
     padding: 20px;
     flex-direction: column;
     gap: 24px;
 
     &__left {
-    
-    width: 100%;
+      width: 100%;
+      gap: 24px;
 
-    .sticky {
+      .sticky {
+        position: unset;
         padding-top: 0px;
-    }
+      }
     }
 
     &__right {
-        width: 100%;
+      width: 100%;
+      padding-top: 0px;
     }
-}
+  }
 }

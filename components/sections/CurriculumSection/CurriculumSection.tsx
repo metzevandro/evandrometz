@@ -1,3 +1,4 @@
+import { Icon } from "@/components/ui/icon/Icon";
 import "./CurriculumSection.scss";
 
 type CourseProps = {
@@ -24,13 +25,17 @@ export function CurriculumSection() {
     <section id="curriculum" className="curriculum-section">
       <div className="curriculum-section__left">
         <div className="sticky">
-        <h1>Sempre aprendendo</h1>
-        <p>
-          Uma das coisas que mais amo na programação é que sempre há algo novo
-          para aprender. Aqui está uma seleção de algumas das coisas que tenho
-          aprendido ultimamente.
-        </p>
+          <h1>Sempre aprendendo</h1>
+          <p>
+            Uma das coisas que mais amo na programação é que sempre há algo novo
+            para aprender. Aqui está uma seleção de algumas das coisas que tenho
+            aprendido ultimamente.
+          </p>
         </div>
+        <a href="https://drive.google.com/file/d/1xqEExYYXpLdIcn9S0i6PeglbPahSFz8i/view?usp=drive_link" target="_blank">
+          Baixar Currículo
+          <Icon name="download" />
+        </a>
       </div>
       <div className="curriculum-section__right">
         <CourseCard
