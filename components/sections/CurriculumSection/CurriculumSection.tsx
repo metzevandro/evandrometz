@@ -32,9 +32,12 @@ export function CurriculumSection() {
             aprendido ultimamente.
           </p>
         </div>
-        <a href="https://drive.google.com/file/d/1xqEExYYXpLdIcn9S0i6PeglbPahSFz8i/view?usp=drive_link" target="_blank">
+        <a
+          href="https://drive.google.com/file/d/1xqEExYYXpLdIcn9S0i6PeglbPahSFz8i/view?usp=drive_link"
+          target="_blank"
+        >
+          <Icon name="file_save" />
           Baixar Currículo
-          <Icon name="download" />
         </a>
       </div>
       <div className="curriculum-section__right">

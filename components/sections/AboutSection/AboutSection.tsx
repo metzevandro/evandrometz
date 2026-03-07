@@ -14,22 +14,36 @@ const photos = [
   "/image-2.jpeg",
   "/image-3.jpeg",
   "/image-4.jpeg",
+  "/image-5.png",
 ];
 
 type Experience = {
-  periodo: string;
-  empresa: string;
-  cargo: string;
+  date: string;
+  enterprise: string;
+  role: string;
 };
 
-function ExperienceCard({ periodo, empresa, cargo }: Experience) {
+type Role = {
+  role: string;
+  date: string;
+};
+
+type ExperienceCardProps = {
+  enterprise: string;
+  roles: Role[];
+};
+
+function ExperienceCard({ enterprise, roles }: ExperienceCardProps) {
   return (
     <div className="about-section__experience-card">
-      <p>{periodo}</p>
-      <div>
-        <h6>{empresa}</h6>
-        <p>{cargo}</p>
-      </div>
+      <h6>{enterprise}</h6>
+
+      {roles.map((r, i) => (
+        <div key={i}>
+          <p>{r.role}</p>
+          <p>{r.date}</p>
+        </div>
+      ))}
     </div>
   );
 }
@@ -37,21 +51,34 @@ function ExperienceCard({ periodo, empresa, cargo }: Experience) {
 export function AboutSection() {
   const experiences: Experience[] = [
     {
-      periodo: "05/2025 - Presente",
-      empresa: "CIGAM Software de Gestão",
-      cargo: "Desenvolvedor de Software",
+      date: "Mai 2025 - Presente",
+      enterprise: "CIGAM Software de Gestão",
+      role: "Desenvolvedor de Software",
     },
     {
-      periodo: "01/2025 - 04/2025",
-      empresa: "CIGAM Software de Gestão",
-      cargo: "Estagiário de Desenvolvimento de Software",
+      date: "Jan 2025 - Abril 2025",
+      enterprise: "CIGAM Software de Gestão",
+      role: "Estagiário de Desenvolvimento de Software",
     },
     {
-      periodo: "06/2024 - 12/2024",
-      empresa: "Grupo Herval",
-      cargo: "Estagiário de TI",
+      date: "Jun 2024 - Dez 2024",
+      enterprise: "Grupo Herval",
+      role: "Estagiário de TI",
     },
   ];
+
+  const experiencesByEnterprise = experiences.reduce((acc, exp) => {
+    if (!acc[exp.enterprise]) {
+      acc[exp.enterprise] = [];
+    }
+
+    acc[exp.enterprise].push({
+      role: exp.role,
+      date: exp.date,
+    });
+
+    return acc;
+  }, {} as Record<string, Role[]>);
 
   const skills = [
     { Icon: FaReact, color: "#61DAFB" },
@@ -99,15 +126,23 @@ export function AboutSection() {
 
         <div className="about-section__experience">
           <h4>Experiência Profissional</h4>
+
           <div className="about-section__list-experience">
-            {experiences.map((exp) => (
-              <ExperienceCard key={`${exp.empresa}-${exp.periodo}`} {...exp} />
-            ))}
+            {Object.entries(experiencesByEnterprise).map(
+              ([enterprise, roles]) => (
+                <ExperienceCard
+                  key={enterprise}
+                  enterprise={enterprise}
+                  roles={roles}
+                />
+              )
+            )}
           </div>
         </div>
 
         <div className="about-section__skills">
           <h4>Especialidades</h4>
+
           <div className="about-section__list-skills">
             {skills.map(({ Icon, color }, index) => (
               <div key={index}>
