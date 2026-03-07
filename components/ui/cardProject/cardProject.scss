@@ -4,7 +4,7 @@
   gap: 16px;
   cursor: pointer;
   width: 100%;
-  
+
   &:hover {
     .card-project__image {
       img {
@@ -21,13 +21,13 @@
 
     h3 {
       font-weight: 400;
-      font-size: 12px;
+      font-size: 10px;
       opacity: 70%;
     }
 
     p {
       font-weight: 400;
-      font-size: 12px;
+      font-size: 10px;
       opacity: 70%;
     }
   }
@@ -39,7 +39,7 @@
 
     p {
       font-weight: 400;
-      font-size: 16px;
+      font-size: 10px;
     }
   }
   &__image {
