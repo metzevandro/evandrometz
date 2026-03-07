@@ -1,7 +1,7 @@
-import dynamic from "next/dynamic";
 import "./IntroSection.scss";
 import { Icon } from "@/components/ui/icon/Icon";
 import { AnimatedLink } from "@/components/ui/animatedLink/animatedLink";
+import { motion } from "framer-motion";
 
 export function IntroSection() {
   return (
@@ -38,9 +38,50 @@ export function IntroSection() {
           </div>
 
           <div className="intro-section__scroll">
-            <Icon name="keyboard_double_arrow_down" />
-            <a href="#projects">Role a tela para ver projetos</a>
-            <Icon name="keyboard_double_arrow_down" />
+            <motion.div
+              className="intro-section__arrow"
+              whileHover="hover"
+              initial="initial"
+            >
+              <motion.div
+              style={{display: 'flex',
+                alignItems: 'center'
+              }}
+                variants={{
+                  initial: { y: 0, opacity: 1 },
+                  hover: {
+                    y: [0, 20, -10, 0],
+                    opacity: [1, 0, 0, 1],
+                    transition: {
+                      duration: 0.3,
+                      ease: "easeIn",
+                    },
+                  },
+                }}
+              >
+                <Icon name="keyboard_double_arrow_down" />
+              </motion.div>
+
+              <a href="#projects">Role a tela para ver projetos</a>
+
+              <motion.div style={{display: 'flex',
+                alignItems: 'center'
+              }}
+                variants={{
+                  initial: { y: 0, opacity: 1 },
+                  hover: {
+                    y: [0, 20, -10, 0],
+                    opacity: [1, 0, 0, 1],
+                    transition: {
+                      duration: 0.3,
+                      ease: "easeIn",
+                    },
+                  },
+                }}
+              >
+                <Icon name="keyboard_double_arrow_down" />
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </div>

@@ -67,18 +67,21 @@ export function AboutSection() {
     },
   ];
 
-  const experiencesByEnterprise = experiences.reduce((acc, exp) => {
-    if (!acc[exp.enterprise]) {
-      acc[exp.enterprise] = [];
-    }
+  const experiencesByEnterprise = experiences.reduce(
+    (acc, exp) => {
+      if (!acc[exp.enterprise]) {
+        acc[exp.enterprise] = [];
+      }
 
-    acc[exp.enterprise].push({
-      role: exp.role,
-      date: exp.date,
-    });
+      acc[exp.enterprise].push({
+        role: exp.role,
+        date: exp.date,
+      });
 
-    return acc;
-  }, {} as Record<string, Role[]>);
+      return acc;
+    },
+    {} as Record<string, Role[]>,
+  );
 
   const skills = [
     { Icon: FaReact, color: "#61DAFB" },
@@ -135,7 +138,7 @@ export function AboutSection() {
                   enterprise={enterprise}
                   roles={roles}
                 />
-              )
+              ),
             )}
           </div>
         </div>
