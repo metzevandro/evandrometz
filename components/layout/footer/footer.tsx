@@ -68,14 +68,13 @@ export function Footer() {
           </AnimatedLink>
         </div>
 
-        <motion.div
+        <motion.a
           className="footer__back-to-top"
           initial="initial"
           whileHover="hover"
+          href="/#"
         >
-          <motion.a variants={arrowVariants} href="/#">
-            Voltar para o topo
-          </motion.a>
+          <motion.div variants={arrowVariants}>Voltar para o topo</motion.div>
 
           <motion.div
             style={{ display: "flex", alignItems: "center" }}
@@ -83,7 +82,7 @@ export function Footer() {
           >
             <Icon name="keyboard_double_arrow_up" />
           </motion.div>
-        </motion.div>
+        </motion.a>
       </div>
     </footer>
   );

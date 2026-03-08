@@ -53,10 +53,11 @@ export function IntroSection() {
           </div>
 
           <div className="intro-section__scroll">
-            <motion.div
+            <motion.a
               className="intro-section__arrow"
               initial="initial"
               whileHover="hover"
+              href="#projects"
             >
               <motion.div
                 style={{ display: "flex", alignItems: "center" }}
@@ -65,13 +66,12 @@ export function IntroSection() {
                 <Icon name="keyboard_double_arrow_down" />
               </motion.div>
 
-              <motion.a
-                href="#projects"
+              <motion.p
                 className="intro-section__scroll-text"
                 variants={arrowVariants}
               >
                 Role a tela para ver projetos
-              </motion.a>
+              </motion.p>
 
               <motion.div
                 style={{ display: "flex", alignItems: "center" }}
@@ -79,7 +79,7 @@ export function IntroSection() {
               >
                 <Icon name="keyboard_double_arrow_down" />
               </motion.div>
-            </motion.div>
+            </motion.a>
           </div>
         </div>
       </div>
