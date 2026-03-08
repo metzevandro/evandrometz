@@ -49,6 +49,13 @@ export function Footer() {
           >
             LinkedIn
           </AnimatedLink>
+          <AnimatedLink
+            href="https://www.instagram.com/evandro.metz/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </AnimatedLink>
         </div>
       </div>
 
