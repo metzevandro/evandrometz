@@ -61,7 +61,7 @@
     padding: 8px;
     border: 1px solid white;
     gap: 4px;
-        cursor: pointer;
+    cursor: pointer;
 
     &:hover {
       background-color: white;
@@ -71,7 +71,6 @@
         color: black;
       }
     }
-    
 
     a {
       opacity: 100%;
@@ -104,6 +103,7 @@
     &__right {
       text-align: left;
       gap: 24px;
+      align-items: start;
     }
 
     &__back-to-top {

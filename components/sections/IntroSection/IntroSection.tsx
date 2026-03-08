@@ -58,7 +58,10 @@ export function IntroSection() {
               initial="initial"
               whileHover="hover"
             >
-              <motion.div style={{display: 'flex', alignItems: 'center'}} variants={arrowVariants}>
+              <motion.div
+                style={{ display: "flex", alignItems: "center" }}
+                variants={arrowVariants}
+              >
                 <Icon name="keyboard_double_arrow_down" />
               </motion.div>
 
@@ -70,7 +73,10 @@ export function IntroSection() {
                 Role a tela para ver projetos
               </motion.a>
 
-              <motion.div style={{display: 'flex', alignItems: 'center'}} variants={arrowVariants}>
+              <motion.div
+                style={{ display: "flex", alignItems: "center" }}
+                variants={arrowVariants}
+              >
                 <Icon name="keyboard_double_arrow_down" />
               </motion.div>
             </motion.div>

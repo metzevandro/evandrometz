@@ -77,7 +77,10 @@ export function Footer() {
             Voltar para o topo
           </motion.a>
 
-          <motion.div style={{display: 'flex', alignItems: 'center'}} variants={arrowVariants}>
+          <motion.div
+            style={{ display: "flex", alignItems: "center" }}
+            variants={arrowVariants}
+          >
             <Icon name="keyboard_double_arrow_up" />
           </motion.div>
         </motion.div>
