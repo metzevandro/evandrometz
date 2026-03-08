@@ -33,6 +33,7 @@
   }
 
   &__right {
+    align-items: end;
     text-align: right;
   }
 
@@ -54,6 +55,23 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    overflow: hidden;
+    width: fit-content;
+    transition: all 0.3s ease;
+    padding: 8px;
+    border: 1px solid white;
+    gap: 4px;
+        cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      color: black;
+
+      a {
+        color: black;
+      }
+    }
+    
 
     a {
       opacity: 100%;

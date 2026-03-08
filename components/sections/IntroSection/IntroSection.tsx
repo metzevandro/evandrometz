@@ -1,7 +1,22 @@
 import "./IntroSection.scss";
 import { Icon } from "@/components/ui/icon/Icon";
 import { AnimatedLink } from "@/components/ui/animatedLink/animatedLink";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
+
+const arrowVariants: Variants = {
+  initial: {
+    y: 0,
+    opacity: 1,
+  },
+  hover: {
+    y: [0, 20, -10, 0],
+    opacity: [1, 0, 0, 1],
+    transition: {
+      duration: 0.5,
+      ease: "easeIn",
+    },
+  },
+};
 
 export function IntroSection() {
   return (
@@ -40,45 +55,22 @@ export function IntroSection() {
           <div className="intro-section__scroll">
             <motion.div
               className="intro-section__arrow"
-              whileHover="hover"
               initial="initial"
+              whileHover="hover"
             >
-              <motion.div
-              style={{display: 'flex',
-                alignItems: 'center'
-              }}
-                variants={{
-                  initial: { y: 0, opacity: 1 },
-                  hover: {
-                    y: [0, 20, -10, 0],
-                    opacity: [1, 0, 0, 1],
-                    transition: {
-                      duration: 0.3,
-                      ease: "easeIn",
-                    },
-                  },
-                }}
-              >
+              <motion.div style={{display: 'flex', alignItems: 'center'}} variants={arrowVariants}>
                 <Icon name="keyboard_double_arrow_down" />
               </motion.div>
 
-              <a href="#projects">Role a tela para ver projetos</a>
-
-              <motion.div style={{display: 'flex',
-                alignItems: 'center'
-              }}
-                variants={{
-                  initial: { y: 0, opacity: 1 },
-                  hover: {
-                    y: [0, 20, -10, 0],
-                    opacity: [1, 0, 0, 1],
-                    transition: {
-                      duration: 0.3,
-                      ease: "easeIn",
-                    },
-                  },
-                }}
+              <motion.a
+                href="#projects"
+                className="intro-section__scroll-text"
+                variants={arrowVariants}
               >
+                Role a tela para ver projetos
+              </motion.a>
+
+              <motion.div style={{display: 'flex', alignItems: 'center'}} variants={arrowVariants}>
                 <Icon name="keyboard_double_arrow_down" />
               </motion.div>
             </motion.div>
