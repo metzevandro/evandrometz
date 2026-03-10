@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main>
       <div className="animated-background">
-        <AnimatedLiquidBackground preset="Mist" speed={20} />
+        <AnimatedLiquidBackground preset="Home" speed={20} />
       </div>
       <IntroSection />
       <ProjectsSection />

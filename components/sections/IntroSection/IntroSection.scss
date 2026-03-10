@@ -99,18 +99,8 @@
     align-items: center;
     gap: 6px;
     padding: 8px;
-    border: 1px solid white;
     overflow: hidden;
     cursor: pointer;
-
-    &:hover {
-      background-color: white;
-      color: black;
-
-      a {
-        color: black;
-      }
-    }
   }
 }
 

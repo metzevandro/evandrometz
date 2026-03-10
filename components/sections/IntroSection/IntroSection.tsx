@@ -66,12 +66,9 @@ export function IntroSection() {
                 <Icon name="keyboard_double_arrow_down" />
               </motion.div>
 
-              <motion.p
-                className="intro-section__scroll-text"
-                variants={arrowVariants}
-              >
+              <p className="intro-section__scroll-text">
                 Role a tela para ver projetos
-              </motion.p>
+              </p>
 
               <motion.div
                 style={{ display: "flex", alignItems: "center" }}

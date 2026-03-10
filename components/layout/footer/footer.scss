@@ -55,22 +55,20 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    overflow: hidden;
-    width: fit-content;
     transition: all 0.3s ease;
     padding: 8px;
-    border: 1px solid white;
     gap: 4px;
     cursor: pointer;
     opacity: 100%;
+    text-transform: uppercase;
+    white-space: nowrap;
 
-    &:hover {
-      background-color: white;
-      color: black;
+    font-size: 14px;
+    font-weight: 700;
+    opacity: 100% !important;
 
-      a {
-        color: black;
-      }
+    div {
+      opacity: 100%;
     }
 
     a {

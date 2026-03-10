@@ -74,14 +74,13 @@ export function Footer() {
           whileHover="hover"
           href="/#"
         >
-          <motion.div variants={arrowVariants}>Voltar para o topo</motion.div>
-
           <motion.div
             style={{ display: "flex", alignItems: "center" }}
             variants={arrowVariants}
           >
-            <Icon name="keyboard_double_arrow_up" />
+            <Icon name="arrow_upward" />
           </motion.div>
+          <p>Voltar ao topo</p>
         </motion.a>
       </div>
     </footer>
