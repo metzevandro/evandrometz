@@ -21,21 +21,17 @@
     display: flex;
     gap: 6px;
     align-items: center;
-    background-color: transparent;
-    border: 0px;
-    color: white;
+    background-color: white;
+      color: black;
     font-size: 14px;
     font-weight: 700;
     line-height: 150%;
     width: fit-content;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-    border: 1px solid white;
 
     &:hover {
-      transition: all 0.3s;
-      background-color: white;
-      color: black;
+      background-color: rgb(255, 255, 255, 0.6);
     }
   }
 

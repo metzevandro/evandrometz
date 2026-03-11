@@ -1,23 +1,9 @@
 import { Icon } from "@/components/ui/icon/Icon";
 import { AnimatedLink } from "@/components/ui/animatedLink/animatedLink";
 import "./footer.scss";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 
 export function Footer() {
-  const arrowVariants: Variants = {
-    initial: {
-      y: 0,
-      opacity: 1,
-    },
-    hover: {
-      y: [0, -20, 10, 0],
-      opacity: [1, 0, 0, 1],
-      transition: {
-        duration: 0.6,
-        ease: "linear",
-      },
-    },
-  };
 
   return (
     <footer className="footer">
@@ -68,20 +54,17 @@ export function Footer() {
           </AnimatedLink>
         </div>
 
-        <motion.a
+        <a
           className="footer__back-to-top"
-          initial="initial"
-          whileHover="hover"
           href="/#"
         >
-          <motion.div
+          <div
             style={{ display: "flex", alignItems: "center" }}
-            variants={arrowVariants}
           >
             <Icon name="arrow_upward" />
-          </motion.div>
+          </div>
           <p>Voltar ao topo</p>
-        </motion.a>
+        </a>
       </div>
     </footer>
   );

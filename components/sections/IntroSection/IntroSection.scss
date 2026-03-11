@@ -99,7 +99,6 @@
     align-items: center;
     gap: 6px;
     padding: 8px;
-    overflow: hidden;
     cursor: pointer;
   }
 }
@@ -120,6 +119,6 @@
 
 @media (max-width: 768px) {
   .intro-section__image-wrapper {
-    width: clamp(220px, 32vw, 320px);
+    width: clamp(280px, 32vw, 320px);
   }
 }
