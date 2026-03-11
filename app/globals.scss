@@ -78,7 +78,7 @@ main {
 .blur-container::before {
   content: "";
   position: absolute;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
   transform: translateZ(0);
   inset: 0;
 
