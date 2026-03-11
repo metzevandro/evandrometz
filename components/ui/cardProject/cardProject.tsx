@@ -1,4 +1,4 @@
-import "./cardProject.module.scss";
+import "./cardProject.scss";
 import { useRouter } from "next/navigation";
 
 interface CardProjectProps {

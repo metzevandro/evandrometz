@@ -6,7 +6,7 @@ import { GrOracle } from "react-icons/gr";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-import "./AboutSection.module.scss";
+import "./AboutSection.scss";
 import Image from "next/image";
 
 const photos = [

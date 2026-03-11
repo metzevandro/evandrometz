@@ -1,4 +1,4 @@
-import "./Icon.module.scss";
+import "./Icon.scss";
 
 interface IconProps {
   name: string;
