@@ -1,5 +1,5 @@
 import { CardProject } from "@/components/ui/cardProject/cardProject";
-import "./ProjectsSection.scss";
+import "./ProjectsSection.module.scss";
 
 export function ProjectsSection() {
   return (

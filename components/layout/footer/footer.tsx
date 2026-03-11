@@ -1,7 +1,6 @@
 import { Icon } from "@/components/ui/icon/Icon";
 import { AnimatedLink } from "@/components/ui/animatedLink/animatedLink";
-import "./footer.scss";
-import { motion } from "framer-motion";
+import "./footer.module.scss";
 
 export function Footer() {
   return (

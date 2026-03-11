@@ -1,4 +1,4 @@
-import "./IntroSection.scss";
+import "./IntroSection.module.scss";
 import { Icon } from "@/components/ui/icon/Icon";
 import { AnimatedLink } from "@/components/ui/animatedLink/animatedLink";
 import { motion, Variants, useMotionValue, useSpring } from "framer-motion";
@@ -64,6 +64,7 @@ export function IntroSection() {
                 rotateY: smoothY,
                 transformPerspective: 800,
               }}
+              fetchPriority="high"
             />
           </div>
 

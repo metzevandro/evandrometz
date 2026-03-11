@@ -6,7 +6,7 @@ import { GrOracle } from "react-icons/gr";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-import "./AboutSection.scss";
+import "./AboutSection.module.scss";
 import Image from "next/image";
 
 const photos = [
@@ -173,6 +173,8 @@ export function AboutSection() {
                   height={500}
                   src={photo}
                   alt={`slide-${i}`}
+                  priority={i === 0}
+                  loading={i === 0 ? undefined : "lazy"}
                 />
               </div>
             ))}

@@ -1,5 +1,5 @@
 import { Icon } from "@/components/ui/icon/Icon";
-import "./CurriculumSection.scss";
+import "./CurriculumSection.module.scss";
 
 type CourseProps = {
   date: string;
