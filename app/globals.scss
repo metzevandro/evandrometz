@@ -80,6 +80,7 @@ main {
   position: absolute;
   transform: translateZ(0);
   inset: 0;
+  backdrop-filter: blur(10px);
 
   mask-image: linear-gradient(
     to bottom,
