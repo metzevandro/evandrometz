@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Evandro Metz", url: "https://evandrometz.com" }],
   creator: "Evandro Metz",
+
+  appleWebApp: {
+    capable: true,
+  },
+
   openGraph: {
     title: "Evandro Metz - Desenvolvedor Frontend",
     description:
