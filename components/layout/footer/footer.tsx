@@ -4,7 +4,6 @@ import "./footer.scss";
 import { motion } from "framer-motion";
 
 export function Footer() {
-
   return (
     <footer className="footer">
       <div className="footer__left">
@@ -54,13 +53,8 @@ export function Footer() {
           </AnimatedLink>
         </div>
 
-        <a
-          className="footer__back-to-top"
-          href="/#"
-        >
-          <div
-            style={{ display: "flex", alignItems: "center" }}
-          >
+        <a className="footer__back-to-top" href="/#">
+          <div style={{ display: "flex", alignItems: "center" }}>
             <Icon name="arrow_upward" />
           </div>
           <p>Voltar ao topo</p>
