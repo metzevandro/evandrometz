@@ -55,7 +55,7 @@ export function IntroSection() {
             <motion.img
               ref={ref}
               className="intro-section__image"
-              src="/evandro.png"
+              src="/evandro.webp"
               alt="Evandro Metz"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}

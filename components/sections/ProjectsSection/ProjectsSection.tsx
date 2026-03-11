@@ -21,7 +21,7 @@ export function ProjectsSection() {
             date="2025"
             title="Portal do Cidadão - Estância Velha"
             description="Facilitando o acesso aos serviços da Prefeitura"
-            imageSrc="/portal-cidadao.png"
+            imageSrc="/portal-cidadao.webp"
             imageAlt="Portal do Cidadão Image"
             projectUrl=""
           />
@@ -29,7 +29,7 @@ export function ProjectsSection() {
             date="2025"
             title="MeuDim"
             description="Organizando as finanças de forma eficiente"
-            imageSrc="/MeuDim.png"
+            imageSrc="/MeuDim.webp"
             imageAlt="MeuDim Image"
             projectUrl=""
           />
@@ -38,7 +38,7 @@ export function ProjectsSection() {
             title="Design System Zeroz"
             description="Construindo um 
 Design System escalável"
-            imageSrc="/Zeroz.png"
+            imageSrc="/Zeroz.webp"
             imageAlt="Zeroz Image"
             projectUrl="/design-system-zeroz"
           />

@@ -10,11 +10,11 @@ import "./AboutSection.scss";
 import Image from "next/image";
 
 const photos = [
-  "/image-1.jpg",
-  "/image-2.jpeg",
-  "/image-3.jpeg",
-  "/image-4.jpeg",
-  "/image-5.png",
+  "/image-1.webp",
+  "/image-2.webp",
+  "/image-3.webp",
+  "/image-4.webp",
+  "/image-5.webp",
 ];
 
 type Experience = {
