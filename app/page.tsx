@@ -9,8 +9,9 @@ import { CurriculumSection } from "@/components/sections/CurriculumSection/Curri
 import dynamic from "next/dynamic";
 
 const AnimatedLiquidBackground = dynamic(
-  () => import("../components/ui/animatedLiquidBackground/AnimatedLiquidBackground"),
-  { ssr: false }
+  () =>
+    import("../components/ui/animatedLiquidBackground/AnimatedLiquidBackground"),
+  { ssr: false },
 );
 
 export default function Home() {
