@@ -71,14 +71,16 @@ main {
   z-index: 2;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
 .blur-container::before {
   content: "";
   position: absolute;
-  inset: 0;
   backdrop-filter: blur(10px);
+  transform: translateZ(0);
+  inset: 0;
 
   mask-image: linear-gradient(
     to bottom,
@@ -93,5 +95,4 @@ main {
     rgba(0,0,0,1) 100%
   );
 
-  pointer-events: none;
 }
