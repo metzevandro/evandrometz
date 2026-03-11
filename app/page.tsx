@@ -15,10 +15,13 @@ export default function Home() {
         <AnimatedLiquidBackground preset="Home" speed={20} />
       </div>
       <IntroSection />
-      <ProjectsSection />
-      <AboutSection />
-      <CurriculumSection />
-      <Footer />
+      <div className="blur-container">
+
+        <ProjectsSection />
+        <AboutSection />
+        <CurriculumSection />
+        <Footer />
+      </div>
     </main>
   );
 }

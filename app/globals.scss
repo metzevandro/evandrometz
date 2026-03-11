@@ -64,3 +64,34 @@ main {
     max-width: 1440px;
   }
 }
+
+.blur-container {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.blur-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(10px);
+
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.6) 10%,
+    rgba(0,0,0,1) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.6) 10%,
+    rgba(0,0,0,1) 100%
+  );
+
+  pointer-events: none;
+}
