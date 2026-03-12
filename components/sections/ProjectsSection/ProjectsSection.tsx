@@ -29,7 +29,7 @@ export function ProjectsSection() {
             date="2025"
             title="MeuDim"
             description="Organizando as finanças de forma eficiente"
-            imageSrc="/meudim.webp"
+            imageSrc="/MeuDim.webp"
             imageAlt="MeuDim Image"
             projectUrl=""
           />
