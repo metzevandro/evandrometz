@@ -93,7 +93,6 @@ export function AboutSection() {
     { Icon: GrOracle, color: "#F80000" },
   ];
 
-  const [index, setIndex] = useState(0);
   const [height, setHeight] = useState(0);
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -104,12 +103,23 @@ export function AboutSection() {
     }
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
+  const [index, setIndex] = useState(0);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const startAutoPlay = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+
+    intervalRef.current = setInterval(() => {
       setIndex((prev) => (prev + 1) % photos.length);
     }, 5000);
+  };
 
-    return () => clearInterval(interval);
+  useEffect(() => {
+    startAutoPlay();
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
   }, []);
 
   return (
@@ -182,21 +192,24 @@ export function AboutSection() {
         </div>
 
         <div
-  className="about-section__carousel-dots"
-  aria-label="Selecionar imagem do carrossel"
-  role="tablist"
->
-  {photos.map((_, i) => (
-    <button
-      key={i}
-      role="tab"
-      className={`dot ${i === index ? "active" : ""}`}
-      onClick={() => setIndex(i)}
-      aria-label={`Ir para slide ${i + 1}`}
-      aria-selected={i === index}
-    />
-  ))}
-</div>
+          className="about-section__carousel-dots"
+          aria-label="Selecionar imagem do carrossel"
+          role="tablist"
+        >
+          {photos.map((_, i) => (
+            <button
+              key={i}
+              role="tab"
+              className={`dot ${i === index ? "active" : ""}`}
+              onClick={() => {
+                setIndex(i);
+                startAutoPlay();
+              }}
+              aria-label={`Ir para slide ${i + 1}`}
+              aria-selected={i === index}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

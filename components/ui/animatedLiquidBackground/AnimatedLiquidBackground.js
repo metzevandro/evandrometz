@@ -34,9 +34,9 @@ const templates = {
     shapeSize: 48,
   },
   Zeroz: {
-    color1: "#ffffff",
+    color1: "#050505",
     color2: "#9333ea",
-    color3: "#ffffff",
+    color3: "#050505",
     rotation: 0,
     proportion: 33,
     scale: 0.48,

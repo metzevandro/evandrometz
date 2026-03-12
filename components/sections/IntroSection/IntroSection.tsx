@@ -58,8 +58,7 @@ export function IntroSection() {
             <MotionImage
               width={400}
               height={400}
-                sizes="(max-width: 768px) 300px, 400px"
-
+              sizes="(max-width: 768px) 300px, 400px"
               ref={ref}
               className="intro-section__image"
               src="/evandro.webp"
