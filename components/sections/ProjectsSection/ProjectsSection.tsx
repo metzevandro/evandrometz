@@ -21,15 +21,15 @@ export function ProjectsSection() {
             date="2025"
             title="Portal do Cidadão - Estância Velha"
             description="Facilitando o acesso aos serviços da Prefeitura"
-            imageSrc="/portal-cidadao.webp"
-            imageAlt="Portal do Cidadão Image"
+            imageSrc="/portal-cidadao-estancia-velha.webp"
+            imageAlt="Portal do Cidadão - Estância Velha Image"
             projectUrl=""
           />
           <CardProject
             date="2025"
             title="MeuDim"
             description="Organizando as finanças de forma eficiente"
-            imageSrc="/MeuDim.webp"
+            imageSrc="/meudim.webp"
             imageAlt="MeuDim Image"
             projectUrl=""
           />
@@ -38,8 +38,8 @@ export function ProjectsSection() {
             title="Design System Zeroz"
             description="Construindo um 
 Design System escalável"
-            imageSrc="/Zeroz.webp"
-            imageAlt="Zeroz Image"
+            imageSrc="/design-system-zeroz.webp"
+            imageAlt="Design System Zeroz Image"
             projectUrl="/design-system-zeroz"
           />
         </div>

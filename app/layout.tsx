@@ -2,45 +2,89 @@ import type { Metadata } from "next";
 import "./globals.scss";
 
 export const metadata: Metadata = {
-  title: "Evandro Metz",
-  description: "Evandro Metz - Desenvolvedor Frontend",
+  title: {
+    default: "Evandro Metz - Software Developer",
+    template: "%s | Evandro Metz",
+  },
+
+  description:
+    "Sou Evandro Metz, Software Developer no Brasil. Crio aplicações com React, TypeScript, JavaScript, SQL e .NET — com foco em código robusto e interfaces visualmente clean.",
+
   keywords: [
     "Evandro Metz",
-    "Desenvolvedor Frontend",
-    "Frontend Developer",
-    "React",
-    "Next.js",
-    "JavaScript",
-    "TypeScript",
-    "UI",
-    "Web Developer",
-    "Portfólio",
+    "Software Developer Brasil",
+    "Frontend Developer Portfolio",
+    "React Developer",
+    "TypeScript Developer",
+    "JavaScript Developer",
+    "SQL Developer",
+    ".NET Developer",
+    "Design System Developer",
+    "ERP Developer",
+    "Dashboard Developer",
+    "Web Developer Brasil",
+    "Developer Portfolio",
   ],
-  authors: [{ name: "Evandro Metz", url: "https://evandrometz.com" }],
+
+  authors: [
+    {
+      name: "Evandro Metz",
+      url: "https://evandrometz.com",
+    },
+  ],
+
   creator: "Evandro Metz",
+  publisher: "Evandro Metz",
+
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  alternates: {
+    canonical: "https://evandrometz.com",
+  },
 
   appleWebApp: {
     capable: true,
   },
 
   openGraph: {
-    title: "Evandro Metz - Desenvolvedor Frontend",
+    title: "Evandro Metz - Software Developer",
     description:
-      "Portfólio de Evandro Metz, especialista em desenvolvimento frontend.",
+      "Portfolio de Evandro Metz, Software Developer no Brasil especializado em React, TypeScript, SQL e .NET — com foco em código robusto e interfaces visualmente clean.",
     url: "https://evandrometz.com",
     siteName: "Evandro Metz",
-    images: [
-      {
-        url: "https://evandrometz.vercel.app/evandro.png",
-        width: 1200,
-        height: 630,
-        alt: "Evandro Metz - Desenvolvedor Frontend",
-      },
-    ],
     locale: "pt_BR",
     type: "website",
+    images: [
+      {
+        url: "https://evandrometz.com/evandro.webp",
+        width: 1200,
+        height: 630,
+        alt: "Evandro Metz - Software Developer",
+      },
+    ],
     emails: ["evandro.metz@outlook.com"],
   },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Evandro Metz - Software Developer",
+    description:
+      "Software Developer no Brasil especializado em React, TypeScript, SQL, Oracle e .NET.",
+    images: ["https://evandrometz.com/evandro.webp"],
+  },
+
+  category: "technology",
 };
 
 export default function RootLayout({
@@ -55,7 +99,39 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+          rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Evandro Metz",
+              url: "https://evandrometz.com.br",
+              jobTitle: "Software Developer",
+              worksFor: {
+                "@type": "Organization",
+                name: "CIGAM",
+              },
+              sameAs: [
+                "https://github.com/metzevandro",
+                "https://linkedin.com/in/metzevandro",
+              ],
+            }),
+          }}
+        />
       </head>
+
       <body>{children}</body>
     </html>
   );

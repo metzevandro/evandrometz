@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "./cardProject.scss";
 import { useRouter } from "next/navigation";
 
@@ -22,12 +23,18 @@ export function CardProject(props: CardProjectProps) {
   return (
     <div className="card-project" onClick={navigationTo}>
       <div className="card-project__header">
-        <h3>{title}</h3>
+        <h1>{title}</h1>
         <p>{date}</p>
       </div>
 
       <div className="card-project__image">
-        <img src={imageSrc} alt={imageAlt} />
+        <Image
+          className="img"
+          width={1200}
+          height={800}
+          src={imageSrc}
+          alt={imageAlt}
+        />
       </div>
 
       <div className="card-project__footer">

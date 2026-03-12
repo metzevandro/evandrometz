@@ -36,7 +36,7 @@ type ExperienceCardProps = {
 function ExperienceCard({ enterprise, roles }: ExperienceCardProps) {
   return (
     <div className="about-section__experience-card">
-      <h6>{enterprise}</h6>
+      <h1>{enterprise}</h1>
 
       {roles.map((r, i) => (
         <div key={i}>
@@ -128,7 +128,7 @@ export function AboutSection() {
         </div>
 
         <div className="about-section__experience">
-          <h4>Experiência Profissional</h4>
+          <h1>Experiência Profissional</h1>
 
           <div className="about-section__list-experience">
             {Object.entries(experiencesByEnterprise).map(
@@ -144,7 +144,7 @@ export function AboutSection() {
         </div>
 
         <div className="about-section__skills">
-          <h4>Especialidades</h4>
+          <h1>Especialidades</h1>
 
           <div className="about-section__list-skills">
             {skills.map(({ Icon, color }, index) => (
@@ -181,15 +181,22 @@ export function AboutSection() {
           </motion.div>
         </div>
 
-        <div className="about-section__carousel-dots">
-          {photos.map((_, i) => (
-            <button
-              key={i}
-              className={`dot ${i === index ? "active" : ""}`}
-              onClick={() => setIndex(i)}
-            />
-          ))}
-        </div>
+        <div
+  className="about-section__carousel-dots"
+  aria-label="Selecionar imagem do carrossel"
+  role="tablist"
+>
+  {photos.map((_, i) => (
+    <button
+      key={i}
+      role="tab"
+      className={`dot ${i === index ? "active" : ""}`}
+      onClick={() => setIndex(i)}
+      aria-label={`Ir para slide ${i + 1}`}
+      aria-selected={i === index}
+    />
+  ))}
+</div>
       </div>
     </section>
   );

@@ -27,7 +27,7 @@
     line-height: 100%;
   }
 
-  h4 {
+  h1 {
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -93,7 +93,7 @@
       opacity: 70%;
     }
 
-    h6 {
+    h1 {
       font-size: 16px;
       font-weight: 500;
       line-height: 24px;
@@ -166,8 +166,8 @@
   gap: 8px;
 
   .dot {
-    width: 15px;
-    height: 15px;
+    width: 24px;
+    height: 24px;
     border: none;
     background: rgba(255, 255, 255, 0.3);
     cursor: pointer;

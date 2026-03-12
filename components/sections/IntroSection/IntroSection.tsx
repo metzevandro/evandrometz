@@ -69,7 +69,7 @@ export function IntroSection() {
           </div>
 
           <div className="intro-section__info">
-            <h4>
+            <h1>
               Desenvolvedor de Software na{" "}
               <AnimatedLink
                 href="https://www.cigam.com.br/"
@@ -78,7 +78,7 @@ export function IntroSection() {
               >
                 CIGAM
               </AnimatedLink>
-            </h4>
+            </h1>
 
             <h1>Evandro Metz</h1>
 

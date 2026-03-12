@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="footer">
       <div className="footer__left">
         <div className="footer__sitemap">
-          <h5>Sitemap</h5>
+          <h1>Sitemap</h1>
 
           <AnimatedLink href="/#">Início</AnimatedLink>
           <AnimatedLink href="/#projects">Projetos</AnimatedLink>
@@ -16,7 +16,7 @@ export function Footer() {
         </div>
 
         <div className="footer__social">
-          <h5>Redes</h5>
+          <h1>Redes</h1>
 
           <AnimatedLink
             href="https://github.com/metzevandro"
@@ -45,7 +45,7 @@ export function Footer() {
 
       <div className="footer__right">
         <div className="footer__contact">
-          <h5>Contato</h5>
+          <h1>Contato</h1>
 
           <AnimatedLink href="mailto:evandro.metz@outlook.com">
             evandro.metz@outlook.com

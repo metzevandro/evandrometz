@@ -13,7 +13,7 @@ function CourseCard(props: CourseProps) {
     <div className="curriculum-section__course-card">
       <p>{date}</p>
       <div>
-        <h6>{title}</h6>
+        <h1>{title}</h1>
         <p>{description}</p>
       </div>
     </div>
