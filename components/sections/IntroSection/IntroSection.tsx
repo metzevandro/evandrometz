@@ -3,6 +3,9 @@ import { Icon } from "@/components/ui/icon/Icon";
 import { AnimatedLink } from "@/components/ui/animatedLink/animatedLink";
 import { motion, Variants, useMotionValue, useSpring } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
+
+const MotionImage = motion.create(Image);
 
 const arrowVariants: Variants = {
   animate: {
@@ -16,7 +19,7 @@ const arrowVariants: Variants = {
 };
 
 export function IntroSection() {
-  const ref = useRef<HTMLImageElement>(null);
+  const ref = useRef<HTMLImageElement | null>(null);
 
   const rotateX = useMotionValue(0);
   const rotateY = useMotionValue(0);
@@ -52,7 +55,11 @@ export function IntroSection() {
       <div className="intro-section__container">
         <div className="intro-section__content">
           <div className="intro-section__image-wrapper">
-            <motion.img
+            <MotionImage
+              width={400}
+              height={400}
+                sizes="(max-width: 768px) 300px, 400px"
+
               ref={ref}
               className="intro-section__image"
               src="/evandro.webp"
@@ -64,12 +71,12 @@ export function IntroSection() {
                 rotateY: smoothY,
                 transformPerspective: 800,
               }}
-              fetchPriority="high"
+              priority
             />
           </div>
 
           <div className="intro-section__info">
-            <h1>
+            <h2>
               Desenvolvedor de Software na{" "}
               <AnimatedLink
                 href="https://www.cigam.com.br/"
@@ -78,7 +85,7 @@ export function IntroSection() {
               >
                 CIGAM
               </AnimatedLink>
-            </h1>
+            </h2>
 
             <h1>Evandro Metz</h1>
 

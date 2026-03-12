@@ -95,10 +95,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" data-company="" data-theme="dark">
       <head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -107,9 +103,10 @@ export default function RootLayout({
         />
 
         <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
           rel="stylesheet"
         />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -117,7 +114,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Evandro Metz",
-              url: "https://evandrometz.com.br",
+              url: "https://evandrometz.com",
               jobTitle: "Software Developer",
               worksFor: {
                 "@type": "Organization",
