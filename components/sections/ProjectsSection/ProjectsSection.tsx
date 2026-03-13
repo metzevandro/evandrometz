@@ -23,7 +23,7 @@ export function ProjectsSection() {
             description="Facilitando o acesso aos serviços da Prefeitura"
             imageSrc="/portal-cidadao-estancia-velha.webp"
             imageAlt="Portal do Cidadão - Estância Velha Image"
-            projectUrl=""
+            projectUrl="/portal-cidadao-estancia-velha"
           />
           <CardProject
             date="2025"

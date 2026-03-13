@@ -55,10 +55,10 @@ export function AboutSection() {
     {
       date: "Mai 2025 - Presente",
       enterprise: "CIGAM Software de Gestão",
-      role: "Desenvolvedor de Software",
+      role: "Desenvolvedor de Software Júnior - CRM",
     },
     {
-      date: "Jan 2025 - Abril 2025",
+      date: "Jan 2025 - Abr 2025",
       enterprise: "CIGAM Software de Gestão",
       role: "Estagiário de Desenvolvimento de Software",
     },
