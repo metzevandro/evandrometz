@@ -11,11 +11,11 @@ function CourseCard(props: CourseProps) {
   const { date, title, description } = props;
   return (
     <div className="curriculum-section__course-card">
-      <p>{date}</p>
       <div>
-        <h1>{title}</h1>
-        <p>{description}</p>
+        <h3>{title}</h3>
+        <span>{description}</span>
       </div>
+      <span>{date}</span>
     </div>
   );
 }
@@ -25,7 +25,7 @@ export function CurriculumSection() {
     <section id="curriculum" className="curriculum-section">
       <div className="curriculum-section__left">
         <div className="sticky">
-          <h1>Sempre aprendendo</h1>
+          <h2>Sempre aprendendo</h2>
           <p>
             Uma das coisas que mais amo na programação é que sempre há algo novo
             para aprender. Aqui está uma seleção de algumas das coisas que tenho

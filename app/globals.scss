@@ -1,3 +1,11 @@
+:root {
+  --p-color-white: #ffffff;
+  --p-color-light: rgba(255, 255, 255, 0.5);
+  --p-color-subtitle: rgba(255, 255, 255, 0.7);
+  --p-color-black: #000000;
+  --p-color-primary: #34a7d4;
+}
+
 html,
 body,
 * {
@@ -11,14 +19,14 @@ body,
 }
 
 ::selection {
-  background-color: #34a7d4;
-  color: black;
+  background-color: var(--p-color-primary);
+  color: var(--p-color-black);
   opacity: 100%;
 }
 
 html,
 body {
-  background-color: #050505;
+  background-color: var(--p-color-black);
 }
 
 body {
@@ -93,4 +101,64 @@ main {
     rgba(0, 0, 0, 0.6) 10%,
     rgba(0, 0, 0, 1) 100%
   );
+}
+
+h1 {
+  font-size: 64px;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  line-height: 64px;
+}
+
+h2 {
+  font-size: 40px;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  line-height: 48px;
+}
+
+h3 {
+  font-size: 16px;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.4000000059604645px;
+  line-height: 24px;
+}
+
+h4 {
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+  text-decoration: uppercase;
+}
+
+p {
+  font-size: 16px;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+label {
+
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  line-height: 24px;
+
+}
+
+a {
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+span {
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  line-height: 24px;
 }

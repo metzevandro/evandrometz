@@ -7,7 +7,7 @@ export function ProjectsSection() {
       <div className="projects-section__container">
         <div className="header">
           <div className="sticky">
-            <h1>Trabalhos que já fiz</h1>
+            <h2>Trabalhos que já fiz</h2>
             <p>
               Eu trabalhei em muitos pequenos projetos paralelos ao longo dos
               anos, aqui estão alguns recentes. Muitos deles são de código
@@ -31,7 +31,7 @@ export function ProjectsSection() {
             description="Organizando as finanças de forma eficiente"
             imageSrc="/MeuDim.webp"
             imageAlt="MeuDim Image"
-            projectUrl=""
+            projectUrl="/meudim"
           />
           <CardProject
             date="2024"

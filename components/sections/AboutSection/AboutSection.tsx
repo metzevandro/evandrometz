@@ -17,15 +17,15 @@ const photos = [
   "/image-5.webp",
 ];
 
+type Role = {
+  role: string;
+  date: string;
+};
+
 type Experience = {
   date: string;
   enterprise: string;
   role: string;
-};
-
-type Role = {
-  role: string;
-  date: string;
 };
 
 type ExperienceCardProps = {
@@ -36,14 +36,16 @@ type ExperienceCardProps = {
 function ExperienceCard({ enterprise, roles }: ExperienceCardProps) {
   return (
     <div className="about-section__experience-card">
-      <h1>{enterprise}</h1>
-
-      {roles.map((r, i) => (
-        <div key={i}>
-          <p>{r.role}</p>
-          <p>{r.date}</p>
-        </div>
-      ))}
+      <div className="about-section__experience-card-dot" />
+      <div className="about-section__experience-card-content">
+        <h3 className="enterprise">{enterprise}</h3>
+        {roles.map((r, i) => (
+          <div key={i} className="about-section__experience-card-row">
+            <h3>{r.role}</h3>
+            <p>{r.date}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -72,12 +74,7 @@ export function AboutSection() {
       if (!acc[exp.enterprise]) {
         acc[exp.enterprise] = [];
       }
-
-      acc[exp.enterprise].push({
-        role: exp.role,
-        date: exp.date,
-      });
-
+      acc[exp.enterprise].push({ role: exp.role, date: exp.date });
       return acc;
     },
     {} as Record<string, Role[]>,
@@ -94,7 +91,6 @@ export function AboutSection() {
   ];
 
   const [height, setHeight] = useState(0);
-
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -108,7 +104,6 @@ export function AboutSection() {
 
   const startAutoPlay = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
-
     intervalRef.current = setInterval(() => {
       setIndex((prev) => (prev + 1) % photos.length);
     }, 5000);
@@ -116,7 +111,6 @@ export function AboutSection() {
 
   useEffect(() => {
     startAutoPlay();
-
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
@@ -126,7 +120,7 @@ export function AboutSection() {
     <section id="about" className="about-section">
       <div className="about-section__container" ref={containerRef}>
         <div className="about-section__title">
-          <h1>Falando sobre mim</h1>
+          <h2>Falando sobre mim</h2>
           <p>
             Sou desenvolvedor e tenho paixão por transformar interfaces
             abstratas em projetos concretos e sólidos para o usuário, unindo
@@ -138,8 +132,7 @@ export function AboutSection() {
         </div>
 
         <div className="about-section__experience">
-          <h1>Experiência Profissional</h1>
-
+          <h3>Experiência Profissional</h3>
           <div className="about-section__list-experience">
             {Object.entries(experiencesByEnterprise).map(
               ([enterprise, roles]) => (
@@ -154,8 +147,7 @@ export function AboutSection() {
         </div>
 
         <div className="about-section__skills">
-          <h1>Especialidades</h1>
-
+          <h3>Especialidades</h3>
           <div className="about-section__list-skills">
             {skills.map(({ Icon, color }, index) => (
               <div key={index}>

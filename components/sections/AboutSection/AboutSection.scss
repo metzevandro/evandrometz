@@ -15,28 +15,13 @@
     gap: 64px;
   }
 
-  h1 {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    letter-spacing: -0.4px;
-  }
   &__title {
     display: flex;
     flex-direction: column;
     gap: 12px;
-
-    h1 {
-      font-size: 40px;
-      font-weight: 500;
-      line-height: 100%;
-    }
   }
 
   p {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 150%;
     opacity: 70%;
   }
 
@@ -74,37 +59,36 @@
 
   &__experience-card {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    flex-direction: row;
+    gap: 16px;
 
-    p:first-child {
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 150%;
-      opacity: 100%;
-      white-space: wrap;
+    &-dot {
+      width: 8px;
+      height: 8px;
+      margin: 8px 0px;
+      background-color: var(--p-color-primary);
     }
 
-    p {
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 150%;
-      opacity: 70%;
+    &-content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 8px;
     }
 
-    h1 {
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 24px;
-      letter-spacing: -0.4px;
-      opacity: 70%;
-    }
-
-    > div {
+    &-row {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      gap: 12px;
+      width: 100%;
+    }
+
+    .enterprise {
+      opacity: 70%;
+    }
+
+    p {
+      opacity: 70%;
     }
   }
 

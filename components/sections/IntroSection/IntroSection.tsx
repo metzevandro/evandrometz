@@ -75,7 +75,7 @@ export function IntroSection() {
           </div>
 
           <div className="intro-section__info">
-            <h2>
+            <p>
               Desenvolvedor de Software na{" "}
               <AnimatedLink
                 href="https://www.cigam.com.br/"
@@ -84,7 +84,7 @@ export function IntroSection() {
               >
                 CIGAM
               </AnimatedLink>
-            </h2>
+            </p>
 
             <h1>Evandro Metz</h1>
 
@@ -105,9 +105,9 @@ export function IntroSection() {
                 <Icon name="keyboard_double_arrow_down" />
               </motion.div>
 
-              <p className="intro-section__scroll-text">
+              <h4 className="intro-section__scroll-text">
                 Role a tela para ver projetos
-              </p>
+              </h4>
 
               <motion.div
                 style={{ display: "flex", alignItems: "center" }}

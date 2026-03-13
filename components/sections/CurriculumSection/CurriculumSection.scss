@@ -21,8 +21,8 @@
     display: flex;
     gap: 6px;
     align-items: center;
-    background-color: #34a7d4;
-    color: black;
+    background-color: var(--p-color-primary);
+    color: var(--p-color-black);
     font-size: 14px;
     font-weight: 700;
     line-height: 150%;
@@ -31,7 +31,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: rgb(#34a7d4, 0.6);
+      background-color: rgb(#34A7D4, 0.6);
     }
   }
 
@@ -41,16 +41,7 @@
     justify-content: space-between;
     width: 50%;
 
-    h1 {
-      font-size: 40px;
-      font-weight: 500;
-      line-height: 100%;
-    }
-
     p {
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 150%;
       opacity: 70%;
     }
   }
@@ -65,22 +56,18 @@
 
   &__course-card {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 3fr 1fr;
     align-items: stretch;
     gap: 16px;
 
-    p {
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 150%;
+    span {
       opacity: 70%;
+      text-align: right;
+      justify-self: end;
     }
 
-    h1 {
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 150%;
-      letter-spacing: -0.4px;
+    h3 + span {
+      text-align: left;
     }
 
     > div {

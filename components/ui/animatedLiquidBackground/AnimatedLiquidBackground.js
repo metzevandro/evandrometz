@@ -49,6 +49,38 @@ const templates = {
     shape: "Edge",
     shapeSize: 48,
   },
+  MeuDim: {
+    color1: "#050505",
+    color2: "#2160eb",
+    color3: "#050505",
+    rotation: 0,
+    proportion: 33,
+    scale: 0.48,
+    speed: 39,
+    distortion: 4,
+    swirl: 65,
+    swirlIterations: 5,
+    softness: 100,
+    offset: -235,
+    shape: "Edge",
+    shapeSize: 48,
+  },
+  PortalCidadaoEstanciaVelha: {
+    color1: "#050505",
+    color2: "#24b57f",
+    color3: "#050505",
+    rotation: 0,
+    proportion: 33,
+    scale: 0.48,
+    speed: 39,
+    distortion: 4,
+    swirl: 65,
+    swirlIterations: 5,
+    softness: 100,
+    offset: -235,
+    shape: "Edge",
+    shapeSize: 48,
+  }
 };
 
 /* ===============================

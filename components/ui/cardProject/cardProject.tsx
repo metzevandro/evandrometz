@@ -23,8 +23,8 @@ export function CardProject(props: CardProjectProps) {
   return (
     <div className="card-project" onClick={navigationTo}>
       <div className="card-project__header">
-        <h1>{title}</h1>
-        <p>{date}</p>
+        <span>{title}</span>
+        <span>{date}</span>
       </div>
 
       <div className="card-project__image">
@@ -38,7 +38,7 @@ export function CardProject(props: CardProjectProps) {
       </div>
 
       <div className="card-project__footer">
-        <p>{description}</p>
+        <span>{description}</span>
       </div>
     </div>
   );
