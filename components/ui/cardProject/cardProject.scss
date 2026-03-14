@@ -28,6 +28,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    a {
+      color: var(--p-color-primary);
+    }
   }
   &__image {
     overflow: hidden;

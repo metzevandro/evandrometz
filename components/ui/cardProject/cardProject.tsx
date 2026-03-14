@@ -1,6 +1,8 @@
 import Image from "next/image";
 import "./cardProject.scss";
 import { useRouter } from "next/navigation";
+import { AnimatedLink } from "../animatedLink/animatedLink";
+import { motion } from "framer-motion";
 
 interface CardProjectProps {
   title: string;
@@ -21,7 +23,12 @@ export function CardProject(props: CardProjectProps) {
   };
 
   return (
-    <div className="card-project" onClick={() => navigationTo()}>
+    <motion.div
+      onClick={navigationTo}
+      className="card-project"
+      whileHover="hover"
+      initial="rest"
+    >
       <div className="card-project__header">
         <span>{title}</span>
         <span>{date}</span>
@@ -39,7 +46,8 @@ export function CardProject(props: CardProjectProps) {
 
       <div className="card-project__footer">
         <span>{description}</span>
+        <AnimatedLink inheritHover>Saiba mais</AnimatedLink>{" "}
       </div>
-    </div>
+    </motion.div>
   );
 }

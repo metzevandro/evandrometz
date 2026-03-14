@@ -2,15 +2,23 @@ import { motion, HTMLMotionProps } from "framer-motion";
 
 type AnimatedLinkProps = HTMLMotionProps<"a"> & {
   children: React.ReactNode;
+  inheritHover?: boolean;
 };
 
-export function AnimatedLink({ children, ...props }: AnimatedLinkProps) {
+export function AnimatedLink({
+  children,
+  inheritHover = false,
+  ...props
+}: AnimatedLinkProps) {
   return (
     <motion.a
       {...props}
-      initial="rest"
-      whileHover="hover"
-      animate="rest"
+      variants={{ rest: {}, hover: {} }}
+      {...(!inheritHover && {
+        initial: "rest",
+        whileHover: "hover",
+        animate: "rest",
+      })}
       style={{
         position: "relative",
         display: "inline-block",
@@ -34,7 +42,6 @@ export function AnimatedLink({ children, ...props }: AnimatedLinkProps) {
           height: "2px",
           background: "currentColor",
           transformOrigin: "left",
-          scaleX: 0,
         }}
       />
     </motion.a>
