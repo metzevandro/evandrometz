@@ -4,6 +4,7 @@ import { AnimatedLink } from "@/components/ui/animatedLink/animatedLink";
 import { motion, Variants, useMotionValue, useSpring } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
+import Header from "@/components/layout/header/header";
 
 const MotionImage = motion.create(Image);
 
@@ -54,45 +55,48 @@ export function IntroSection() {
     <section id="intro" className="intro-section">
       <div className="intro-section__container">
         <div className="intro-section__content">
-          <div className="intro-section__image-wrapper">
-            <MotionImage
-              width={400}
-              height={400}
-              sizes="(max-width: 768px) 300px, 400px"
-              ref={ref}
-              className="intro-section__image"
-              src="/evandro.webp"
-              alt="Evandro Metz"
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              style={{
-                rotateX: smoothX,
-                rotateY: smoothY,
-                transformPerspective: 800,
-              }}
-              priority
-            />
-          </div>
+          <Header></Header>
+          <div className="container">
+            <div className="intro-section__image-wrapper">
+              <MotionImage
+                width={400}
+                height={400}
+                sizes="(max-width: 768px) 300px, 400px"
+                ref={ref}
+                className="intro-section__image"
+                src="/evandro.webp"
+                alt="Evandro Metz"
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+                style={{
+                  rotateX: smoothX,
+                  rotateY: smoothY,
+                  transformPerspective: 800,
+                }}
+                priority
+              />
+            </div>
 
-          <div className="intro-section__info">
-            <p>
-              Desenvolvedor de Software na{" "}
-              <AnimatedLink
-                href="https://www.cigam.com.br/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                CIGAM
-              </AnimatedLink>
-            </p>
+            <div className="intro-section__info">
+              <p>
+                Desenvolvedor de Software na{" "}
+                <AnimatedLink
+                  href="https://www.cigam.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  CIGAM
+                </AnimatedLink>
+              </p>
 
-            <h1>Evandro Metz</h1>
+              <h1>Evandro Metz</h1>
 
-            <p className="intro-section__description">
-              Comprometido em transformar interfaces abstratas em projetos
-              concretos e sólidos para o usuário, unindo design cuidadoso com
-              engenharia robusta.
-            </p>
+              <p className="intro-section__description">
+                Comprometido em transformar interfaces abstratas em projetos
+                concretos e sólidos para o usuário, unindo design cuidadoso com
+                engenharia robusta.
+              </p>
+            </div>
           </div>
 
           <div className="intro-section__scroll">

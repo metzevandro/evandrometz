@@ -6,7 +6,7 @@
   justify-content: space-between;
 
   label {
-    color: var(--p-color-white)
+    color: var(--p-color-white);
   }
 
   a {
@@ -87,7 +87,7 @@
   .footer {
     flex-direction: column;
     gap: 24px;
-    
+
     &__left {
       display: flex;
       flex-direction: column;

@@ -80,7 +80,7 @@ const templates = {
     offset: -235,
     shape: "Edge",
     shapeSize: 48,
-  }
+  },
 };
 
 /* ===============================

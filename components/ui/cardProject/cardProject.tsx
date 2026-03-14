@@ -21,7 +21,7 @@ export function CardProject(props: CardProjectProps) {
   };
 
   return (
-    <div className="card-project"   onClick={() => navigationTo()}>
+    <div className="card-project" onClick={() => navigationTo()}>
       <div className="card-project__header">
         <span>{title}</span>
         <span>{date}</span>

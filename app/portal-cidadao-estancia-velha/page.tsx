@@ -11,7 +11,10 @@ export default function PortalCidadaoEstanciaVelha() {
   return (
     <>
       <div className="animated-background">
-        <AnimatedLiquidBackground preset="PortalCidadaoEstanciaVelha" speed={20} />
+        <AnimatedLiquidBackground
+          preset="PortalCidadaoEstanciaVelha"
+          speed={20}
+        />
       </div>
     </>
   );

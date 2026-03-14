@@ -5,6 +5,7 @@
   z-index: 2;
   color: white;
   width: 100%;
+  scroll-margin-top: -40px;
 
   .sticky {
     position: sticky;
@@ -31,7 +32,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: rgb(#34A7D4, 0.6);
+      background-color: rgb(#34a7d4, 0.6);
     }
   }
 
