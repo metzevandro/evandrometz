@@ -24,6 +24,7 @@ export function AnimatedLink({
         display: "inline-block",
         textDecoration: "none",
         width: "fit-content",
+        cursor: "pointer",
       }}
     >
       {children}

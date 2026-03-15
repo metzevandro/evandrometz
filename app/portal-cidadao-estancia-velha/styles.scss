@@ -1,0 +1,184 @@
+::selection {
+  background-color: var(--p-color-green);
+  color: var(--p-color-black);
+  opacity: 100%;
+}
+
+header {
+  z-index: 2;
+}
+
+.container {
+  max-width: 1440px;
+  color: var(--p-color-white);
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 0 80px;
+  display: flex;
+  gap: 64px;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+    .sticky {
+      padding: 40px 0;
+      position: sticky;
+      top: 0;
+      gap: 32px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    p {
+      opacity: 70%;
+      max-width: 450px;
+    }
+
+    span:nth-child(2),
+    span:nth-child(3) {
+      opacity: 70%;
+    }
+
+    &__meta {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+    }
+
+    &__intro {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+
+      span:nth-child(1) {
+        opacity: 70%;
+      }
+
+      span:nth-child(2) {
+        opacity: 100%;
+      }
+    }
+  }
+
+  .right {
+    width: 50%;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .description {
+      opacity: 70%;
+    }
+
+    
+.mobile-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.mobile {
+  overflow: hidden;
+  height: 420px;
+  aspect-ratio: 738 / 1600;
+
+  .img {
+    width: 200px;
+    transition: all 0.3s ease-in-out;
+    object-fit: cover;
+    cursor: pointer;
+  }
+}
+  }
+}
+
+.linha {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+  max-width: 450px;
+  padding: 12px 0;
+
+  a {
+    color: var(--p-color-green);
+  }
+
+  &:first-child {
+    padding: 0 0 12px 0;
+  }
+}
+
+.blur {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &::before {
+    content: "";
+    position: absolute;
+    transform: translateZ(0);
+    backdrop-filter: blur(15px);
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.image {
+  overflow: hidden;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+
+  .img {
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+    object-fit: cover;
+        cursor: pointer;
+
+  }
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
+
+    .left {
+      width: 100%;
+
+      .sticky {
+        padding: 0;
+      }
+    }
+
+    .right {
+      width: 100%;
+    }
+
+    .linha {
+      max-width: none;
+    }
+  }
+}
