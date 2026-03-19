@@ -5,12 +5,12 @@ import Header from "@/components/layout/header/header";
 import { AnimatedLink } from "@/components/ui/animatedLink/animatedLink";
 import Image from "next/image";
 import { Footer } from "@/components/layout/footer/footer";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 const AnimatedLiquidBackground = dynamic(
   () =>
-    import(
-      "../../components/ui/animatedLiquidBackground/AnimatedLiquidBackground"
-    ),
+    import("../../components/ui/animatedLiquidBackground/AnimatedLiquidBackground"),
   { ssr: false },
 );
 
@@ -40,20 +40,41 @@ function ProjectImage({
   alt,
   width = 1200,
   height = 800,
+  onClick,
 }: {
   src: string;
   alt: string;
   width?: number;
   height?: number;
+  onClick?: () => void;
 }) {
   return (
-    <div className="image">
-      <Image alt={alt} src={src} className="img" width={width} height={height} />
+    <div
+      className="image"
+      onClick={onClick}
+      style={{ cursor: onClick ? "zoom-in" : "default" }}
+    >
+      <Image
+        alt={alt}
+        src={src}
+        className="img"
+        width={width}
+        height={height}
+      />
     </div>
   );
 }
 
+interface SelectedImage {
+  src: string;
+  alt: string;
+}
+
 export default function PortalCidadaoEstanciaVelha() {
+  const [selectedImage, setSelectedImage] = useState<SelectedImage | null>(
+    null,
+  );
+
   const mobileImages = [
     { src: "/portal-cidadao/mobile3.webp", alt: "Versão mobile 1" },
     { src: "/portal-cidadao/mobile2.webp", alt: "Versão mobile 2" },
@@ -68,6 +89,49 @@ export default function PortalCidadaoEstanciaVelha() {
           speed={20}
         />
       </div>
+
+      <AnimatePresence>
+        {selectedImage && (
+          <>
+            <motion.div
+              className="overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setSelectedImage(null)}
+            />
+
+            <motion.button
+              className="image-modal__close"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 20 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              onClick={() => setSelectedImage(null)}
+              aria-label="Fechar imagem"
+            >
+              ✕
+            </motion.button>
+
+            <motion.div
+              className="image-modal"
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: -30 }}
+              exit={{ opacity: 0, y: 60 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              <Image
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                width={1600}
+                height={1200}
+              />
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
       <div className="blur">
         <Header />
         <div className="container">
@@ -108,9 +172,15 @@ export default function PortalCidadaoEstanciaVelha() {
           <div className="right">
             <ProjectImage
               src="/portal-cidadao/homepage.webp"
-              alt="Versão mobile do Portal do Cidadão"
+              alt="Homepage do Portal do Cidadão"
               width={3000}
               height={3000}
+              onClick={() =>
+                setSelectedImage({
+                  src: "/portal-cidadao/homepage.webp",
+                  alt: "Homepage do Portal do Cidadão",
+                })
+              }
             />
 
             <div>
@@ -125,6 +195,12 @@ export default function PortalCidadaoEstanciaVelha() {
               <ProjectImage
                 src="/portal-cidadao/funcionalidade.webp"
                 alt="Tela de registro de ocorrência"
+                onClick={() =>
+                  setSelectedImage({
+                    src: "/portal-cidadao/funcionalidade.webp",
+                    alt: "Tela de registro de ocorrência",
+                  })
+                }
               />
             </div>
 
@@ -152,10 +228,22 @@ export default function PortalCidadaoEstanciaVelha() {
               <ProjectImage
                 src="/portal-cidadao/mapa.webp"
                 alt="Mapa de ocorrências"
+                onClick={() =>
+                  setSelectedImage({
+                    src: "/portal-cidadao/mapa.webp",
+                    alt: "Mapa de ocorrências",
+                  })
+                }
               />
               <ProjectImage
                 src="/portal-cidadao/mapa2.webp"
                 alt="Mapa de ocorrências 2"
+                onClick={() =>
+                  setSelectedImage({
+                    src: "/portal-cidadao/mapa2.webp",
+                    alt: "Mapa de ocorrências 2",
+                  })
+                }
               />
             </div>
 
@@ -167,21 +255,21 @@ export default function PortalCidadaoEstanciaVelha() {
                 API, interface web e mobile, integração com mapas e configuração
                 do ambiente de produção na Vercel.
               </span>
-              
             </div>
+
             <div className="mobile-grid">
-                {mobileImages.map(({ src, alt }) => (
-                  <div key={src} className="mobile">
-                    <Image
-                      alt={alt}
-                      src={src}
-                      className="img"
-                      width={250}
-                      height={800}
-                    />
-                  </div>
-                ))}
-              </div>
+              {mobileImages.map(({ src, alt }) => (
+                <div key={src} className="mobile">
+                  <Image
+                    alt={alt}
+                    src={src}
+                    className="img"
+                    width={250}
+                    height={800}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <Footer />

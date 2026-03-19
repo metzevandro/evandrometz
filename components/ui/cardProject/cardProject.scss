@@ -33,6 +33,7 @@
       color: var(--p-color-primary);
     }
   }
+
   &__image {
     overflow: hidden;
     height: 100%;
@@ -43,6 +44,16 @@
       height: 100%;
       transition: all 0.3s ease-in-out;
       object-fit: cover;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .card-project {
+    &__footer {
+      flex-direction: column;
+      align-items: start;
+      gap: 8px;
     }
   }
 }
