@@ -1,22 +1,34 @@
 "use client";
 
-import { useEffect, useRef, useMemo } from "react";
+import { CSSProperties, useEffect, useRef, useMemo, ReactNode } from "react";
 import {
   getShaderColorFromString,
   warpFragmentShader,
   PatternShapes,
   ShaderMount as ShaderMountVanilla,
 } from "@/lib/framer/shader.js";
+import { AnimatedLiquidBackgroundPreset } from "@/types";
 
-/* ===============================
-   EASING SIMPLES (substitui cubicBezier)
-================================ */
-const speedEase = (x) => x * x * (3 - 2 * x);
+const speedEase = (x: number): number => x * x * (3 - 2 * x);
 
-/* ===============================
-   PRESETS
-================================ */
-const templates = {
+interface PresetConfig {
+  color1: string;
+  color2: string;
+  color3: string;
+  rotation: number;
+  proportion: number;
+  scale: number;
+  speed: number;
+  distortion: number;
+  swirl: number;
+  swirlIterations: number;
+  softness: number;
+  offset: number;
+  shape: string;
+  shapeSize: number;
+}
+
+const templates: Record<AnimatedLiquidBackgroundPreset, PresetConfig> = {
   Home: {
     color1: "#050505",
     color2: "#34A7D4",
@@ -83,17 +95,20 @@ const templates = {
   },
 };
 
-/* ===============================
-   COMPONENTE PRINCIPAL
-================================ */
+interface AnimatedLiquidBackgroundProps {
+  preset?: AnimatedLiquidBackgroundPreset;
+  speed?: number;
+  radius?: string;
+  style?: CSSProperties;
+}
+
 export default function AnimatedLiquidBackground({
-  preset = "Prism",
+  preset = "Home",
   speed = 25,
   radius = "0px",
   style = {},
-}) {
-  const values = templates[preset] || templates.Prism;
-
+}: AnimatedLiquidBackgroundProps) {
+  const values = templates[preset] || templates.Home;
   const currentSpeed = speedEase(speed / 100) * 5;
 
   return (
@@ -119,7 +134,7 @@ export default function AnimatedLiquidBackground({
         rotation={(values.rotation * Math.PI) / 180}
         speed={currentSpeed}
         seed={values.offset * 10}
-        shape={PatternShapes[values.shape]}
+        shape={PatternShapes[values.shape as keyof typeof PatternShapes]}
         shapeScale={values.shapeSize / 100}
         softness={values.softness / 100}
         style={{ width: "100%", height: "100dvh" }}
@@ -128,15 +143,27 @@ export default function AnimatedLiquidBackground({
   );
 }
 
-/* ===============================
-   WARP
-================================ */
-const defaultPreset = {
+interface DefaultPreset {
+  scale: number;
+  rotation: number;
+  color1: string | number[];
+  color2: string | number[];
+  color3: string | number[];
+  proportion: number;
+  softness: number;
+  distortion: number;
+  swirl: number;
+  swirlIterations: number;
+  shapeScale: number;
+  shape: unknown;
+}
+
+const defaultPreset: DefaultPreset = {
   scale: 1,
   rotation: 0,
-  color1: "hsla(0, 0%, 15%, 1)",
-  color2: "hsla(203, 80%, 70%, 1)",
-  color3: "hsla(0, 0%, 100%, 1)",
+  color1: [0.05, 0.05, 0.05, 1],
+  color2: [0.8, 0.8, 0.8, 1],
+  color3: [1, 1, 1, 1],
   proportion: 0.35,
   softness: 1,
   distortion: 0.25,
@@ -146,47 +173,108 @@ const defaultPreset = {
   shape: PatternShapes.Checks,
 };
 
-const Warp = (props) => {
+interface WarpProps {
+  color1?: string;
+  color2?: string;
+  color3?: string;
+  scale?: number;
+  proportion?: number;
+  distortion?: number;
+  swirl?: number;
+  swirlIterations?: number;
+  rotation?: number;
+  speed?: number;
+  seed?: number;
+  shape?: unknown;
+  shapeScale?: number;
+  softness?: number;
+  style?: CSSProperties;
+}
+
+const Warp = ({
+  color1,
+  color2,
+  color3,
+  scale,
+  proportion,
+  distortion,
+  swirl,
+  swirlIterations,
+  rotation,
+  speed,
+  seed,
+  shape,
+  shapeScale,
+  softness,
+  style,
+}: WarpProps) => {
   const uniforms = useMemo(() => {
     return {
-      u_scale: props.scale ?? defaultPreset.scale,
-      u_rotation: props.rotation ?? defaultPreset.rotation,
-      u_color1: getShaderColorFromString(props.color1, defaultPreset.color1),
-      u_color2: getShaderColorFromString(props.color2, defaultPreset.color2),
-      u_color3: getShaderColorFromString(props.color3, defaultPreset.color3),
-      u_proportion: props.proportion ?? defaultPreset.proportion,
-      u_softness: props.softness ?? defaultPreset.softness,
-      u_distortion: props.distortion ?? defaultPreset.distortion,
-      u_swirl: props.swirl ?? defaultPreset.swirl,
-      u_swirlIterations: props.swirlIterations ?? defaultPreset.swirlIterations,
-      u_shapeScale: props.shapeScale ?? defaultPreset.shapeScale,
-      u_shape: props.shape ?? defaultPreset.shape,
+      u_scale: scale ?? defaultPreset.scale,
+      u_rotation: rotation ?? defaultPreset.rotation,
+      u_color1: getShaderColorFromString(
+        color1,
+        defaultPreset.color1 as number[],
+      ),
+      u_color2: getShaderColorFromString(
+        color2,
+        defaultPreset.color2 as number[],
+      ),
+      u_color3: getShaderColorFromString(
+        color3,
+        defaultPreset.color3 as number[],
+      ),
+      u_proportion: proportion ?? defaultPreset.proportion,
+      u_softness: softness ?? defaultPreset.softness,
+      u_distortion: distortion ?? defaultPreset.distortion,
+      u_swirl: swirl ?? defaultPreset.swirl,
+      u_swirlIterations: swirlIterations ?? defaultPreset.swirlIterations,
+      u_shapeScale: shapeScale ?? defaultPreset.shapeScale,
+      u_shape: shape ?? defaultPreset.shape,
     };
-  }, [props]);
+  }, [
+    color1,
+    color2,
+    color3,
+    scale,
+    proportion,
+    distortion,
+    swirl,
+    swirlIterations,
+    rotation,
+    softness,
+    shapeScale,
+    shape,
+  ]);
 
   return (
     <ShaderMount
       fragmentShader={warpFragmentShader}
       uniforms={uniforms}
-      speed={props.speed}
-      seed={props.seed}
-      style={props.style}
+      speed={speed}
+      seed={seed}
+      style={style}
     />
   );
 };
 
-/* ===============================
-   SHADER MOUNT
-================================ */
+interface ShaderMountProps {
+  fragmentShader: unknown;
+  style?: CSSProperties;
+  uniforms?: Record<string, unknown>;
+  speed?: number;
+  seed?: number;
+}
+
 const ShaderMount = ({
   fragmentShader,
   style,
   uniforms = {},
   speed = 1,
   seed = 0,
-}) => {
-  const canvasRef = useRef(null);
-  const shaderMountRef = useRef(null);
+}: ShaderMountProps) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const shaderMountRef = useRef<any>(null);
 
   useEffect(() => {
     if (canvasRef.current) {

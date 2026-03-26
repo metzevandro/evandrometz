@@ -1,8 +1,8 @@
 import Image from "next/image";
-import "./cardProject.scss";
+import "./CardProject.scss";
 import { useRouter } from "next/navigation";
-import { AnimatedLink } from "../animatedLink/animatedLink";
 import { motion } from "framer-motion";
+import { AnimatedLink } from "../animatedLink/AnimatedLink";
 
 interface CardProjectProps {
   title: string;

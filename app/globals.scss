@@ -155,14 +155,15 @@ label {
 }
 
 a {
-    font-size: clamp(12px, 4vw, 14px);
+  font-size: clamp(12px, 4vw, 14px);
 
   font-family: Inter, sans-serif;
   font-weight: 500;
   line-height: 24px;
 }
 
-span {    font-size: clamp(12px, 4vw, 14px);
+span {
+  font-size: clamp(12px, 4vw, 14px);
 
   font-family: Inter, sans-serif;
   font-weight: 400;

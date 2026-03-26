@@ -1,8 +1,11 @@
 import { Icon } from "@/components/ui/icon/Icon";
-import { AnimatedLink } from "@/components/ui/animatedLink/animatedLink";
+import { AnimatedLink } from "@/components/ui/animatedLink/AnimatedLink";
 import "./footer.scss";
+import { usePathname } from "next/navigation";
 
 export function Footer() {
+  const path = usePathname()
+
   return (
     <footer className="footer">
       <div className="footer__left">
@@ -52,8 +55,8 @@ export function Footer() {
           </AnimatedLink>
         </div>
 
-        <a className="footer__back-to-top" href="/#">
-          <div style={{ display: "flex", alignItems: "center" }}>
+        <a className="footer__back-to-top" href={`${path}#`}>
+          <div className="footer__back-to-top-icon">
             <Icon name="arrow_upward" />
           </div>
           <p>Voltar ao topo</p>

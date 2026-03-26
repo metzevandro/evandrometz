@@ -1,7 +1,7 @@
-import { AnimatedLink } from "@/components/ui/animatedLink/animatedLink";
+import { AnimatedLink } from "@/components/ui/animatedLink/AnimatedLink";
 import "./header.scss";
 
-export default function Header() {
+export function Header() {
   return (
     <header>
       <AnimatedLink href="/#">Início</AnimatedLink>

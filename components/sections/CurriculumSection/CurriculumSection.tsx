@@ -1,24 +1,6 @@
 import { Icon } from "@/components/ui/icon/Icon";
+import { CourseCard } from "@/components/ui/courseCard/CourseCard";
 import "./CurriculumSection.scss";
-
-type CourseProps = {
-  date: string;
-  title: string;
-  description: string;
-};
-
-function CourseCard(props: CourseProps) {
-  const { date, title, description } = props;
-  return (
-    <div className="curriculum-section__course-card">
-      <div>
-        <h3>{title}</h3>
-        <span>{description}</span>
-      </div>
-      <span>{date}</span>
-    </div>
-  );
-}
 
 export function CurriculumSection() {
   return (

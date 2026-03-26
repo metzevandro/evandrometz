@@ -4,10 +4,12 @@ import { DiMsqlServer, DiSass, DiNetmagazine } from "react-icons/di";
 import { GrOracle } from "react-icons/gr";
 
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 
 import "./AboutSection.scss";
 import Image from "next/image";
+import { ExperienceCard } from "@/components/ui/experienceCard/ExperienceCard";
+import { Role } from "@/types";
+import { useCarousel } from "@/lib/utils/carousel";
 
 const photos = [
   "/image-1.webp",
@@ -17,38 +19,11 @@ const photos = [
   "/image-5.webp",
 ];
 
-type Role = {
-  role: string;
-  date: string;
-};
-
 type Experience = {
   date: string;
   enterprise: string;
   role: string;
 };
-
-type ExperienceCardProps = {
-  enterprise: string;
-  roles: Role[];
-};
-
-function ExperienceCard({ enterprise, roles }: ExperienceCardProps) {
-  return (
-    <div className="about-section__experience-card">
-      <div className="about-section__experience-card-dot" />
-      <div className="about-section__experience-card-content">
-        <h3 className="enterprise">{enterprise}</h3>
-        {roles.map((r, i) => (
-          <div key={i} className="about-section__experience-card-row">
-            <h3>{r.role}</h3>
-            <p>{r.date}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export function AboutSection() {
   const experiences: Experience[] = [
@@ -90,31 +65,10 @@ export function AboutSection() {
     { Icon: GrOracle, color: "#F80000" },
   ];
 
-  const [height, setHeight] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (containerRef.current) {
-      setHeight(containerRef.current.clientHeight);
-    }
-  }, []);
-
-  const [index, setIndex] = useState(0);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  const startAutoPlay = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(() => {
-      setIndex((prev) => (prev + 1) % photos.length);
-    }, 5000);
-  };
-
-  useEffect(() => {
-    startAutoPlay();
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, []);
+  const { index, height, containerRef, setIndex, startAutoPlay } = useCarousel(
+    photos,
+    5000,
+  );
 
   return (
     <section id="about" className="about-section">

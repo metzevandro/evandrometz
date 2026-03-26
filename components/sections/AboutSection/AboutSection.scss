@@ -59,39 +59,6 @@
   }
 
   &__experience-card {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-
-    &-dot {
-      width: 8px;
-      height: 8px;
-      margin: 8px 0px;
-      background-color: var(--p-color-primary);
-    }
-
-    &-content {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      gap: 8px;
-    }
-
-    &-row {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      width: 100%;
-    }
-
-    .enterprise {
-      opacity: 70%;
-    }
-
-    p {
-      opacity: 70%;
-      text-align: right;
-    }
   }
 
   &__carousel {

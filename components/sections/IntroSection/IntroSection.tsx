@@ -1,10 +1,10 @@
 import "./IntroSection.scss";
 import { Icon } from "@/components/ui/icon/Icon";
-import { AnimatedLink } from "@/components/ui/animatedLink/animatedLink";
 import { motion, Variants, useMotionValue, useSpring } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-import Header from "@/components/layout/header/header";
+import { Header } from "@/components/layout/header/header";
+import { AnimatedLink } from "@/components/ui/animatedLink/AnimatedLink";
 
 const MotionImage = motion.create(Image);
 

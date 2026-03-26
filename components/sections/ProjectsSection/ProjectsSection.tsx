@@ -1,4 +1,4 @@
-import { CardProject } from "@/components/ui/cardProject/cardProject";
+import { CardProject } from "@/components/ui/cardProject/CardProject";
 import "./ProjectsSection.scss";
 
 export function ProjectsSection() {

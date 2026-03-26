@@ -1,7 +1,7 @@
 .footer {
   display: flex;
   width: 100%;
-  z-index: 2;
+  z-index: 1;
   padding: 80px;
   justify-content: space-between;
 
@@ -58,7 +58,9 @@
       text-transform: uppercase;
       white-space: nowrap;
 
-      div {
+      &-icon {
+        display: flex;
+        align-items: center;
         opacity: 100%;
       }
 

@@ -1,0 +1,22 @@
+.course-card {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: stretch;
+  gap: 16px;
+
+  span {
+    opacity: 70%;
+    text-align: right;
+    justify-self: end;
+  }
+
+  h3 + span {
+    text-align: left;
+  }
+
+  > div {
+    display: grid;
+    align-content: center;
+    gap: 4px;
+  }
+}

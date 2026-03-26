@@ -6,13 +6,7 @@ import { ProjectsSection } from "@/components/sections/ProjectsSection/ProjectsS
 import { AboutSection } from "@/components/sections/AboutSection/AboutSection";
 import { Footer } from "@/components/layout/footer/footer";
 import { CurriculumSection } from "@/components/sections/CurriculumSection/CurriculumSection";
-import dynamic from "next/dynamic";
-
-const AnimatedLiquidBackground = dynamic(
-  () =>
-    import("../components/ui/animatedLiquidBackground/AnimatedLiquidBackground"),
-  { ssr: false },
-);
+import AnimatedLiquidBackground from "@/components/ui/animatedLiquidBackground/AnimatedLiquidBackground";
 
 export default function Home() {
   return (
