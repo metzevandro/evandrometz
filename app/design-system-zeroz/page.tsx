@@ -63,7 +63,6 @@ export default function DesignSystemZeroz() {
               width={3000}
               height={3000}
             />
-
             <div>
               <span>Funcionalidades</span>
               <span className="description">
@@ -77,7 +76,6 @@ export default function DesignSystemZeroz() {
                 alt="Componentes e variantes no Storybook"
               />
             </div>
-
             <div>
               <span>Tecnologias</span>
               <span className="description">
@@ -91,7 +89,6 @@ export default function DesignSystemZeroz() {
                 alt="Tokens de design e sistema de cores no Figma"
               />
             </div>
-
             <div>
               <span>Desafios e aprendizados</span>
               <span className="description">
@@ -101,10 +98,7 @@ export default function DesignSystemZeroz() {
                 considerando semântica, contraste, navegação por teclado e
                 padronização entre variantes.
               </span>
-              
             </div>
-            
-
             <div>
               <span>Participação</span>
               <span className="description">
@@ -123,9 +117,8 @@ export default function DesignSystemZeroz() {
                 </AnimatedLink>
                 , designer do projeto.
               </span>
-              
-             
-            </div> <ClickableImage
+            </div>{" "}
+            <ClickableImage
               src="/design-system-zeroz/props.webp"
               alt="Propriedades dos componentes documentadas no Storybook"
             />

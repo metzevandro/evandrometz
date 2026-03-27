@@ -27,7 +27,7 @@ export function ClickableImage({
     const startY = rect.top + rect.height / 2;
     const initialWidth = rect.width;
     const initialHeight = rect.height;
-    
+
     // Calcular a escala inicial baseado no tamanho final esperado
     const finalWidth = window.innerWidth - 80; // viewport width menos padding
     const scale = initialWidth / finalWidth;
@@ -67,14 +67,18 @@ export function ClickableImage({
         <>
           <div
             className={`clickable-image__overlay ${
-              isClosing ? "clickable-image__overlay--closing" : "clickable-image__overlay--active"
+              isClosing
+                ? "clickable-image__overlay--closing"
+                : "clickable-image__overlay--active"
             }`}
             onClick={handleClose}
           />
 
           <button
             className={`clickable-image__close ${
-              isClosing ? "clickable-image__close--closing" : "clickable-image__close--active"
+              isClosing
+                ? "clickable-image__close--closing"
+                : "clickable-image__close--active"
             }`}
             onClick={handleClose}
             aria-label="Fechar imagem"
@@ -84,7 +88,9 @@ export function ClickableImage({
 
           <div
             className={`clickable-image__modal ${
-              isClosing ? "clickable-image__modal--closing" : "clickable-image__modal--active"
+              isClosing
+                ? "clickable-image__modal--closing"
+                : "clickable-image__modal--active"
             }`}
             style={modalStyle}
           >

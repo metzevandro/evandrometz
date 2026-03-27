@@ -4,7 +4,7 @@ import "./footer.scss";
 import { usePathname } from "next/navigation";
 
 export function Footer() {
-  const path = usePathname()
+  const path = usePathname();
 
   return (
     <footer className="footer">
