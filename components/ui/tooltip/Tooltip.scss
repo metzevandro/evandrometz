@@ -1,0 +1,27 @@
+.tooltip {
+  position: relative;
+  display: inline-block;
+
+  &__text {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 12px;
+
+    background: var(--p-color-primary);
+    color: #fff;
+    padding: 4px 8px;
+    white-space: nowrap;
+  }
+
+  &:hover &__text {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+  }
+}

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.scss";
+import AnimatedLiquidBackground from "@/components/ui/animatedLiquidBackground/AnimatedLiquidBackground";
+import Layout from "./_layout";
 
 export const metadata: Metadata = {
   title: {
@@ -129,7 +131,10 @@ export default function RootLayout({
         />
       </head>
 
-      <body>{children}</body>
+      <body>
+        <Layout />
+        {children}
+      </body>
     </html>
   );
 }

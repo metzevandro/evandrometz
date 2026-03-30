@@ -4,19 +4,21 @@ import "./footer.scss";
 import { usePathname } from "next/navigation";
 
 export function Footer() {
-  const path = usePathname();
+  const pathname = usePathname();
 
   return (
     <footer className="footer">
       <div className="footer__left">
-        <div className="footer__sitemap">
-          <label>Sitemap</label>
+        {pathname === "/" && (
+          <div className="footer__sitemap">
+            <label>Sitemap</label>
 
-          <AnimatedLink href="/#">Início</AnimatedLink>
-          <AnimatedLink href="/#projects">Projetos</AnimatedLink>
-          <AnimatedLink href="/#about">Sobre mim</AnimatedLink>
-          <AnimatedLink href="/#curriculum">Currículo</AnimatedLink>
-        </div>
+            <AnimatedLink href="/#">Início</AnimatedLink>
+            <AnimatedLink href="/#projects">Projetos</AnimatedLink>
+            <AnimatedLink href="/#about">Sobre mim</AnimatedLink>
+            <AnimatedLink href="/#curriculum">Currículo</AnimatedLink>
+          </div>
+        )}
 
         <div className="footer__social">
           <label>Redes</label>
@@ -55,7 +57,7 @@ export function Footer() {
           </AnimatedLink>
         </div>
 
-        <a className="footer__back-to-top" href={`${path}#`}>
+        <a className="footer__back-to-top" href={`${pathname}#`}>
           <div className="footer__back-to-top-icon">
             <Icon name="arrow_upward" />
           </div>

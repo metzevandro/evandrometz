@@ -9,10 +9,11 @@ export function ProjectsSection() {
           <div className="sticky">
             <h2>Trabalhos que já fiz</h2>
             <p>
-              Eu trabalhei em muitos pequenos projetos paralelos ao longo dos
-              anos, aqui estão alguns recentes. Muitos deles são de código
-              aberto, então se você ver algo que desperte seu interesse, confira
-              o código.
+              Projetos selecionados que demonstram minha evolução como
+              desenvolvedor, com foco em aplicações reais, arquitetura
+              frontend/backend e construção de interfaces escaláveis. Muitos são
+              open source — explore o código para ver decisões técnicas e
+              implementação.
             </p>
           </div>
         </div>

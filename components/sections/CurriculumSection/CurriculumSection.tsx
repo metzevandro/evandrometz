@@ -9,9 +9,9 @@ export function CurriculumSection() {
         <div className="sticky">
           <h2>Sempre aprendendo</h2>
           <p>
-            Uma das coisas que mais amo na programação é que sempre há algo novo
-            para aprender. Aqui está uma seleção de algumas das coisas que tenho
-            aprendido ultimamente.
+            Estou constantemente evoluindo minhas habilidades em desenvolvimento
+            web, explorando novas tecnologias, arquitetura de software e boas
+            práticas de engenharia.
           </p>
         </div>
         <a

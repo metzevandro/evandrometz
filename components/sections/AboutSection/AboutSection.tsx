@@ -10,6 +10,7 @@ import Image from "next/image";
 import { ExperienceCard } from "@/components/ui/experienceCard/ExperienceCard";
 import { Role } from "@/types";
 import { useCarousel } from "@/lib/utils/carousel";
+import Tooltip from "@/components/ui/tooltip/Tooltip";
 
 const photos = [
   "/image-1.webp",
@@ -23,6 +24,7 @@ type Experience = {
   date: string;
   enterprise: string;
   role: string;
+  description: string;
 };
 
 export function AboutSection() {
@@ -31,16 +33,22 @@ export function AboutSection() {
       date: "Mai 2025 - Presente",
       enterprise: "CIGAM Software de Gestão",
       role: "Desenvolvedor de Software Júnior - CRM",
+      description:
+        "Desenvolvimento e manutenção do CRM do ERP CIGAM, com customizações, integrações de APIs e melhorias de performance.",
     },
     {
       date: "Jan 2025 - Abr 2025",
       enterprise: "CIGAM Software de Gestão",
       role: "Estagiário de Desenvolvimento de Software",
+      description:
+        "Suporte no desenvolvimento do CRM, atuando em customizações, integrações e manutenção do sistema.",
     },
     {
       date: "Jun 2024 - Dez 2024",
       enterprise: "Grupo Herval",
       role: "Estagiário de TI",
+      description:
+        "Suporte técnico, manutenção de equipamentos e configuração de redes locais.",
     },
   ];
 
@@ -49,20 +57,24 @@ export function AboutSection() {
       if (!acc[exp.enterprise]) {
         acc[exp.enterprise] = [];
       }
-      acc[exp.enterprise].push({ role: exp.role, date: exp.date });
+      acc[exp.enterprise].push({
+        role: exp.role,
+        date: exp.date,
+        description: exp.description,
+      });
       return acc;
     },
     {} as Record<string, Role[]>,
   );
 
   const skills = [
-    { Icon: FaReact, color: "#61DAFB" },
-    { Icon: BiLogoJavascript, color: "#F7DF1E" },
-    { Icon: BiLogoTypescript, color: "#3178C6" },
-    { Icon: DiSass, color: "#CC6699" },
-    { Icon: DiNetmagazine, color: "#512BD4" },
-    { Icon: DiMsqlServer, color: "#CC2927" },
-    { Icon: GrOracle, color: "#F80000" },
+    { Icon: FaReact, color: "#61DAFB", label: "React" },
+    { Icon: BiLogoJavascript, color: "#F7DF1E", label: "JavaScript" },
+    { Icon: BiLogoTypescript, color: "#3178C6", label: "TypeScript" },
+    { Icon: DiSass, color: "#CC6699", label: "Sass" },
+    { Icon: DiNetmagazine, color: "#512BD4", label: ".NET" },
+    { Icon: DiMsqlServer, color: "#CC2927", label: "SQL Server" },
+    { Icon: GrOracle, color: "#F80000", label: "Oracle" },
   ];
 
   const { index, height, containerRef, setIndex, startAutoPlay } = useCarousel(
@@ -76,12 +88,11 @@ export function AboutSection() {
         <div className="about-section__title">
           <h2>Falando sobre mim</h2>
           <p>
-            Sou desenvolvedor e tenho paixão por transformar interfaces
-            abstratas em projetos concretos e sólidos para o usuário, unindo
-            design cuidadoso com engenharia robusta. Meu trabalho favorito está
-            na interseção entre design e desenvolvimento, criando experiências
-            que não apenas são visualmente atraentes, mas também meticulosamente
-            construídas com foco em desempenho e usabilidade.
+            Sou desenvolvedor com foco em transformar interfaces em soluções
+            concretas e bem construídas para o usuário, unindo design cuidadoso
+            com engenharia robusta. Atuo na interseção entre design e
+            desenvolvimento, criando experiências visualmente consistentes, com
+            foco em desempenho e usabilidade.
           </p>
         </div>
 
@@ -103,9 +114,11 @@ export function AboutSection() {
         <div className="about-section__skills">
           <h3>Especialidades</h3>
           <div className="about-section__list-skills">
-            {skills.map(({ Icon, color }, index) => (
+            {skills.map(({ Icon, color, label }, index) => (
               <div key={index}>
-                <Icon size={32} color={color} />
+                <Tooltip content={label}>
+                  <Icon size={32} color={color} />
+                </Tooltip>
               </div>
             ))}
           </div>

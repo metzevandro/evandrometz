@@ -11,10 +11,6 @@ import AnimatedLiquidBackground from "@/components/ui/animatedLiquidBackground/A
 export default function Home() {
   return (
     <main>
-      <div className="animated-background">
-        <AnimatedLiquidBackground preset="Home" speed={20} />
-      </div>
-
       <IntroSection />
 
       <div className="blur-container">

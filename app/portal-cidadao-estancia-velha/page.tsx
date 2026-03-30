@@ -4,7 +4,6 @@ import { Header } from "@/components/layout/header/header";
 import { Footer } from "@/components/layout/footer/footer";
 import { Linha } from "@/components/ui/linha/Linha";
 import { ClickableImage } from "@/components/ui/clickableImage/ClickableImage";
-import AnimatedLiquidBackground from "@/components/ui/animatedLiquidBackground/AnimatedLiquidBackground";
 
 export default function PortalCidadaoEstanciaVelha() {
   const mobileImages = [
@@ -15,16 +14,9 @@ export default function PortalCidadaoEstanciaVelha() {
 
   return (
     <main>
-      <div className="animated-background">
-        <AnimatedLiquidBackground
-          preset="PortalCidadaoEstanciaVelha"
-          speed={20}
-        />
-      </div>
-
       <div className="blur">
         <Header />
-        <div className="container">
+        <div className="container-principal">
           <div className="left">
             <div className="sticky">
               <div className="left__meta">

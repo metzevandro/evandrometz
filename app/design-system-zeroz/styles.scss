@@ -8,7 +8,7 @@ header {
   z-index: 2;
 }
 
-.container {
+.container-principal {
   max-width: 1440px;
   color: var(--p-color-white);
   z-index: 2;
@@ -147,7 +147,7 @@ header {
 }
 
 @media (max-width: 768px) {
-  .container {
+  .container-principal {
     flex-direction: column;
     padding: 20px;
 

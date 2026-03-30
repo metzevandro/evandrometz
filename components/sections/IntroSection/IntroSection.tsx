@@ -55,7 +55,7 @@ export function IntroSection() {
     <section id="intro" className="intro-section">
       <div className="intro-section__container">
         <div className="intro-section__content">
-          <Header></Header>
+          <Header />
           <div className="container">
             <div className="intro-section__image-wrapper">
               <MotionImage
@@ -92,9 +92,9 @@ export function IntroSection() {
               <h1>Evandro Metz</h1>
 
               <p className="intro-section__description">
-                Comprometido em transformar interfaces abstratas em projetos
-                concretos e sólidos para o usuário, unindo design cuidadoso com
-                engenharia robusta.
+                Com foco em React, .NET, TypeScript e C#, desenvolvo aplicações
+                web e design systems, transformando requisitos de negócio em
+                interfaces funcionais, performáticas e fáceis de usar.
               </p>
             </div>
           </div>
