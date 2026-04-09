@@ -13,17 +13,22 @@ export function Header() {
 
   return (
     <header>
-      <AnimatedLink onClick={() => navigateTo("#")}>Início</AnimatedLink>
+      <AnimatedLink href="#" onClick={() => navigateTo("#")}>
+        Início
+      </AnimatedLink>
 
-      <AnimatedLink onClick={() => navigateTo("#projects")}>
+      <AnimatedLink href="#projects" onClick={() => navigateTo("#projects")}>
         Projetos
       </AnimatedLink>
 
-      <AnimatedLink onClick={() => navigateTo("#about")}>
+      <AnimatedLink href="#about" onClick={() => navigateTo("#about")}>
         Sobre mim
       </AnimatedLink>
 
-      <AnimatedLink onClick={() => navigateTo("#curriculum")}>
+      <AnimatedLink
+        href="#curriculum"
+        onClick={() => navigateTo("#curriculum")}
+      >
         Currículo
       </AnimatedLink>
     </header>
