@@ -3,7 +3,11 @@ import "./LetsTalkSection.scss";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-type BgColor = "default" | "var(--p-color-purple)" | "var(--p-color-blue)" | "var(--p-color-green)";
+type BgColor =
+  | "default"
+  | "var(--p-color-purple)"
+  | "var(--p-color-blue)"
+  | "var(--p-color-green)";
 
 function getInitialBgColor(route: string): BgColor {
   switch (route) {

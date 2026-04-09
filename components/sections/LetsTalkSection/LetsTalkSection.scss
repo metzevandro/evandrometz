@@ -42,7 +42,11 @@
     cursor: pointer;
 
     &:hover {
-      background-color: color-mix(in srgb, var(--hover-color) 70%, transparent) !important;
+      background-color: color-mix(
+        in srgb,
+        var(--hover-color) 70%,
+        transparent
+      ) !important;
     }
   }
 }

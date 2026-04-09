@@ -88,8 +88,8 @@ export const metadata: Metadata = {
   category: "technology",
 
   verification: {
-    google: 'flmqHyJf3Fg_t7HyklN99yNICWJQ_cVvpR7yDtfdirw'
-  }
+    google: "flmqHyJf3Fg_t7HyklN99yNICWJQ_cVvpR7yDtfdirw",
+  },
 };
 
 export default function RootLayout({
@@ -98,7 +98,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" data-company="" data-theme="dark">
+    <html
+      lang="pt-BR"
+      data-company=""
+      data-theme="dark"
+      data-scroll-behavior="smooth"
+    >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
