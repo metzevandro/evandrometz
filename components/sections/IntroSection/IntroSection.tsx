@@ -92,9 +92,9 @@ export function IntroSection() {
               <h1>Evandro Metz</h1>
 
               <p className="intro-section__description">
-                Com foco em React, .NET, TypeScript e C#, desenvolvo aplicações
-                web e design systems, transformando requisitos de negócio em
-                interfaces funcionais, performáticas e fáceis de usar.
+                Desenvolvedor especializado em React e TypeScript, com
+                experiência em design systems e aplicações web de alta
+                performance.
               </p>
             </div>
           </div>

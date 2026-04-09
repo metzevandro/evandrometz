@@ -37,7 +37,7 @@
     width: 100%;
     height: 100%;
 
-    padding: 0px 80px 40px 80px;
+    padding: 0px 80px 16px 80px;
 
     display: flex;
     flex-direction: column;
@@ -49,7 +49,7 @@
   }
 
   &__image-wrapper {
-    width: clamp(225px, 20vw, 280px);
+    width: clamp(240px, 22vw, 280px);
   }
 
   &__image {
@@ -100,7 +100,6 @@
     cursor: pointer;
   }
 }
-
 @media (max-width: 768px) {
   .intro-section {
     &__content {
@@ -108,17 +107,15 @@
       justify-content: space-around;
     }
 
+    &__image-wrapper {
+      width: clamp(240px, 38vw, 260px);
+    }
+
     &__info {
       h1 {
         font-size: 56px;
       }
     }
-  }
-}
-
-@media (max-width: 768px) {
-  .intro-section__image-wrapper {
-    width: clamp(220px, 32vw, 320px);
   }
 }
 
