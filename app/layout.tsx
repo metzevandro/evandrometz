@@ -125,6 +125,7 @@ export default function RootLayout({
               "@type": "Person",
               name: "Evandro Metz",
               url: "https://evandrometz.com.br",
+              image: "https://evandrometz.com.br/evandro.webp",
               jobTitle: "Software Developer",
               worksFor: {
                 "@type": "Organization",
