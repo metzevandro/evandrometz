@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer/footer";
 import { Linha } from "@/components/ui/linha/Linha";
 import { ClickableImage } from "@/components/ui/clickableImage/ClickableImage";
 import { AnimatedLink } from "@/components/ui/animatedLink/AnimatedLink";
+import LetsTalkSection from "@/components/sections/LetsTalkSection/LetsTalkSection";
 
 export default function DesignSystemZeroz() {
   return (
@@ -119,6 +120,8 @@ export default function DesignSystemZeroz() {
             />
           </div>
         </div>
+        <LetsTalkSection />
+
         <Footer />
       </div>
     </main>

@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header/header";
 import { Footer } from "@/components/layout/footer/footer";
 import { Linha } from "@/components/ui/linha/Linha";
 import { ClickableImage } from "@/components/ui/clickableImage/ClickableImage";
+import LetsTalkSection from "@/components/sections/LetsTalkSection/LetsTalkSection";
 
 export default function PortalCidadaoEstanciaVelha() {
   const mobileImages = [
@@ -129,6 +130,8 @@ export default function PortalCidadaoEstanciaVelha() {
             </div>
           </div>
         </div>
+        <LetsTalkSection />
+
         <Footer />
       </div>
     </main>

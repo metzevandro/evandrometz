@@ -6,7 +6,6 @@ import { ProjectsSection } from "@/components/sections/ProjectsSection/ProjectsS
 import { AboutSection } from "@/components/sections/AboutSection/AboutSection";
 import { Footer } from "@/components/layout/footer/footer";
 import { CurriculumSection } from "@/components/sections/CurriculumSection/CurriculumSection";
-import AnimatedLiquidBackground from "@/components/ui/animatedLiquidBackground/AnimatedLiquidBackground";
 
 export default function Home() {
   return (
