@@ -24,7 +24,6 @@ type Experience = {
   date: string;
   enterprise: string;
   role: string;
-  description: string;
 };
 
 export function AboutSection() {
@@ -33,22 +32,16 @@ export function AboutSection() {
       date: "Mai 2025 - Presente",
       enterprise: "CIGAM Software de Gestão",
       role: "Desenvolvedor de Software Júnior - CRM",
-      description:
-        "Desenvolvimento e manutenção do CRM do ERP CIGAM, com customizações, integrações de APIs e melhorias de performance.",
     },
     {
       date: "Jan 2025 - Abr 2025",
       enterprise: "CIGAM Software de Gestão",
       role: "Estagiário de Desenvolvimento de Software",
-      description:
-        "Suporte no desenvolvimento do CRM, atuando em customizações, integrações e manutenção do sistema.",
     },
     {
       date: "Jun 2024 - Dez 2024",
       enterprise: "Grupo Herval",
       role: "Estagiário de TI",
-      description:
-        "Suporte técnico, manutenção de equipamentos e configuração de redes locais.",
     },
   ];
 
@@ -60,7 +53,6 @@ export function AboutSection() {
       acc[exp.enterprise].push({
         role: exp.role,
         date: exp.date,
-        description: exp.description,
       });
       return acc;
     },

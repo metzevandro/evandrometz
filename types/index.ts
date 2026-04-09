@@ -7,7 +7,6 @@ export interface CourseProps {
 export interface Role {
   role: string;
   date: string;
-  description: string;
 }
 
 export interface ExperienceCardProps {

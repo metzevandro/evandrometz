@@ -16,7 +16,6 @@ export function ExperienceCard({ enterprise, roles }: ExperienceCardProps) {
               <h3>{r.role}</h3>
               <p>{r.date}</p>
             </div>
-            <p style={{ textAlign: "left" }}>{r.description}</p>
           </div>
         ))}
       </div>
