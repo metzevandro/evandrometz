@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.scss";
-import AnimatedLiquidBackground from "@/components/ui/animatedLiquidBackground/AnimatedLiquidBackground";
 import Layout from "./_layout";
 
 export const metadata: Metadata = {
@@ -31,7 +30,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Evandro Metz",
-      url: "https://evandrometz.com",
+      url: "https://evandrometz.com.br",
     },
   ],
 
@@ -52,7 +51,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://evandrometz.com",
+    canonical: "https://evandrometz.com.br",
   },
 
   appleWebApp: {
@@ -63,13 +62,13 @@ export const metadata: Metadata = {
     title: "Evandro Metz - Software Developer",
     description:
       "Portfolio de Evandro Metz, Software Developer no Brasil especializado em React, TypeScript, SQL e .NET — com foco em código robusto e interfaces visualmente clean.",
-    url: "https://evandrometz.com",
+    url: "https://evandrometz.com.br",
     siteName: "Evandro Metz",
     locale: "pt_BR",
     type: "website",
     images: [
       {
-        url: "https://evandrometz.com/evandro.webp",
+        url: "https://evandrometz.com.br/evandro.webp",
         width: 1200,
         height: 630,
         alt: "Evandro Metz - Software Developer",
@@ -83,7 +82,7 @@ export const metadata: Metadata = {
     title: "Evandro Metz - Software Developer",
     description:
       "Software Developer no Brasil especializado em React, TypeScript, SQL, Oracle e .NET.",
-    images: ["https://evandrometz.com/evandro.webp"],
+    images: ["https://evandrometz.com.br/evandro.webp"],
   },
 
   category: "technology",
@@ -116,7 +115,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Evandro Metz",
-              url: "https://evandrometz.com",
+              url: "https://evandrometz.com.br",
               jobTitle: "Software Developer",
               worksFor: {
                 "@type": "Organization",
