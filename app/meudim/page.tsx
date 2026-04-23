@@ -1,105 +1,81 @@
-"use client";
-import "./styles.scss";
-import { Header } from "@/components/layout/header/header";
-import { Footer } from "@/components/layout/footer/footer";
-import { Linha } from "@/components/ui/linha/Linha";
-import { ClickableImage } from "@/components/ui/clickableImage/ClickableImage";
-import LetsTalkSection from "@/components/sections/LetsTalkSection/LetsTalkSection";
+import type { Metadata } from "next";
+import MeuDimContent from "./PageContent";
+
+export const metadata: Metadata = {
+  title: "MeuDim – Gestão Financeira Pessoal",
+  description:
+    "MeuDim é uma plataforma web de gestão financeira pessoal com dashboards, categorização de despesas e receitas, e análise de padrões de gastos. Desenvolvido por Evandro Metz com Next.js.",
+
+  keywords: [
+    "MeuDim",
+    "Evandro Metz",
+    "gestão financeira pessoal",
+    "controle de despesas",
+    "dashboard financeiro",
+    "React TypeScript finanças",
+    "Next.js projeto financeiro",
+  ],
+
+  alternates: {
+    canonical: "https://evandrometz.com.br/meudim",
+  },
+
+  openGraph: {
+    title: "MeuDim – Gestão Financeira Pessoal | Evandro Metz",
+    description:
+      "Plataforma web de controle financeiro com categorização, dashboards e análise de padrões de gastos e receitas. Desenvolvido com Next.js e TypeScript.",
+    url: "https://evandrometz.com.br/meudim",
+    siteName: "Evandro Metz",
+    locale: "pt_BR",
+    type: "article",
+    images: [
+      {
+        url: "https://evandrometz.com.br/meudim/dashboard.webp",
+        width: 1200,
+        height: 630,
+        alt: "Dashboard do MeuDim – visão geral de finanças pessoais",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "MeuDim – Gestão Financeira Pessoal | Evandro Metz",
+    description:
+      "Plataforma de controle de despesas e receitas com dashboards inteligentes e categorização completa.",
+    images: ["https://evandrometz.com.br/meudim/dashboard.webp"],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "MeuDim",
+  url: "https://financas-azure.vercel.app/",
+  applicationCategory: "FinanceApplication",
+  operatingSystem: "Web",
+  description:
+    "Plataforma completa de gestão financeira pessoal com categorização de despesas e receitas, múltiplas formas de pagamento, dashboards visuais e análise de padrões financeiros.",
+  author: {
+    "@type": "Person",
+    name: "Evandro Metz",
+    url: "https://evandrometz.com.br",
+  },
+  datePublished: "2025-01-01",
+  programmingLanguage: ["TypeScript", "JavaScript"],
+  runtimePlatform: ["Next.js", "React"],
+  codeRepository: "https://github.com/metzevandro/MeuDim",
+  screenshot: "https://evandrometz.com.br/meudim/dashboard.webp",
+};
 
 export default function MeuDim() {
   return (
-    <main>
-      <div className="blur">
-        <Header />
-        <div className="container-principal">
-          <div className="left">
-            <div className="sticky">
-              <div className="left__meta">
-                <span>MeuDim</span>
-                <span>•</span>
-                <span>2025</span>
-              </div>
-              <div className="left__intro">
-                <h2>Organizando as finanças de forma eficiente</h2>
-                <p>
-                  Plataforma completa de gestão financeira que simplifica o
-                  controle de despesas e ganhos. Com categorização, análises
-                  detalhadas e dashboards inteligentes, você tem visibilidade
-                  total sobre suas finanças em um único lugar.
-                </p>
-              </div>
-              <div className="left__list">
-                <Linha nome="Cargo" cargo="Desenvolvedor" />
-                <Linha nome="Plataforma" cargo="Web" />
-                <Linha nome="Status" cargo="Em andamento" />
-                <Linha
-                  nome="Produção"
-                  cargo="MeuDim.com"
-                  link="https://financas-azure.vercel.app/"
-                />
-                <Linha
-                  nome="Repositório"
-                  cargo="GitHub"
-                  link="https://github.com/metzevandro/MeuDim"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="right">
-            <ClickableImage
-              src="/meudim/dashboard.webp"
-              alt="Visão geral do projeto MeuDim"
-              width={3000}
-              height={3000}
-            />
-
-            <div>
-              <span>Sobre</span>
-              <span className="description">
-                MeuDim permite que usuários criem conta, registrem despesas e
-                ganhos com categorização completa (categoria e subcategoria),
-                forma de pagamento e fonte de renda. A plataforma oferece
-                diversos gráficos e dashboards para acompanhamento detalhado das
-                finanças, facilitando a tomada de decisões financeiras mais
-                inteligentes.
-              </span>
-              <ClickableImage
-                src="/meudim/earning.webp"
-                alt="Visão geral do projeto MeuDim"
-                width={3000}
-                height={3000}
-              />
-            </div>
-
-            <div>
-              <span>Funcionalidades</span>
-              <span className="description">
-                Sistema completo com autenticação de usuários, registro de
-                transações categorizadas, múltiplas formas de pagamento e origem
-                de renda. Conversão de dados financeiros em tempo real e
-                dashboards visuais com gráficos que facilitam a análise de
-                padrões de gastos e receitas.
-              </span>
-            </div>
-
-            <div>
-              <span>Desafios e aprendizados</span>
-              <span className="description">
-                Os maiores desafios foram criar as rotas de requisições da API e
-                implementar autenticação segura. Trabalhei com padrões que nunca
-                havia explorado antes, resultando em aprendizados profundos
-                sobre arquitetura backend, manipulação de dados financeiros e
-                integração frontend-backend robusta.
-              </span>
-              <ClickableImage src="/meudim/login.webp" alt="Tela de Login" />
-            </div>
-          </div>
-        </div>
-        <LetsTalkSection />
-
-        <Footer />
-      </div>
-    </main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <MeuDimContent />
+    </>
   );
 }

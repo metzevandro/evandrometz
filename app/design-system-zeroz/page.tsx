@@ -1,129 +1,82 @@
-"use client";
-import "./styles.scss";
-import { Header } from "@/components/layout/header/header";
-import { Footer } from "@/components/layout/footer/footer";
-import { Linha } from "@/components/ui/linha/Linha";
-import { ClickableImage } from "@/components/ui/clickableImage/ClickableImage";
-import { AnimatedLink } from "@/components/ui/animatedLink/AnimatedLink";
-import LetsTalkSection from "@/components/sections/LetsTalkSection/LetsTalkSection";
+import type { Metadata } from "next";
+import DesignSystemZerozContent from "./PageContent";
+
+export const metadata: Metadata = {
+  title: "Design System Zeroz – Biblioteca de Componentes React",
+  description:
+    "Design System open source criado por Evandro Metz com React, TypeScript e SCSS. Componentes reutilizáveis documentados no Storybook e publicados no npm, com foco em escalabilidade, acessibilidade e consistência visual.",
+
+  keywords: [
+    "Design System Zeroz",
+    "Evandro Metz",
+    "biblioteca de componentes React",
+    "TypeScript SCSS Storybook",
+    "design system open source",
+    "npm componentes UI",
+    "design tokens Figma",
+    "acessibilidade frontend",
+  ],
+
+  alternates: {
+    canonical: "https://evandrometz.com.br/design-system-zeroz",
+  },
+
+  openGraph: {
+    title:
+      "Design System Zeroz – Biblioteca de Componentes React | Evandro Metz",
+    description:
+      "Biblioteca de componentes open source com React, TypeScript e SCSS. Documentada no Storybook, publicada no npm, com design tokens e foco em acessibilidade.",
+    url: "https://evandrometz.com.br/design-system-zeroz",
+    siteName: "Evandro Metz",
+    locale: "pt_BR",
+    type: "article",
+    images: [
+      {
+        url: "https://evandrometz.com.br/design-system-zeroz/homepage.webp",
+        width: 1200,
+        height: 630,
+        alt: "Visão geral do Design System Zeroz no Storybook",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Design System Zeroz | Evandro Metz",
+    description:
+      "Biblioteca de componentes React open source com TypeScript, SCSS, Storybook e publicação no npm.",
+    images: ["https://evandrometz.com.br/design-system-zeroz/homepage.webp"],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  name: "Design System Zeroz",
+  url: "https://zeroz.vercel.app/",
+  codeRepository: "https://github.com/metzevandro/Zeroz",
+  description:
+    "Biblioteca de componentes React open source com TypeScript e SCSS, documentada no Storybook e distribuída via npm. Focada em escalabilidade, consistência visual e acessibilidade.",
+  author: {
+    "@type": "Person",
+    name: "Evandro Metz",
+    url: "https://evandrometz.com.br",
+  },
+  datePublished: "2024-01-01",
+  programmingLanguage: ["TypeScript", "JavaScript", "SCSS"],
+  runtimePlatform: ["React", "Storybook", "npm"],
+  license: "https://opensource.org/licenses/MIT",
+  screenshot: "https://evandrometz.com.br/design-system-zeroz/homepage.webp",
+};
 
 export default function DesignSystemZeroz() {
   return (
-    <main>
-      <div className="blur">
-        <Header />
-        <div className="container-principal">
-          <div className="left">
-            <div className="sticky">
-              <div className="left__meta">
-                <span>Design System Zeroz</span>
-                <span>•</span>
-                <span>2024</span>
-              </div>
-              <div className="left__intro">
-                <h2>Construindo um Design System escalável</h2>
-                <p>
-                  Biblioteca de componentes open source criada para padronizar e
-                  acelerar o desenvolvimento de interfaces. Focada em
-                  escalabilidade, consistência visual e acessibilidade —
-                  conectando design e código do Figma ao produto final.
-                </p>
-              </div>
-              <div className="left__list">
-                <Linha nome="Cargo" cargo="Desenvolvedor" />
-                <Linha nome="Plataforma" cargo="Web • Mobile • npm" />
-                <Linha nome="Status" cargo="Em andamento" />
-                <Linha
-                  nome="Repositório"
-                  cargo="GitHub"
-                  link="https://github.com/metzevandro/Zeroz"
-                />
-                <Linha
-                  nome="Documentação"
-                  cargo="Storybook"
-                  link="https://zeroz.vercel.app/"
-                />
-                <Linha
-                  nome="Pacote"
-                  cargo="npm"
-                  link="https://www.npmjs.com/package/design-system-zeroz"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="right">
-            <ClickableImage
-              src="/design-system-zeroz/homepage.webp"
-              alt="Visão geral do Design System Zeroz no Storybook"
-              width={3000}
-              height={3000}
-            />
-            <div>
-              <span>Funcionalidades</span>
-              <span className="description">
-                Componentes reutilizáveis prontos para produção, documentados no
-                Storybook e distribuídos via npm. O sistema garante consistência
-                visual, reduz retrabalho e acelera a criação de interfaces,
-                mantendo acessibilidade e responsividade como padrão.
-              </span>
-              <ClickableImage
-                src="/design-system-zeroz/charts.webp"
-                alt="Componentes e variantes no Storybook"
-              />
-            </div>
-            <div>
-              <span>Tecnologias</span>
-              <span className="description">
-                Desenvolvido com React e TypeScript, utilizando SCSS para
-                estilização e Storybook para documentação interativa. A
-                biblioteca é distribuída via npm, permitindo integração fácil em
-                diferentes projetos.
-              </span>
-              <ClickableImage
-                src="/design-system-zeroz/componente.webp"
-                alt="Tokens de design e sistema de cores no Figma"
-              />
-            </div>
-            <div>
-              <span>Desafios e aprendizados</span>
-              <span className="description">
-                O principal desafio foi garantir que os componentes fossem
-                realmente escaláveis, mantendo consistência visual,
-                acessibilidade e responsividade. Isso exigiu ir além do visual,
-                considerando semântica, contraste, navegação por teclado e
-                padronização entre variantes.
-              </span>
-            </div>
-            <div>
-              <span>Participação</span>
-              <span className="description">
-                Fui esponsável por toda a engenharia do design system:
-                desenvolvimento dos componentes em TypeScript e estruturação dos
-                design tokens (cores, tipografia, espaçamentos e escalas),
-                garantindo consistência e escalabilidade entre design e código.
-                Também atuei na definição da arquitetura, configuração do
-                Storybook, publicação no npm e documentação da biblioteca. O
-                design visual foi criado no Figma pelo{" "}
-                <AnimatedLink
-                  target="_blank"
-                  href="https://augustometz.com.br/"
-                >
-                  Augusto Metz
-                </AnimatedLink>
-                , designer do projeto.
-              </span>
-            </div>{" "}
-            <ClickableImage
-              src="/design-system-zeroz/props.webp"
-              alt="Propriedades dos componentes documentadas no Storybook"
-            />
-          </div>
-        </div>
-        <LetsTalkSection />
-
-        <Footer />
-      </div>
-    </main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <DesignSystemZerozContent />
+    </>
   );
 }
