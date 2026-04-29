@@ -12,12 +12,12 @@ import { Role } from "@/types";
 import { useCarousel } from "@/lib/utils/carousel";
 import Tooltip from "@/components/ui/tooltip/Tooltip";
 
-const photos = [
-  "/image-1.webp",
-  "/image-2.webp",
-  "/image-3.webp",
-  "/image-4.webp",
-  "/image-5.webp",
+const photos: { src: string; alt: string }[] = [
+  { src: "/image-1.webp", alt: "Evandro Metz foto conceito de estúdio com bola de basquete" },
+  { src: "/image-2.webp", alt: "Evandro Metz em intercâmbio no Chile" },
+  { src: "/image-3.webp", alt: "Evandro Metz em Cristo Protetor" },
+  { src: "/image-4.webp", alt: "Evandro Metz na sua Igreja" },
+  { src: "/image-5.webp", alt: "Evandro Metz com Toga de Formando" },
 ];
 
 type Experience = {
@@ -70,7 +70,7 @@ export function AboutSection() {
   ];
 
   const { index, height, containerRef, setIndex, startAutoPlay } = useCarousel(
-    photos,
+    photos.map((p) => p.src),
     5000,
   );
 
@@ -132,8 +132,8 @@ export function AboutSection() {
                 <Image
                   width={500}
                   height={500}
-                  src={photo}
-                  alt={`slide-${i}`}
+                  src={photo.src}
+                  alt={photo.alt}
                   priority={i === 0}
                   loading={i === 0 ? undefined : "lazy"}
                 />
