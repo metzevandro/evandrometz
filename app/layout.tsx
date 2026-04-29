@@ -107,6 +107,8 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="theme-color" content="#000000" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -129,13 +131,33 @@ export default function RootLayout({
               url: "https://evandrometz.com.br",
               image: "https://evandrometz.com.br/evandro.webp",
               jobTitle: "Software Developer",
+              description:
+                "Desenvolvedor de Software especializado em React, TypeScript, SQL e .NET, com foco em interfaces visualmente clean e código robusto.",
               worksFor: {
                 "@type": "Organization",
-                name: "CIGAM",
+                name: "CIGAM Software de Gestão",
+                url: "https://www.cigam.com.br/",
               },
+              address: {
+                "@type": "PostalAddress",
+                addressRegion: "Rio Grande do Sul",
+                addressCountry: "BR",
+              },
+              email: "evandro.metz@outlook.com",
+              knowsAbout: [
+                "React",
+                "TypeScript",
+                "JavaScript",
+                "SQL",
+                ".NET",
+                "Design Systems",
+                "Frontend Development",
+                "Web Performance",
+              ],
               sameAs: [
                 "https://github.com/metzevandro",
                 "https://linkedin.com/in/metzevandro",
+                "https://www.instagram.com/evandro.metz/",
               ],
             }),
           }}
