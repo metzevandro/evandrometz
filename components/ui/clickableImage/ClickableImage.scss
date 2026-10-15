@@ -1,228 +1,144 @@
 .clickable-image {
-  overflow: hidden;
-  height: auto;
-  cursor: pointer;
-  transition: all 0.3s ease-in;
+  width: 100%;
 
-  &:hover {
-    .clickable-image__img {
-      transition: all 0.3s ease-in;
+  &__trigger {
+    all: unset;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: var(--ratio, 16 / 9);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
+    &:focus-visible {
+      outline: 2px solid var(--p-color-white);
+      outline-offset: 4px;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+
+        .clickable-image__hint {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  &__frame {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    outline: 1px solid rgba(255, 255, 255, 0.12);
+    outline-offset: -1px;
+    background: rgba(255, 255, 255, 0.04);
+
+    &--open {
+      width: min(92vw, calc(88dvh * var(--ratio, 1.7778)));
+      height: auto;
+      aspect-ratio: var(--ratio, 16 / 9);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+      cursor: default;
     }
   }
 
   &__img {
+    display: block;
     width: 100%;
     height: 100%;
-    transition: all 0.3s ease-in-out;
-    object-fit: contain;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
-}
 
-@keyframes fadeIn {
-  from {
+  &__hint {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    color: var(--p-color-white);
+    font-size: 12px;
+    line-height: 24px;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
     opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes slideUpIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUpOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes slideUpIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUpOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes zoomIn {
-  from {
-    opacity: 0;
-    transform: translate(
-        calc(var(--start-x) - 50vw),
-        calc(var(--start-y) - 50vh)
-      )
-      scale(var(--scale));
-  }
-  to {
-    opacity: 1;
-    transform: translate(0, 0) scale(1);
-  }
-}
-
-@keyframes zoomOut {
-  from {
-    opacity: 1;
-    transform: translate(0, 0) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: translate(
-        calc(var(--start-x) - 50vw),
-        calc(var(--start-y) - 50vh)
-      )
-      scale(var(--scale));
-  }
-}
-
-.clickable-image__overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 998;
-  backdrop-filter: blur(4px);
-  opacity: 0;
-
-  &--active {
-    animation: fadeIn 0.2s ease-out forwards;
-  }
-}
-
-.clickable-image__modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  max-width: 100vw;
-  max-height: 100vh;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  will-change: transform;
-  pointer-events: none;
-  padding: 0 40px;
-  box-sizing: border-box;
-
-  .img {
-    width: 100%;
-    height: auto;
-    max-width: calc(80vw - 80px);
-    object-fit: contain;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    pointer-events: auto;
+    transform: translateY(6px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+    pointer-events: none;
   }
 
-  @media (max-width: 768px) {
-    padding: 0 20px;
+  &__lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(10px);
+  }
 
-    .img {
-      width: 100%;
-      height: auto;
-      max-width: calc(100vw - 40px);
+  &__close {
+    all: unset;
+    box-sizing: border-box;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--p-color-white);
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--p-color-white);
+      outline-offset: 2px;
     }
   }
+}
 
-  &--active {
-    animation: zoomIn 0.6s ease-out forwards;
-  }
+@media (max-width: 768px) {
+  .clickable-image {
+    &__lightbox {
+      padding: 12px;
+    }
 
-  &--closing {
-    animation: zoomOut 0.4s ease-in forwards;
+    &__close {
+      top: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+    }
+
+    &__hint {
+      opacity: 0.85;
+      transform: none;
+    }
   }
 }
 
-.clickable-image__close {
-  position: fixed;
-  top: 24px;
-  right: 24px;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-  width: 44px;
-  height: 44px;
-  font-size: 24px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(10px);
-  opacity: 0;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.3);
-  }
-
-  &--active {
-    animation: slideUpIn 0.2s ease-out forwards;
-  }
-
-  &--closing {
-    animation: slideUpOut 0.2s ease-in forwards;
-  }
-
-  @media (max-width: 768px) {
-    top: 16px;
-    right: 16px;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
+@media (prefers-reduced-motion: reduce) {
+  .clickable-image__img,
+  .clickable-image__hint {
+    transition: none;
   }
 }

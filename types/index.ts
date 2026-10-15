@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 export interface CourseProps {
   date: string;
   title: string;
@@ -41,7 +43,33 @@ export interface MobileImage {
 }
 
 export type AnimatedLiquidBackgroundPreset =
-  | "Home"
-  | "Zeroz"
-  | "MeuDim"
-  | "PortalCidadaoEstanciaVelha";
+  "Home" | "Zeroz" | "MeuDim" | "PortalCidadaoEstanciaVelha";
+
+export interface ProjectImage {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+}
+
+export interface ProjectItem {
+  title: string;
+  text: ReactNode;
+}
+
+export interface ProjectPageData {
+  name: string;
+  year: string;
+  accent: string;
+  title: string;
+  summary: string;
+  facts: LinhaProps[];
+  cover: ProjectImage;
+  about: ReactNode;
+  features: { items: ProjectItem[]; images?: ProjectImage[] };
+  stack: string[];
+  decisions: { items: ProjectItem[]; images?: ProjectImage[] };
+  learnings: { text: ReactNode; images?: ProjectImage[] };
+  role: ReactNode;
+  mobile?: ProjectImage[];
+}

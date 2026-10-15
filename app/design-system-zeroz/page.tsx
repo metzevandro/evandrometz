@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://evandrometz.com.br/design-system-zeroz/homepage.webp",
-        width: 1200,
-        height: 630,
+        width: 1920,
+        height: 1080,
         alt: "Visão geral do Design System Zeroz no Storybook",
       },
     ],

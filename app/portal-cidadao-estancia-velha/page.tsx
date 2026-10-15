@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://evandrometz.com.br/portal-cidadao/homepage.webp",
-        width: 1200,
-        height: 630,
+        width: 1920,
+        height: 1080,
         alt: "Homepage do Portal do Cidadão de Estância Velha",
       },
     ],

@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://evandrometz.com.br/meudim/dashboard.webp",
-        width: 1200,
-        height: 630,
+        width: 1600,
+        height: 900,
         alt: "Dashboard do MeuDim – visão geral de finanças pessoais",
       },
     ],
