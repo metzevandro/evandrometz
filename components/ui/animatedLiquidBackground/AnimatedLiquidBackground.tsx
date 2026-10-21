@@ -11,6 +11,21 @@ import { AnimatedLiquidBackgroundPreset } from "@/types";
 
 const speedEase = (x: number): number => x * x * (3 - 2 * x);
 
+const COLOR_KEYS = ["u_color1", "u_color2", "u_color3"] as const;
+const COLOR_TWEEN_MS = 1200;
+
+const easeInOutCubic = (t: number): number =>
+  t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+const sameColor = (a: unknown, b: unknown): boolean => {
+  const x = a as number[];
+  const y = b as number[];
+  return x.length === y.length && x.every((value, i) => value === y[i]);
+};
+
+const mixColor = (a: number[], b: number[], t: number): number[] =>
+  a.map((value, i) => value + (b[i] - value) * t);
+
 interface PresetConfig {
   color1: string;
   color2: string;
@@ -293,8 +308,60 @@ const ShaderMount = ({
     };
   }, [fragmentShader]);
 
+  const currentUniformsRef = useRef<Record<string, unknown>>(uniforms);
+  const tweenRafRef = useRef<number | null>(null);
+
   useEffect(() => {
-    shaderMountRef.current?.setUniforms(uniforms);
+    const mount = shaderMountRef.current;
+    if (!mount) return;
+
+    if (tweenRafRef.current !== null) {
+      cancelAnimationFrame(tweenRafRef.current);
+      tweenRafRef.current = null;
+    }
+
+    const from = currentUniformsRef.current;
+    const hasColorChange = COLOR_KEYS.some(
+      (key) => !sameColor(from[key], uniforms[key]),
+    );
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (!hasColorChange || reduceMotion) {
+      mount.setUniforms(uniforms);
+      currentUniformsRef.current = uniforms;
+      return;
+    }
+
+    const startTime = performance.now();
+
+    const step = (now: number) => {
+      const progress = Math.min(1, (now - startTime) / COLOR_TWEEN_MS);
+      const eased = easeInOutCubic(progress);
+      const next: Record<string, unknown> = { ...uniforms };
+
+      for (const key of COLOR_KEYS) {
+        next[key] = mixColor(
+          from[key] as number[],
+          uniforms[key] as number[],
+          eased,
+        );
+      }
+
+      mount.setUniforms(next);
+      currentUniformsRef.current = progress < 1 ? next : uniforms;
+      tweenRafRef.current = progress < 1 ? requestAnimationFrame(step) : null;
+    };
+
+    tweenRafRef.current = requestAnimationFrame(step);
+
+    return () => {
+      if (tweenRafRef.current !== null) {
+        cancelAnimationFrame(tweenRafRef.current);
+        tweenRafRef.current = null;
+      }
+    };
   }, [uniforms]);
 
   useEffect(() => {

@@ -3,7 +3,7 @@ import type { ProjectPageData } from "@/types";
 
 export const meudim: ProjectPageData = {
   name: "MeuDim",
-  year: "2025",
+  year: "2026",
   accent: "var(--p-color-blue)",
   title: "Organizando as finanças de forma eficiente",
   summary:

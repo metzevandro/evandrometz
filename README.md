@@ -14,14 +14,14 @@ Templates existem. Framer existe. Mesmo assim optei por construir tudo à mão �
 
 ## Stack
 
-| | |
-|---|---|
-| Framework | Next.js 15 (App Router) |
-| Linguagem | TypeScript |
-| Estilo | SCSS Modules |
+|           |                                              |
+| --------- | -------------------------------------------- |
+| Framework | Next.js 15 (App Router)                      |
+| Linguagem | TypeScript                                   |
+| Estilo    | SCSS Modules                                 |
 | Animações | Framer Motion + WebGL (shaders customizados) |
-| Ícones | Material Symbols |
-| Deploy | Vercel |
+| Ícones    | Material Symbols                             |
+| Deploy    | Vercel                                       |
 
 ---
 

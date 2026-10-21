@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 import Layout from "./_layout";
+import { ScrollReveal } from "@/components/layout/scrollReveal/ScrollReveal";
 
 export const metadata: Metadata = {
   title: {
@@ -167,6 +168,7 @@ export default function RootLayout({
       <body>
         <Layout />
         {children}
+        <ScrollReveal />
       </body>
     </html>
   );

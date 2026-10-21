@@ -13,7 +13,10 @@ import { useCarousel } from "@/lib/utils/carousel";
 import Tooltip from "@/components/ui/tooltip/Tooltip";
 
 const photos: { src: string; alt: string }[] = [
-  { src: "/image-1.webp", alt: "Evandro Metz foto conceito de estúdio com bola de basquete" },
+  {
+    src: "/image-1.webp",
+    alt: "Evandro Metz foto conceito de estúdio com bola de basquete",
+  },
   { src: "/image-2.webp", alt: "Evandro Metz em intercâmbio no Chile" },
   { src: "/image-3.webp", alt: "Evandro Metz em Cristo Protetor" },
   { src: "/image-4.webp", alt: "Evandro Metz na sua Igreja" },

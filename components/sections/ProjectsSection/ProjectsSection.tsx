@@ -19,20 +19,20 @@ export function ProjectsSection() {
         </div>
         <div className="projects">
           <CardProject
+            date="2026"
+            title="MeuDim"
+            description="Organizando as finanças de forma eficiente"
+            imageSrc="/meudim.webp"
+            imageAlt="MeuDim Image"
+            projectUrl="/meudim"
+          />
+          <CardProject
             date="2025"
             title="Portal do Cidadão - Estância Velha"
             description="Facilitando o acesso aos serviços da Prefeitura"
             imageSrc="/portal-cidadao.webp"
             imageAlt="Portal do Cidadão - Estância Velha Image"
             projectUrl="/portal-cidadao-estancia-velha"
-          />
-          <CardProject
-            date="2025"
-            title="MeuDim"
-            description="Organizando as finanças de forma eficiente"
-            imageSrc="/meudim.webp"
-            imageAlt="MeuDim Image"
-            projectUrl="/meudim"
           />
           <CardProject
             date="2024"

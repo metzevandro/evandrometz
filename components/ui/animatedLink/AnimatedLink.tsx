@@ -1,4 +1,8 @@
+"use client";
+
 import { motion, HTMLMotionProps } from "framer-motion";
+import type { MouseEvent } from "react";
+import { useRouter } from "next/navigation";
 
 type AnimatedLinkProps = HTMLMotionProps<"a"> & {
   children: React.ReactNode;
@@ -8,11 +12,37 @@ type AnimatedLinkProps = HTMLMotionProps<"a"> & {
 export function AnimatedLink({
   children,
   inheritHover = false,
+  onClick,
   ...props
 }: AnimatedLinkProps) {
+  const router = useRouter();
+
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    onClick?.(event);
+    if (event.defaultPrevented) return;
+
+    const href = props.href;
+    const isInternal =
+      typeof href === "string" &&
+      href.startsWith("/") &&
+      !href.startsWith("//");
+    const isModified =
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey ||
+      event.button !== 0;
+
+    if (!isInternal || isModified || props.target === "_blank") return;
+
+    event.preventDefault();
+    router.push(href);
+  };
+
   return (
     <motion.a
       {...props}
+      onClick={handleClick}
       variants={{ rest: {}, hover: {} }}
       {...(!inheritHover && {
         initial: "rest",
