@@ -29,7 +29,7 @@ async function getLastCommitDateByPath(path: string): Promise<Date> {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://evandrometz.com.br";
+  const baseUrl = "https://www.evandrometz.com.br";
 
   const [portalDate, meudimDate, zerozDate] = await Promise.all([
     getLastCommitDateByPath("app/portal-cidadao-estancia-velha"),

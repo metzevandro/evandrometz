@@ -4,8 +4,10 @@ import Layout from "./_layout";
 import { ScrollReveal } from "@/components/layout/scrollReveal/ScrollReveal";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.evandrometz.com.br"),
+
   title: {
-    default: "Evandro Metz - Software Developer",
+    default: "Evandro Metz – Desenvolvedor de Software | React e TypeScript",
     template: "%s | Evandro Metz",
   },
 
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Evandro Metz",
-      url: "https://evandrometz.com.br",
+      url: "https://www.evandrometz.com.br",
     },
   ],
 
@@ -52,7 +54,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://evandrometz.com.br",
+    canonical: "https://www.evandrometz.com.br",
   },
 
   appleWebApp: {
@@ -60,30 +62,29 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Evandro Metz - Software Developer",
+    title: "Evandro Metz – Desenvolvedor de Software | React e TypeScript",
     description:
-      "Portfolio de Evandro Metz, Software Developer no Brasil especializado em React, TypeScript, SQL e .NET — com foco em código robusto e interfaces visualmente clean.",
-    url: "https://evandrometz.com.br",
+      "Portfólio de Evandro Metz, Desenvolvedor de Software no Brasil especializado em React, TypeScript, SQL e .NET — com foco em código robusto e interfaces visualmente clean.",
+    url: "https://www.evandrometz.com.br",
     siteName: "Evandro Metz",
     locale: "pt_BR",
     type: "website",
     images: [
       {
-        url: "https://evandrometz.com.br/evandro.webp",
-        width: 1200,
-        height: 630,
-        alt: "Evandro Metz - Software Developer",
+        url: "https://www.evandrometz.com.br/evandro.webp",
+        width: 555,
+        height: 692,
+        alt: "Evandro Metz - Desenvolvedor de Software",
       },
     ],
-    emails: ["evandro.metz@outlook.com"],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Evandro Metz - Software Developer",
+    title: "Evandro Metz – Desenvolvedor de Software | React e TypeScript",
     description:
-      "Software Developer no Brasil especializado em React, TypeScript, SQL, Oracle e .NET.",
-    images: ["https://evandrometz.com.br/evandro.webp"],
+      "Desenvolvedor de Software no Brasil especializado em React, TypeScript, SQL e .NET — com foco em código robusto e interfaces visualmente clean.",
+    images: ["https://www.evandrometz.com.br/evandro.webp"],
   },
 
   category: "technology",
@@ -129,9 +130,10 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Evandro Metz",
-              url: "https://evandrometz.com.br",
-              image: "https://evandrometz.com.br/evandro.webp",
-              jobTitle: "Software Developer",
+              url: "https://www.evandrometz.com.br",
+              image: "https://www.evandrometz.com.br/evandro.webp",
+              alternateName: "Evandro Metz Desenvolvedor",
+              jobTitle: "Desenvolvedor de Software",
               description:
                 "Desenvolvedor de Software especializado em React, TypeScript, SQL e .NET, com foco em interfaces visualmente clean e código robusto.",
               worksFor: {
@@ -144,7 +146,6 @@ export default function RootLayout({
                 addressRegion: "Rio Grande do Sul",
                 addressCountry: "BR",
               },
-              email: "evandro.metz@outlook.com",
               knowsAbout: [
                 "React",
                 "TypeScript",
@@ -157,7 +158,7 @@ export default function RootLayout({
               ],
               sameAs: [
                 "https://github.com/metzevandro",
-                "https://linkedin.com/in/metzevandro",
+                "https://www.linkedin.com/in/metzevandro/",
                 "https://www.instagram.com/evandro.metz/",
               ],
             }),

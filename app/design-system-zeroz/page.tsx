@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ],
 
   alternates: {
-    canonical: "https://evandrometz.com.br/design-system-zeroz",
+    canonical: "https://www.evandrometz.com.br/design-system-zeroz",
   },
 
   openGraph: {
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
       "Design System Zeroz – Biblioteca de Componentes React | Evandro Metz",
     description:
       "Biblioteca de componentes open source com React, TypeScript e SCSS. Documentada no Storybook, publicada no npm, com design tokens e foco em acessibilidade.",
-    url: "https://evandrometz.com.br/design-system-zeroz",
+    url: "https://www.evandrometz.com.br/design-system-zeroz",
     siteName: "Evandro Metz",
     locale: "pt_BR",
     type: "article",
     images: [
       {
-        url: "https://evandrometz.com.br/design-system-zeroz/homepage.webp",
+        url: "https://www.evandrometz.com.br/design-system-zeroz/homepage.webp",
         width: 1920,
         height: 1080,
         alt: "Visão geral do Design System Zeroz no Storybook",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Design System Zeroz | Evandro Metz",
     description:
       "Biblioteca de componentes React open source com TypeScript, SCSS, Storybook e publicação no npm.",
-    images: ["https://evandrometz.com.br/design-system-zeroz/homepage.webp"],
+    images: ["https://www.evandrometz.com.br/design-system-zeroz/homepage.webp"],
   },
 };
 
@@ -60,13 +60,13 @@ const jsonLd = {
   author: {
     "@type": "Person",
     name: "Evandro Metz",
-    url: "https://evandrometz.com.br",
+    url: "https://www.evandrometz.com.br",
   },
   datePublished: "2024-01-01",
   programmingLanguage: ["TypeScript", "JavaScript", "SCSS"],
   runtimePlatform: ["React", "Storybook", "npm"],
   license: "https://opensource.org/licenses/MIT",
-  screenshot: "https://evandrometz.com.br/design-system-zeroz/homepage.webp",
+  screenshot: "https://www.evandrometz.com.br/design-system-zeroz/homepage.webp",
 };
 
 export default function DesignSystemZeroz() {

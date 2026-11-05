@@ -17,20 +17,20 @@ export const metadata: Metadata = {
   ],
 
   alternates: {
-    canonical: "https://evandrometz.com.br/portal-cidadao-estancia-velha",
+    canonical: "https://www.evandrometz.com.br/portal-cidadao-estancia-velha",
   },
 
   openGraph: {
     title: "Portal do Cidadão Estância Velha | Evandro Metz",
     description:
       "Aplicação web e mobile para registro de ocorrências urbanas com geolocalização e envio direto à prefeitura. Desenvolvido com Next.js, Firebase e Google Maps API.",
-    url: "https://evandrometz.com.br/portal-cidadao-estancia-velha",
+    url: "https://www.evandrometz.com.br/portal-cidadao-estancia-velha",
     siteName: "Evandro Metz",
     locale: "pt_BR",
     type: "article",
     images: [
       {
-        url: "https://evandrometz.com.br/portal-cidadao/homepage.webp",
+        url: "https://www.evandrometz.com.br/portal-cidadao/homepage.webp",
         width: 1920,
         height: 1080,
         alt: "Homepage do Portal do Cidadão de Estância Velha",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Portal do Cidadão Estância Velha | Evandro Metz",
     description:
       "Registro de ocorrências urbanas com pin no mapa, upload de imagens e envio automático à prefeitura.",
-    images: ["https://evandrometz.com.br/portal-cidadao/homepage.webp"],
+    images: ["https://www.evandrometz.com.br/portal-cidadao/homepage.webp"],
   },
 };
 
@@ -59,14 +59,14 @@ const jsonLd = {
   author: {
     "@type": "Person",
     name: "Evandro Metz",
-    url: "https://evandrometz.com.br",
+    url: "https://www.evandrometz.com.br",
   },
   datePublished: "2025-01-01",
   programmingLanguage: ["TypeScript", "JavaScript"],
   runtimePlatform: ["Next.js", "Firebase", "Google Maps API"],
   codeRepository:
     "https://github.com/metzevandro/portal-cidadao-estancia-velha",
-  screenshot: "https://evandrometz.com.br/portal-cidadao/homepage.webp",
+  screenshot: "https://www.evandrometz.com.br/portal-cidadao/homepage.webp",
 };
 
 export default function PortalCidadaoEstanciaVelha() {

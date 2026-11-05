@@ -17,20 +17,20 @@ export const metadata: Metadata = {
   ],
 
   alternates: {
-    canonical: "https://evandrometz.com.br/meudim",
+    canonical: "https://www.evandrometz.com.br/meudim",
   },
 
   openGraph: {
     title: "MeuDim – Gestão Financeira Pessoal | Evandro Metz",
     description:
       "Plataforma web de controle financeiro com categorização, dashboards e análise de padrões de gastos e receitas. Desenvolvido com Next.js e TypeScript.",
-    url: "https://evandrometz.com.br/meudim",
+    url: "https://www.evandrometz.com.br/meudim",
     siteName: "Evandro Metz",
     locale: "pt_BR",
     type: "article",
     images: [
       {
-        url: "https://evandrometz.com.br/meudim/dashboard.webp",
+        url: "https://www.evandrometz.com.br/meudim/dashboard.webp",
         width: 1600,
         height: 900,
         alt: "Dashboard do MeuDim – visão geral de finanças pessoais",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "MeuDim – Gestão Financeira Pessoal | Evandro Metz",
     description:
       "Plataforma de controle de despesas e receitas com dashboards inteligentes e categorização completa.",
-    images: ["https://evandrometz.com.br/meudim/dashboard.webp"],
+    images: ["https://www.evandrometz.com.br/meudim/dashboard.webp"],
   },
 };
 
@@ -59,13 +59,13 @@ const jsonLd = {
   author: {
     "@type": "Person",
     name: "Evandro Metz",
-    url: "https://evandrometz.com.br",
+    url: "https://www.evandrometz.com.br",
   },
   datePublished: "2025-01-01",
   programmingLanguage: ["TypeScript", "JavaScript"],
   runtimePlatform: ["Next.js", "React"],
   codeRepository: "https://github.com/metzevandro/MeuDim",
-  screenshot: "https://evandrometz.com.br/meudim/dashboard.webp",
+  screenshot: "https://www.evandrometz.com.br/meudim/dashboard.webp",
 };
 
 export default function MeuDim() {
