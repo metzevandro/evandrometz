@@ -31,6 +31,10 @@ export function Header() {
       >
         Currículo
       </AnimatedLink>
+
+      <AnimatedLink href="#letstalk" onClick={() => navigateTo("#letstalk")}>
+        Contato
+      </AnimatedLink>
     </header>
   );
 }

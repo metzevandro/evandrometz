@@ -5,6 +5,7 @@ import { ProjectsSection } from "@/components/sections/ProjectsSection/ProjectsS
 import { AboutSection } from "@/components/sections/AboutSection/AboutSection";
 import { Footer } from "@/components/layout/footer/footer";
 import { CurriculumSection } from "@/components/sections/CurriculumSection/CurriculumSection";
+import LetsTalkSection from "@/components/sections/LetsTalkSection/LetsTalkSection";
 import "./globals.scss";
 
 export default function HomeClient() {
@@ -16,6 +17,7 @@ export default function HomeClient() {
         <ProjectsSection />
         <AboutSection />
         <CurriculumSection />
+        <LetsTalkSection />
         <Footer />
       </div>
     </main>

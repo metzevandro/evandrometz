@@ -17,6 +17,7 @@ export function Footer() {
             <AnimatedLink href="/#projects">Projetos</AnimatedLink>
             <AnimatedLink href="/#about">Sobre mim</AnimatedLink>
             <AnimatedLink href="/#curriculum">Currículo</AnimatedLink>
+            <AnimatedLink href="/#letstalk">Contato</AnimatedLink>
           </div>
         )}
 

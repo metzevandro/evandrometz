@@ -1,4 +1,5 @@
 import { Icon } from "@/components/ui/icon/Icon";
+import { ContactForm } from "@/components/ui/contactForm/ContactForm";
 import "./LetsTalkSection.scss";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -37,8 +38,9 @@ export default function LetsTalkSection() {
       <div className="lets-talk-section__container">
         <h2>Vamos conversar?</h2>
         <p>
-          Se você quer saber mais sobre este projeto ou sobre meu processo, me
-          chame no LinkedIn.
+          Quer saber mais sobre meus projetos, meu processo ou conversar sobre
+          uma oportunidade? Envie uma mensagem pelo formulário ou me chame no
+          LinkedIn.
           <br />
           <br />
           Será um prazer trocar ideias e compartilhar mais sobre essa
@@ -46,15 +48,18 @@ export default function LetsTalkSection() {
         </p>
       </div>
 
+      <ContactForm accentColor={color} />
+
       <a
         href="https://www.linkedin.com/in/metzevandro/"
         target="_blank"
+        rel="noopener noreferrer"
         style={{
           backgroundColor: color,
           ["--hover-color" as string]: color,
         }}
       >
-        Enviar mensagem <Icon name="arrow_forward" />
+        Falar no LinkedIn <Icon name="arrow_forward" />
       </a>
     </section>
   );
