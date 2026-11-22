@@ -1,4 +1,3 @@
-import { Icon } from "@/components/ui/icon/Icon";
 import { CourseCard } from "@/components/ui/courseCard/CourseCard";
 import "./CurriculumSection.scss";
 
@@ -14,14 +13,6 @@ export function CurriculumSection() {
             práticas de engenharia.
           </p>
         </div>
-        <a
-          href="/curriculo-evandro-metz.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Icon name="file_save" />
-          Baixar Currículo
-        </a>
       </div>
       <div className="curriculum-section__right">
         <CourseCard

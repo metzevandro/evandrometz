@@ -1,5 +1,6 @@
 import Image from "next/image";
 import "./CardProject.scss";
+import type { MouseEvent } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { AnimatedLink } from "../animatedLink/AnimatedLink";
@@ -18,7 +19,8 @@ export function CardProject(props: CardProjectProps) {
 
   const router = useRouter();
 
-  const navigationTo = () => {
+  const navigationTo = (event: MouseEvent<HTMLDivElement>) => {
+    if ((event.target as HTMLElement).closest("a")) return;
     router.push(projectUrl);
   };
 
@@ -46,7 +48,9 @@ export function CardProject(props: CardProjectProps) {
 
       <div className="card-project__footer">
         <span>{description}</span>
-        <AnimatedLink inheritHover>Saiba mais</AnimatedLink>{" "}
+        <AnimatedLink inheritHover href={projectUrl}>
+          Saiba mais
+        </AnimatedLink>{" "}
       </div>
     </motion.div>
   );

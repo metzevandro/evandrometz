@@ -16,26 +16,6 @@
     padding-top: 40px;
   }
 
-  a {
-    padding: 8px 12px;
-    text-transform: uppercase;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    background-color: var(--p-color-primary);
-    color: var(--p-color-black);
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 150%;
-    width: fit-content;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-
-    &:hover {
-      background-color: rgb(#34a7d4, 0.6);
-    }
-  }
-
   &__left {
     display: flex;
     flex-direction: column;

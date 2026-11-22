@@ -1,58 +1,36 @@
 .lets-talk-section {
-  display: flex;
-  flex-direction: column;
-  padding: 80px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(32px, 5vw, 72px);
+  padding: clamp(32px, 5.5vw, 80px);
   color: white;
   scroll-margin-top: -40px;
-  align-items: center;
   z-index: 2;
-  color: white;
   width: 100%;
-  gap: 32px;
 
   &__container {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    text-align: center;
-    width: 100%;
+    text-align: left;
+    min-width: 0;
 
     p {
       opacity: 0.7;
     }
-
-    h2 {
-      white-space: nowrap;
-    }
   }
 
-  > a {
-    padding: 8px 12px;
-    text-transform: uppercase;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    background-color: var(--p-color-primary);
-    color: var(--p-color-black);
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 150%;
-    width: fit-content;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-
-    &:hover {
-      background-color: color-mix(
-        in srgb,
-        var(--hover-color) 70%,
-        transparent
-      ) !important;
-    }
+  .contact-form {
+    max-width: none;
+    min-width: 0;
   }
 }
 
 @media (max-width: 768px) {
   .lets-talk-section {
+    grid-template-columns: minmax(0, 1fr);
     padding: 20px;
+    gap: 32px;
   }
 }

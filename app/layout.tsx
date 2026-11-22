@@ -141,6 +141,11 @@ export default function RootLayout({
                 name: "CIGAM Software de Gestão",
                 url: "https://www.cigam.com.br/",
               },
+              alumniOf: {
+                "@type": "CollegeOrUniversity",
+                name: "Universidade Feevale",
+                url: "https://www.feevale.br/",
+              },
               address: {
                 "@type": "PostalAddress",
                 addressRegion: "Rio Grande do Sul",
