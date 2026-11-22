@@ -13,13 +13,16 @@ export interface ContactInput {
 }
 
 export type ValidationResult =
-  | { ok: true; data: ContactInput }
-  | { ok: false; error: string };
+  { ok: true; data: ContactInput } | { ok: false; error: string };
 
-const EMAIL_RE = /^[^\s@<>()[\]\\,;:"]+@[^\s@<>()[\]\\,;:"]+\.[^\s@<>()[\]\\,;:"]{2,}$/;
+const EMAIL_RE =
+  /^[^\s@<>()[\]\\,;:"]+@[^\s@<>()[\]\\,;:"]+\.[^\s@<>()[\]\\,;:"]{2,}$/;
 
 function stripControl(value: string): string {
-  return value.replace(/[\u0000-\u001f\u007f]/g, " ").replace(/\s+/g, " ").trim();
+  return value
+    .replace(/[\u0000-\u001f\u007f]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function cleanMessage(value: string): string {
@@ -47,7 +50,10 @@ export function validateContact(raw: unknown): ValidationResult {
   const cleanEmail = stripControl(email).toLowerCase();
   const cleanMsg = cleanMessage(message);
 
-  if (cleanName.length < LIMITS.name.min || cleanName.length > LIMITS.name.max) {
+  if (
+    cleanName.length < LIMITS.name.min ||
+    cleanName.length > LIMITS.name.max
+  ) {
     return { ok: false, error: "Informe um nome válido." };
   }
   if (cleanEmail.length > LIMITS.email.max || !EMAIL_RE.test(cleanEmail)) {

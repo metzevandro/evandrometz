@@ -3,7 +3,6 @@ import { ContactEmail } from "@/components/mail/ContactEmail";
 import { LIMITS, validateContact } from "@/lib/security/contact-schema";
 import { checkRateLimit } from "@/lib/security/rate-limit";
 import { getClientIp, isAllowedOrigin } from "@/lib/security/request";
-import { verifyTurnstile } from "@/lib/security/turnstile";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -57,12 +56,11 @@ export async function POST(req: Request) {
   }
 
   const startedAt = Number(payload.startedAt);
-  if (!Number.isFinite(startedAt) || Date.now() - startedAt < LIMITS.minFillMs) {
+  if (
+    !Number.isFinite(startedAt) ||
+    Date.now() - startedAt < LIMITS.minFillMs
+  ) {
     return json({ error: "Envio rápido demais. Tente novamente." }, 400);
-  }
-
-  if (!(await verifyTurnstile(payload.turnstileToken, ip))) {
-    return json({ error: "Falha na verificação anti-robô." }, 400);
   }
 
   const parsed = validateContact(payload);

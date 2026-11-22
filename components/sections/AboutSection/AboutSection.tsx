@@ -27,7 +27,10 @@ type Experience = {
   date: string;
   enterprise: string;
   role: string;
+  highlights?: string[];
 };
+
+const education: { institution: string; course: string; date: string }[] = [];
 
 export function AboutSection() {
   const experiences: Experience[] = [
@@ -56,6 +59,7 @@ export function AboutSection() {
       acc[exp.enterprise].push({
         role: exp.role,
         date: exp.date,
+        highlights: exp.highlights,
       });
       return acc;
     },
@@ -105,6 +109,21 @@ export function AboutSection() {
             )}
           </div>
         </div>
+
+        {education.length > 0 && (
+          <div className="about-section__experience">
+            <h3>Formação</h3>
+            <div className="about-section__list-experience">
+              {education.map((e) => (
+                <ExperienceCard
+                  key={`${e.institution}-${e.course}`}
+                  enterprise={e.institution}
+                  roles={[{ role: e.course, date: e.date }]}
+                />
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="about-section__skills">
           <h3>Especialidades</h3>

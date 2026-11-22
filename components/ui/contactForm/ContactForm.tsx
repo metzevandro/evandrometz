@@ -1,30 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { Icon } from "@/components/ui/icon/Icon";
 import "./ContactForm.scss";
 
 type Status = "idle" | "sending" | "success" | "error";
-
-const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
-
-declare global {
-  interface Window {
-    turnstile?: {
-      render: (
-        el: HTMLElement,
-        opts: {
-          sitekey: string;
-          theme?: "light" | "dark" | "auto";
-          callback: (token: string) => void;
-          "expired-callback": () => void;
-          "error-callback": () => void;
-        },
-      ) => string;
-      reset: (id?: string) => void;
-    };
-  }
-}
 
 interface ContactFormProps {
   accentColor?: string;
@@ -33,50 +13,13 @@ interface ContactFormProps {
 export function ContactForm({ accentColor }: ContactFormProps) {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
-  const [token, setToken] = useState("");
   const startedAt = useRef(Date.now());
-  const widgetRef = useRef<HTMLDivElement>(null);
-  const widgetId = useRef<string | undefined>(undefined);
-
-  useEffect(() => {
-    if (!SITE_KEY || !widgetRef.current) return;
-    const el = widgetRef.current;
-
-    const render = () => {
-      if (!window.turnstile || widgetId.current) return;
-      widgetId.current = window.turnstile.render(el, {
-        sitekey: SITE_KEY,
-        theme: "dark",
-        callback: setToken,
-        "expired-callback": () => setToken(""),
-        "error-callback": () => setToken(""),
-      });
-    };
-
-    if (window.turnstile) {
-      render();
-      return;
-    }
-    const script = document.createElement("script");
-    script.src =
-      "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
-    script.async = true;
-    script.onload = render;
-    document.head.appendChild(script);
-  }, []);
-
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (status === "sending") return;
 
     const form = e.currentTarget;
     const data = new FormData(form);
-
-    if (SITE_KEY && !token) {
-      setStatus("error");
-      setMessage("Confirme a verificação anti-robô antes de enviar.");
-      return;
-    }
 
     setStatus("sending");
     setMessage("");
@@ -89,9 +32,8 @@ export function ContactForm({ accentColor }: ContactFormProps) {
           name: data.get("name"),
           email: data.get("email"),
           message: data.get("message"),
-          website: data.get("website"), 
+          website: data.get("website"), // honeypot
           startedAt: startedAt.current,
-          turnstileToken: token,
         }),
       });
 
@@ -103,17 +45,14 @@ export function ContactForm({ accentColor }: ContactFormProps) {
         const body = await res.json().catch(() => ({}));
         setStatus("error");
         setMessage(
-          body.error ?? "Não foi possível enviar. Tente novamente em instantes.",
+          body.error ??
+            "Não foi possível enviar. Tente novamente em instantes.",
         );
       }
     } catch {
       setStatus("error");
       setMessage("Sem conexão. Verifique sua internet e tente novamente.");
     } finally {
-      if (SITE_KEY) {
-        window.turnstile?.reset(widgetId.current);
-        setToken("");
-      }
       startedAt.current = Date.now();
     }
   }
@@ -162,6 +101,7 @@ export function ContactForm({ accentColor }: ContactFormProps) {
         />
       </div>
 
+      {/* Honeypot: escondido de humanos e de leitores de tela. */}
       <div className="contact-form__trap" aria-hidden="true">
         <label htmlFor="contact-website">Não preencha este campo</label>
         <input
@@ -172,8 +112,6 @@ export function ContactForm({ accentColor }: ContactFormProps) {
           autoComplete="off"
         />
       </div>
-
-      {SITE_KEY && <div ref={widgetRef} className="contact-form__captcha" />}
 
       <button type="submit" disabled={status === "sending"}>
         {status === "sending" ? "Enviando..." : "Enviar mensagem"}

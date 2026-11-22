@@ -8,7 +8,11 @@ import { Redis } from "@upstash/redis";
  */
 
 const PER_IP = { limit: 5, windowMs: 10 * 60 * 1000, label: "10 m" } as const;
-const GLOBAL = { limit: 40, windowMs: 24 * 60 * 60 * 1000, label: "1 d" } as const;
+const GLOBAL = {
+  limit: 40,
+  windowMs: 24 * 60 * 60 * 1000,
+  label: "1 d",
+} as const;
 
 export interface LimitResult {
   allowed: boolean;
@@ -41,6 +45,7 @@ function getUpstash() {
   return upstash;
 }
 
+// ---- Fallback em memória (somente dev / best-effort) ----
 const memory = new Map<string, number[]>();
 
 function memoryHit(key: string, limit: number, windowMs: number): LimitResult {
@@ -58,6 +63,7 @@ function memoryHit(key: string, limit: number, windowMs: number): LimitResult {
   hits.push(now);
   memory.set(key, hits);
 
+  // Evita crescimento ilimitado do Map.
   if (memory.size > 5_000) {
     for (const [k, v] of memory) {
       if (v.every((t) => now - t >= windowMs)) memory.delete(k);
@@ -87,7 +93,10 @@ export async function checkRateLimit(ip: string): Promise<LimitResult> {
   if (!globalRes.success) {
     return {
       allowed: false,
-      retryAfterSec: Math.max(1, Math.ceil((globalRes.reset - Date.now()) / 1000)),
+      retryAfterSec: Math.max(
+        1,
+        Math.ceil((globalRes.reset - Date.now()) / 1000),
+      ),
     };
   }
 

@@ -15,8 +15,9 @@ export function CurriculumSection() {
           </p>
         </div>
         <a
-          href="https://drive.google.com/file/d/1xqEExYYXpLdIcn9S0i6PeglbPahSFz8i/view?usp=drive_link"
+          href="/curriculo-evandro-metz.pdf"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <Icon name="file_save" />
           Baixar Currículo

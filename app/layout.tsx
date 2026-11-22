@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ViewTransition } from "react";
 import "./globals.scss";
 import Layout from "./_layout";
 import { ScrollReveal } from "@/components/layout/scrollReveal/ScrollReveal";
@@ -168,7 +169,7 @@ export default function RootLayout({
 
       <body>
         <Layout />
-        {children}
+        <ViewTransition>{children}</ViewTransition>
         <ScrollReveal />
       </body>
     </html>

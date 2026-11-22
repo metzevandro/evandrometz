@@ -9,6 +9,7 @@ export interface CourseProps {
 export interface Role {
   role: string;
   date: string;
+  highlights?: string[];
 }
 
 export interface ExperienceCardProps {

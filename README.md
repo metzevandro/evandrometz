@@ -66,17 +66,16 @@ Biblioteca de componentes React open source com TypeScript e SCSS, documentada n
 
 A rota `app/api/contact/route.ts` aplica as camadas abaixo, nesta ordem, antes de gastar qualquer chamada ao Resend:
 
-| Camada | O que faz | Onde |
-| --- | --- | --- |
-| Verificação de origem | Só aceita requisições cujo `Origin` seja o próprio site | `lib/security/request.ts` |
-| Tipo e tamanho | Exige `application/json` e limita o corpo a 10 KB | `route.ts` |
-| Rate limit por IP | 5 requisições / 10 min (janela deslizante) | `lib/security/rate-limit.ts` |
-| Teto global diário | 40 envios / dia, caso o ataque venha de muitos IPs | `lib/security/rate-limit.ts` |
-| Honeypot | Campo invisível; se preenchido, responde "sucesso" sem enviar nada | `ContactForm.tsx` + `route.ts` |
-| Tempo mínimo | Rejeita envios feitos em menos de 2,5 s após abrir o formulário | `route.ts` |
-| CAPTCHA (opcional) | Cloudflare Turnstile validado no servidor | `lib/security/turnstile.ts` |
-| Validação e sanitização | Limites de tamanho, e-mail válido, remoção de caracteres de controle (evita *header injection*) | `lib/security/contact-schema.ts` |
-| Saída segura | Template de e-mail em React (escapa HTML); erros do provedor nunca vão para o cliente | `components/mail/ContactEmail.tsx` |
+| Camada                  | O que faz                                                                                       | Onde                               |
+| ----------------------- | ----------------------------------------------------------------------------------------------- | ---------------------------------- |
+| Verificação de origem   | Só aceita requisições cujo `Origin` seja o próprio site                                         | `lib/security/request.ts`          |
+| Tipo e tamanho          | Exige `application/json` e limita o corpo a 10 KB                                               | `route.ts`                         |
+| Rate limit por IP       | 5 requisições / 10 min (janela deslizante)                                                      | `lib/security/rate-limit.ts`       |
+| Teto global diário      | 40 envios / dia, caso o ataque venha de muitos IPs                                              | `lib/security/rate-limit.ts`       |
+| Honeypot                | Campo invisível; se preenchido, responde "sucesso" sem enviar nada                              | `ContactForm.tsx` + `route.ts`     |
+| Tempo mínimo            | Rejeita envios feitos em menos de 2,5 s após abrir o formulário                                 | `route.ts`                         |
+| Validação e sanitização | Limites de tamanho, e-mail válido, remoção de caracteres de controle (evita _header injection_) | `lib/security/contact-schema.ts`   |
+| Saída segura            | Template de e-mail em React (escapa HTML); erros do provedor nunca vão para o cliente           | `components/mail/ContactEmail.tsx` |
 
 Outros pontos: o e-mail chega para mim com `Reply-To` do visitante, então respondo direto. Não há resposta automática ao visitante, de propósito, para ninguém usar o formulário para disparar e-mails para terceiros. Há também headers de segurança (`next.config.js`) e `/api/` bloqueado no `robots.txt`.
 
@@ -84,12 +83,14 @@ Outros pontos: o e-mail chega para mim com `Reply-To` do visitante, então respo
 
 Copie `.env.example` para `.env.local` (local) e cadastre as mesmas variáveis na Vercel (**Settings → Environment Variables**).
 
-| Variável | Obrigatória | Descrição |
-| --- | --- | --- |
-| `RESEND_API_KEY` | Sim | Chave da API do Resend |
-| `CONTACT_FROM_EMAIL` | Recomendada | Remetente num domínio verificado no Resend. Sem ela, usa `onboarding@resend.dev`, que só entrega para o e-mail dono da conta |
-| `CONTACT_TO_EMAIL` | Não | Destino das mensagens (padrão: `evandro.metz@outlook.com`) |
+| Variável                                              | Obrigatória     | Descrição                                                                                                                       |
+| ----------------------------------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `RESEND_API_KEY`                                      | Sim             | Chave da API do Resend                                                                                                          |
+| `CONTACT_FROM_EMAIL`                                  | Recomendada     | Remetente num domínio verificado no Resend. Sem ela, usa `onboarding@resend.dev`, que só entrega para o e-mail dono da conta    |
+| `CONTACT_TO_EMAIL`                                    | Não             | Destino das mensagens (padrão: `evandro.metz@outlook.com`)                                                                      |
 | `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` | **Em produção** | Rate limit compartilhado entre as instâncias serverless. Sem elas, cai num limite em memória, que na Vercel **não é confiável** |
+| `ALLOWED_ORIGINS`                                     | Não             | Origens extras aceitas pela API (ex.: URL de preview da Vercel)                                                                 |
+
 ---
 
 ## Rodando localmente

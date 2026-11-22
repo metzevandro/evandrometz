@@ -16,6 +16,13 @@ export function ExperienceCard({ enterprise, roles }: ExperienceCardProps) {
               <h3>{r.role}</h3>
               <p>{r.date}</p>
             </div>
+            {r.highlights && r.highlights.length > 0 && (
+              <ul className="experience-card__highlights">
+                {r.highlights.map((h) => (
+                  <li key={h}>{h}</li>
+                ))}
+              </ul>
+            )}
           </div>
         ))}
       </div>

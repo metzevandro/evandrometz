@@ -57,7 +57,10 @@ export function IntroSection() {
         <div className="intro-section__content">
           <Header />
           <div className="container">
-            <div className="intro-section__image-wrapper">
+            <div
+              className="intro-section__image-wrapper hero-in"
+              style={{ ["--d" as string]: "0s" }}
+            >
               <MotionImage
                 width={400}
                 height={400}
@@ -78,7 +81,7 @@ export function IntroSection() {
             </div>
 
             <div className="intro-section__info">
-              <p>
+              <p className="hero-in" style={{ ["--d" as string]: "0.15s" }}>
                 Desenvolvedor de Software na{" "}
                 <AnimatedLink
                   href="https://www.cigam.com.br/"
@@ -89,9 +92,14 @@ export function IntroSection() {
                 </AnimatedLink>
               </p>
 
-              <h1>Evandro Metz</h1>
+              <h1 className="hero-in" style={{ ["--d" as string]: "0.25s" }}>
+                Evandro Metz
+              </h1>
 
-              <p className="intro-section__description">
+              <p
+                className="intro-section__description hero-in"
+                style={{ ["--d" as string]: "0.35s" }}
+              >
                 Desenvolvedor especializado em React e TypeScript, com
                 experiência em design systems e aplicações web de alta
                 performance.
@@ -99,7 +107,10 @@ export function IntroSection() {
             </div>
           </div>
 
-          <div className="intro-section__scroll">
+          <div
+            className="intro-section__scroll hero-in"
+            style={{ ["--d" as string]: "0.6s" }}
+          >
             <motion.a className="intro-section__arrow" href="#projects">
               <motion.div
                 style={{ display: "flex", alignItems: "center" }}

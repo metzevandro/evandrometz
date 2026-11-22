@@ -49,18 +49,6 @@ export default function LetsTalkSection() {
       </div>
 
       <ContactForm accentColor={color} />
-
-      <a
-        href="https://www.linkedin.com/in/metzevandro/"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          backgroundColor: color,
-          ["--hover-color" as string]: color,
-        }}
-      >
-        Falar no LinkedIn <Icon name="arrow_forward" />
-      </a>
     </section>
   );
 }

@@ -100,36 +100,90 @@
     cursor: pointer;
   }
 }
+.hero-in {
+  animation: hero-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-in {
+    animation: none;
+  }
+}
+
 @media (max-width: 768px) {
   .intro-section {
+    min-height: 100svh;
+    height: 100svh;
+
     &__content {
-      padding: 20px;
-      justify-content: space-around;
+      justify-content: space-between;
+      padding: calc(env(safe-area-inset-top) + 84px) 20px
+        calc(env(safe-area-inset-bottom) + 12px);
+    }
+
+    .container {
+      flex: 1;
+      justify-content: center;
+      gap: clamp(16px, 3.5svh, 28px);
+      width: 100%;
     }
 
     &__image-wrapper {
-      width: clamp(240px, 38vw, 260px);
+      width: clamp(150px, 30svh, 260px);
     }
 
     &__info {
+      gap: 10px;
+
       h1 {
-        font-size: 56px;
+        font-size: clamp(40px, 12.5vw, 56px);
+        line-height: 1.05;
+        letter-spacing: -1.5px;
       }
+    }
+
+    &__description {
+      max-width: 32ch;
+      font-size: 15px;
+    }
+
+    &__arrow {
+      min-height: 44px;
+      gap: 4px;
+      padding: 8px 0;
+    }
+
+    &__scroll-text {
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+@media (max-width: 768px) and (max-height: 600px) {
+  .intro-section {
+    &__image-wrapper {
+      width: clamp(120px, 21svh, 160px);
+    }
+
+    &__content {
+      padding-top: calc(env(safe-area-inset-top) + 72px);
     }
   }
 }
 
 @media (max-width: 400px) {
   .intro-section {
-    &__content {
-      padding: 20px;
-    }
-
     &__info {
       gap: 8px;
-      h1 {
-        font-size: 40px;
-      }
     }
   }
 }

@@ -45,7 +45,9 @@ export const metadata: Metadata = {
     title: "Design System Zeroz | Evandro Metz",
     description:
       "Biblioteca de componentes React open source com TypeScript, SCSS, Storybook e publicação no npm.",
-    images: ["https://www.evandrometz.com.br/design-system-zeroz/homepage.webp"],
+    images: [
+      "https://www.evandrometz.com.br/design-system-zeroz/homepage.webp",
+    ],
   },
 };
 
@@ -66,7 +68,8 @@ const jsonLd = {
   programmingLanguage: ["TypeScript", "JavaScript", "SCSS"],
   runtimePlatform: ["React", "Storybook", "npm"],
   license: "https://opensource.org/licenses/MIT",
-  screenshot: "https://www.evandrometz.com.br/design-system-zeroz/homepage.webp",
+  screenshot:
+    "https://www.evandrometz.com.br/design-system-zeroz/homepage.webp",
 };
 
 export default function DesignSystemZeroz() {
