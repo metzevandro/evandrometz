@@ -243,7 +243,7 @@ export function AboutSection() {
             <div className="about-section__actions">
               <a
                 className="about-section__resume"
-                href="/curriculo-evandro-metz.pdf"
+                href="/CV_Evandro_Metz.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
